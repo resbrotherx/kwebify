@@ -1,0 +1,98 @@
+{% extends 'users/base.html' %} {% load static %}
+                   
+                   {% block content %} 
+                    <div class="col-12  align-self-center py-4">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-11 col-lg-10 col-xl-8 col-xxl-6">
+                                <p class="mb-4">
+                                    <a href="signup.html"><i class="bi bi-arrow-left"></i> Back</a>
+                                </p>
+                                <p class="h4 fw-light mb-4">OTP Verification</p>
+                                <p class="text-secondary small mb-4">
+                                    Kindly check your registered email address, We have send OTP. As a part of security and brand trust, we always verify user while creating account to avoid misuse of email address
+                                </p>
+                                <form class="mb-4 ">
+                                    {% csrf_token %}
+                                    <!-- alert messages -->
+                                    <div class="alert alert-danger fade show d-none mb-2 global-alert" role="alert">
+                                        <div class="row">
+                                            <div class="col"><strong>Error!</strong> OTP doesn't matched.</div>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-success fade show d-none mb-2 global-success" role="alert">
+                                        <div class="row">
+                                            <div class="col-auto align-self-center">
+                                                <div class="spinner-border spinner-border-sm text-success me-2" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
+                                            <div class="col ps-0 align-self-center">
+                                                <strong>You done a good job!</strong><br>You have Signed up successfully.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Form elements -->
+                                    <!-- <div>
+                                        <div class="form-group mb-2 position-relative">
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-person"></i></span>
+                                                <div class="form-floating">
+                                                    <input type="text" placeholder="Enter Username" name="username" value="" required class="form-control border-start-0" id="username">
+                                                    <label for="Username">Please Enter Your Username</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="row mb-2">
+                                        <div class="col">
+                                            <div class="form-group position-relative">
+                                                <input type="text" placeholder="" value="" required class="form-control form-control-lg border-start-0 text-center numberonly" id="verify1" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group position-relative">
+                                                <input type="text" placeholder="" value="" required class="form-control form-control-lg border-start-0 text-center numberonly" id="verify2">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group position-relative">
+                                                <input type="text" placeholder="" value="" required class="form-control form-control-lg border-start-0 text-center numberonly" id="verify3">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group position-relative">
+                                                <input type="text" placeholder="" value="" required class="form-control form-control-lg border-start-0 text-center numberonly" id="verify4">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- submit button -->
+                                    <div class="row mt-4">
+                                        <div class="col-auto">
+                                            <button class="btn btn-lg btn-theme top-0 end-0 z-index-5" type="button" id="verifyBtn">Verify <i class="bi bi-arrow-right"></i></button>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <!-- Resend loader -->
+                                                    <div class="progressstimer">
+                                                        <img src="assets/img/laoderfixed.png" alt="" />
+                                                        <p class="timer text-secondary" id="timer">3:00</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col ps-0 align-self-center">
+                                                    <p class="mb-0"><a href="#">Resend</a></p>
+                                                    <p class="small text-secondary">Allowed once</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endblock content %}
+                   
