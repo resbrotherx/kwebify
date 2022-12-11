@@ -6,6 +6,7 @@ class Userinfo(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	country = models.CharField(max_length=500)
 	date = models.DateTimeField(auto_now=True)
+	bvn = models.CharField(max_length=10)
 	acc_verified = models.BooleanField(default=False)
 
 	def __str__(self):
@@ -17,17 +18,6 @@ class OTP(models.Model):
 
 	def __str__(self):
 		return self.otp
-
-class Userwallet(models.Model):
-	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	deposited = models.FloatField()
-	profit = models.FloatField()
-	bonus = models.FloatField()
-	ref_bonus = models.FloatField()
-	balance = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
-
-	def __str__(self):
-		return self.user.username
 
 
 class Profile(models.Model):

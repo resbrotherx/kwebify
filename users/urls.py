@@ -10,6 +10,5 @@ urlpatterns = [
     path("Welcome/",views.thanku, name="thanku"),
     path("status_verify/",views.status_verify, name="status_verify"),
     path("onbording",views.Onbording, name="onbording"),
-    
-    
+    path("auth",views.login, name="auth"),
 ]

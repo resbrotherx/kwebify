@@ -15,7 +15,7 @@
 
                                 <p class="h4 fw-light mb-4">Start best experience now</p>
 
-                                <form class="mb-4" method="post">
+                                <form class="mb-4" method="POST">
                                     {% csrf_token %}
                                     <!-- alert messages -->
                                     <div class="alert alert-danger fade show d-none mb-2 global-alert" role="alert">
@@ -36,25 +36,23 @@
                                         </div>
                                     </div>
                                     <!-- Form elements -->
-                                    <div class="form-group mb-2 position-relative check-valid">
+                                    <div class="form-group mb-2 position-relative">
                                         <div class="input-group input-group-lg">
                                             <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-person"></i></span>
                                             <div class="form-floating">
-                                                {{form.username}}
-                                                <!-- <input type="email" placeholder="Email Address" value="guest@maxartkiller.com" required class="form-control border-start-0" autofocus id="email"> -->
+                                                <input type="text" placeholder="Username" name="username" required class="form-control border-start-0" autofocus id="username">
                                                 <label>Username</label>
                                             </div>
                                             <!-- submit button -->
                                             <!-- <button class="btn btn-lg btn-theme z-index-5 btn-square-lg" type="button" id="submitbtn"><i class="bi bi-arrow-right"></i></button> -->
                                         </div>
                                     </div>
-                                    <div>
+                                    <br/>
                                         <div class="form-group mb-2 position-relative check-valid">
                                             <div class="input-group input-group-lg">
                                                 <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-key"></i></span>
                                                 <div class="form-floating">
-                                                    {{form.password}}
-                                                    <!-- <input type="password" placeholder="Enter Password" name="password1" required class="form-control border-start-0" id="password1"> -->
+                                                    <input type="password" placeholder="Enter Password" name="password1" required class="form-control border-start-0" id="password1">
                                                     <label for="password1">Password</label>
                                                     <input type="hidden" id="depositedr" name="depositedr" value="0.00">
                                                     <input type="hidden" id="profitr" name="profitr" value="0.00">
@@ -86,10 +84,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <div class="invalid-feedback">Add .com at last to insert valid data </div>
-                                    <button type="submit">check</button>
-                                    <button class="btn btn-lg btn-theme top-0 end-0 z-index-5 mt-4" type="submit" >Next <i class="bi bi-arrow-right"></i></button>
+                                    
+                                    <button class="btn btn-lg btn-theme top-0 end-0 z-index-5 mt-4"  type="button" id="submitbtn">Next <i class="bi bi-arrow-right"></i></button>
                                 </form>
 
                                 <!-- or continue with options -->

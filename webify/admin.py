@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+admin.site.site_header = "Resbrotherx"
+admin.site.site_title = "Kwebify"
+admin.site.index_title = "Kwebify"
+admin.site.register(PayHistory)
+admin.site.register(Userwallet)
+admin.site.register(Useraccount)
+admin.site.register(Usercryptowallet)

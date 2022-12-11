@@ -6,11 +6,12 @@ from django.conf import settings
 from users import views as view
 from users.forms import UserLoginForm
 # from crpyto.views import index
-
+# , authentication_form=UserLoginForm)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
-     path('login/', auth_views.LoginView.as_view(template_name='users/login.html', authentication_form=UserLoginForm), name='login'),
+    path('kwebify/', include('webify.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 ]
 

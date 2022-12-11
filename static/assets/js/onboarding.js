@@ -32,7 +32,7 @@ $(window).on('load', function () {
             $('.btn-next').prop('disabled', false).removeClass('swiper-button-disabled').on('click', function () {
                 $(this).prop('disabled', false).html('<div class="spinner-border text-white spinner-border-sm" role="status"><span class= "visually-hidden"> Loading...</span></div>');
                 setTimeout(function () {
-                    window.location.replace("onboarding-summary.html");
+                    window.location.replace("/login");
                 }, 1500)
             });
         });

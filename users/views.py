@@ -1,14 +1,15 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,auth
 from django.http import JsonResponse,HttpResponse
 from django.contrib import messages
 from users.models import *
+from webify.models import *
 from django.core.mail import send_mail
 import math, random
 from django.template.loader import render_to_string
 from django.conf import settings
 from django.core.mail import EmailMessage
-from users.forms import ProfileUpdateForm
+from users.forms import ProfileUpdateForm,UserLoginForm
 
 def generateOTP() :
 	 digits = "0123456789"
@@ -50,12 +51,19 @@ def create(request):
 		if User.objects.filter(email=email).exists():
 			respons = 'Error! User Account Already Exist !!'
 		else:
-			instance = User.objects.create(username = username, email=email, password=password,first_name='first_name', last_name='last_name')
+			instance = User.objects.create_user(username = username, email=email, password=password,first_name='first_name', last_name='last_name')
 			instance.save()
-			instances = Userinfo.objects.create(user = instance, country=countrys)
+			bvns = random.randint(1000000000, 9000000000)
+			instances = Userinfo.objects.create(user = instance, bvn=f'22{bvns}', country=countrys)
 			instances.save()
-			inst = Userwallet.objects.create(user = instance, deposited=depositeds, profit=profits, bonus=bonuss, ref_bonus=ref_bonuss, balance=balances)
+			cryptoaddress = random.randint(100000000000000000000000000000, 900000000000000000000000000000)
+			inst = Usercryptowallet.objects.create(user = instance, deposited=depositeds, crpyto_wallet_address=f'kW{cryptoaddress}ebify', bonus=bonuss, ref_bonus=ref_bonuss, balance=balances)
 			inst.save()
+			bankaddress = random.randint(100000000000000, 900000000000000)
+			bankaccout = Useraccount.objects.create(user = instance,account_number=bankaddress,deposited=float("0.00"))
+			bankaccout.save()
+			walletaddress = Userwallet.objects.create(user = instance,deposited='0.00')
+			walletaddress.save()
 			OTPs = random.randint(1000, 9000)
 			OTP.objects.create(otp=OTPs,user=instance)
 			mydict = {
@@ -133,3 +141,17 @@ def Onbording(request):
 		"username":request.session['username']
 	}
 	return render(request,"users/onboarding.html",context)
+
+
+def login(request):
+	if request.method == "POST":
+		username = request.POST['username']
+		password = request.POST['password1']
+		user = auth.authenticate(username=username,password=password)
+		if user is not None:
+			auth.login(request,user)
+			respons = "Success ! Credentials Valid click ok To continue"
+		else:
+			respons = "Error ! Invalid Credentials"
+
+		return HttpResponse(respons)

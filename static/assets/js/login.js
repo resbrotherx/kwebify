@@ -102,10 +102,28 @@ $(window).on('load', function () {
                 $('.global-alert').addClass('d-none');
             }, 3000)
         } else {
-            $(this).closest('form').find('.global-success').removeClass('d-none');
-            $(this).closest('form').find('.global-alert').addClass('d-none');
             setTimeout(function () {
-                window.location.replace("password.html");
+                $.ajax({
+                    type:'POST',
+                    url:'/auth',
+                    data:{
+                        username: $('#username').val(),
+                        password1: $('#password1').val(),
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    },
+                    success: function (respons){
+                        if (respons == "Success ! Credentials Valid click ok To continue"){
+                            alert(respons)
+                            $('form').find('.global-success').removeClass('d-none');
+                            $('form').find('.global-alert').addClass('d-none');
+                            window.location.replace("/");
+                        } else {
+                            alert(respons);
+                            $('form').find('.check-valid').not('.is-valid').length > 0
+                            $('form').find('.global-alert').removeClass('d-none');
+                        };
+                    },
+                })
             }, 2000)
         }
     })
@@ -147,7 +165,6 @@ $(window).on('load', function () {
                 $('.global-alert').addClass('d-none');
             }, 3000)
         } else {
-
             $(this).closest('form').find('.global-success').removeClass('d-none');
             $(this).closest('form').find('.global-alert').addClass('d-none');
             setTimeout(function () {
@@ -170,11 +187,13 @@ $(window).on('load', function () {
                     success: function (respons){
                         if (respons == "Success! Your Account was created succefully"){
                             alert(respons)
-                            $(this).closest('form').find('.global-success').removeClass('d-none');
-                            $(this).closest('form').find('.global-alert').addClass('d-none');
+                            $('form').find('.global-success').removeClass('d-none');
+                            $('form').find('.global-alert').addClass('d-none');
                             window.location.replace("/Verify-otp");
                         } else {
                             alert(respons);
+                            $('form').find('.check-valid').not('.is-valid').length > 0
+                            $('form').find('.global-alert').removeClass('d-none');
                         };
                     },
                 })
@@ -341,14 +360,14 @@ $(window).on('load', function () {
             success: function (response){
                 if (response == "Success! OTP matched Account succefully verified"){
                     alert(response);
-                    $(this).closest('form').find('.global-success').removeClass('d-none');
-                    $(this).closest('form').find('.global-alert').addClass('d-none');
+                    $('form').find('.global-success').removeClass('d-none');
+                    $('form').find('.global-alert').addClass('d-none');
                     setTimeout(function () {
                         window.location.replace("/Welcome");
                     }, 2000)
                 } else{
                     alert(response);
-                    $(this).closest('form').find('.global-alert').removeClass('d-none');
+                    $('form').find('.global-alert').removeClass('d-none');
                     setTimeout(function () {
                         $('.global-alert').addClass('d-none');
                     }, 3000)
