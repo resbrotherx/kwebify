@@ -1,6 +1,58 @@
 'use strict'
 $(window).on('load', function () {
 
+    $('#bankbutton').on('click', function () {
+        setTimeout(function () {
+            // e.preventDefault();
+            $.ajax({
+                type:"POST",
+                url:"/kwebify/pay",
+                data: {
+                    price: $('#price').val(),
+                    email: $('#email').val(),
+                    paidfor: $('#paidfor').val(),
+                    acc: $('#acc').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (respons){
+                    if (respons == "Success! Your Account was created succefully"){
+                        alert(respons)
+                        $('form').find('.global-success').removeClass('d-none');
+                        $('form').find('.global-alert').addClass('d-none');
+                        window.location.replace("/Verify-otp");
+                    } else {
+                        alert(respons);
+                        $('form').find('.check-valid').not('.is-valid').length > 0
+                        $('form').find('.global-alert').removeClass('d-none');
+                    };
+                },
+            })
+        }, 2000)
+    })
+
+    $('#money').on('click', function () {
+        setTimeout(function () {
+            // e.preventDefault();
+            $.ajax({
+                type:"POST",
+                url:"/kwebify/transfermoney",
+                data: {
+                    amount: $('#amount').val(),
+                    user: $('#user').val(),
+                    accounts: $('#accounts').val(),
+                    type: $('#type').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (respons){
+                    if (respons == "Success! Your Account was created succefully"){
+                        alert(respons)
+                    } else {
+                        alert(respons);
+                    };
+                },
+            })
+        }, 2000)
+    })
     /* Swiper slider */
     var swiper = new Swiper(".pricecurrentswiper", {
         slidesPerView: 'auto',

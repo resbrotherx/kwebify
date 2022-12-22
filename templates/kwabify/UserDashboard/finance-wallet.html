@@ -1,13 +1,14 @@
 {% extends 'kwabify/UserDashboard/base.html' %}
  {% load static %}            
      {% block content %} 
+
     <!-- Begin page content -->
     <main class="main mainheight">
         <!-- title bar -->
         <div class="container-fluid">
             <div class="row align-items-center page-title">
                 <div class="col-12 col-md mb-2 mb-sm-0">
-                    <h5 class="mb-0">Banking Dashboard</h5>
+                    <h5 class="mb-0">Wallet Dashboard</h5>
                     <p class="text-secondary">Take care of Transactions and Investments</p>
                 </div>
                 <div class="col col-sm-auto">
@@ -32,7 +33,7 @@
                                         <option value="Chicago">Chicago</option>
                                         <option value="India" selected>India</option>
                                         <option value="Sydney">Sydney</option>
-                                        <option value="Seattle">Seattle</option>
+                                        <option value="chairtle">chairtle</option>
                                         <option value="Los Angeles">Los Angeles</option>
                                         <option value="Indonesia">Indonesia</option>
                                         <option value="Los Angeles">Los Angeles</option>
@@ -100,97 +101,122 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="home.html">WinDOORS</a></li>
                         <li class="breadcrumb-item"><a href="finance-dashboard.html">Finance</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Banking Dashboard</li>
+                        <li class="breadcrumb-item active" aria-current="page">Wallet Dashboard</li>
                     </ol>
                 </nav>
             </div>
         </div>
 
         <!-- balance bar -->
-        <div class="container-fluid mb-4">
-            <div class="row">
+        <div class="container-fluid mb-4 position-relative bg-gradient-theme-light">
+            <div class="row ">
                 <div class="col-12 col-xxl-11 mx-auto">
                     <div class="row align-items-center">
-
-                        <!-- welcome message -->
-                        <div class="col-12 col-md py-3 py-lg-5">
-                            <h4 class="fw-light mb-0 text-secondary">Total Balance,</h4>
-                            <h1 class="fw-medium">
-                                {% for Headeraccount in Headeraccount%}
-                                {{Headeraccount.balance}}
-                                {% endfor %}
-                                
-                                <small>USD</small></h1>
-                            <h5>46124.28 <small class="text-success">18.0% <i class="bi bi-arrow-up"></i></small></h5>
+                        <div class="col-12 col-md-auto py-3 py-lg-4 text-center text-md-start">
+                            <figure class="avatar avatar-100 rounded-circle coverimg">
+                                <img src="assets/img/user-1.jpg" alt="" />
+                            </figure>
                         </div>
-                            <form method="post">
-                                {% csrf_token %}
-                                <input type="text" name="price" id="price" placeholder="price">
-                                <input type="text" name="paidfor" id="paidfor" placeholder="paid for ">
-                                <input type="email" name="acc" id="acc" placeholder="account ">
-                                <input type="email" name="email" id="email" placeholder="paying to ">
-                                <button type="button" id="bankbutton">submit</button>
-                            </form>
-                        <!--current holding -->
-                        <div class="col-auto ml-auto align-self-center">
-                            <div class="swiper-container pricecurrentswiper py-4">
-                                <div class="swiper-wrapper">
-                                    {% for i in useraccounts%}
-                                    <div class="swiper-slide p-1 w-250">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-60 rounded bg-light-blue">
-                                                    <i class="bi bi-arrow-down-left"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <p class="text-secondary small mb-0">{{i.acc_type}}</p>
-                                                <h4 class="text-dark mb-0"><span class="increamentcount">{{i.balance}}</span> <small class="h6">USD</small></h4>
-                                                <p class="small">350.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>1.85%</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                    <!-- <div class="swiper-slide p-1 w-250">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <div class="avatar avatar-60 rounded bg-light-red">
-                                                    <i class="bi bi-arrow-up-right"></i>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <p class="text-secondary small mb-0">Expense</p>
-                                                <h4 class="text-dark mb-0"><span class="increamentcount">35135</span> <small class="h6">USD</small></h4>
-                                                <p class="small">15.00 <span class="text-red"><i class="bi bi-arrow-up fs-10"></i>-4.50%</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide p-1 w-250">
+                        <!-- welcome message -->
+                        <div class="col-12 col-md py-4 text-center text-md-start d-none d-md-block">
+                            <h2 class="fw-medium username mb-0">{{user.username}}</h2>
+                            <p class="text-secondary">New York, United States</p>
+                        </div>
+
+                        <!-- Balance -->
+                        <div class="col-12 col-md-auto pb-3 py-lg-4 ms-auto text-center text-md-end">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 class="fw-medium mb-0">
+                                    {%for c in wallet%}
+                                        {{c.balance}}
+                                    {%endfor %}
+                                     <small>USD</small></h2>
+                                    <p class="text-secondary">Wallet Balance</p>
+                                </div>
+                                <div class="col-auto d-none d-md-block">
+                                    <button class="btn btn-lg btn-square-lg btn-theme" type="button"><i class="bi bi-plus h4"></i></button>
+                                </div>
+                                <div class="col-12 my-3 d-block d-md-none">
+                                    <button class="btn btn-theme" type="button"><i class="bi bi-plus h4"></i> Add Money</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 px-0">
+                    <div class="bigchart200 cut-5">
+                        <canvas id="areachartblue1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mtop-75">
+            <div class="row mb-4">
+                <!--current holding -->
+                <div class="col-auto mx-auto align-self-center">
+                    <div class="swiper-container pricecurrentswiper pb-5 pb-lg-0">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide p-1 w-250">
+                                <div class="card border-0 opac-100">
+                                    <div class="card-body">
                                         <div class="row align-items-center">
                                             <div class="col-auto">
                                                 <div class="avatar avatar-60 rounded bg-light-green">
                                                     <i class="bi bi-arrow-down-left"></i>
                                                 </div>
                                             </div>
-                                            <div class="col ps-0">
-                                                <p class="text-secondary small mb-0">Income</p>
-                                                <h4 class="text-dark mb-0"><span class="increamentcount">52000</span> <small class="h6">USD</small></h4>
+                                            <div class="col">
+                                                <p class="text-secondary small mb-1">Wallet Received</p>
+                                                <h4 class="text-dark mb-0"><span class="increamentcount">{{user_recived|floatformat:2}}</span> <small class="h6">USD</small></h4>
                                                 <p class="small">36.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
                                             </div>
                                         </div>
-                                    </div> -->
-                                    
+                                    </div>
                                 </div>
-                                <div class="swiper-pagination"></div>
+                            </div>
+                            <div class="swiper-slide p-1 w-250">
+                                <div class="card border-0 opac-100">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div class="avatar avatar-60 rounded bg-light-red">
+                                                    <i class="bi bi-arrow-up-right"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p class="text-secondary small mb-1">Wallet Spent</p>
+                                                <h4 class="text-dark mb-0"><span class="increamentcount">{{user_transfer|floatformat:2}}</span> <small class="h6">USD</small></h4>
+                                                <p class="small">15.00 <span class="text-red"><i class="bi bi-arrow-up fs-10"></i>-4.50%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide p-1 w-250">
+                                <div class="card border-0 opac-100">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div class="avatar avatar-60 rounded bg-light-blue">
+                                                    <i class="bi bi-arrow-down-up"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p class="text-secondary small mb-1">Wallet Transfer</p>
+                                                <h4 class="text-dark mb-0"><span class="increamentcount">{{user_transfer|floatformat:2}}</span> <small class="h6">USD</small></h4>
+                                                <p class="small">350.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>1.85%</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 px-0">
-                    <div class="bigchart250 cut-5 mb-4">
-                        <canvas id="areachartblue1"></canvas>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
@@ -198,20 +224,21 @@
 
         <!-- content -->
         <div class="container">
-            <div class="row">
-                <!--balance division category summary-->
+            <!-- actions bar-->
+            <div class=" row">
+                <!-- send money  -->
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 mb-4">
-                        <div class="card-header">
+                    <div class="card border-0 mb-4 theme-blue bg-gradient-theme-light">
+                        <div class="card-header ">
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <div class="avatar avatar-40 rounded bg-light-blue">
-                                        <i class="bi bi-cash h5"></i>
+                                    <div class="avatar avatar-40 rounded bg-light-theme">
+                                        <i class="bi bi-send h5"></i>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <h6 class="fw-medium mb-0">Liquid Money</h6>
-                                    <p class="small text-secondary">Cash on hand</p>
+                                    <h6 class="fw-medium mb-0">Bank Transfer</h6>
+                                    <p class="small text-secondary">Your Bank Only</p>
                                 </div>
                                 <div class="col-auto">
                                     <div class="dropdown d-inline-block">
@@ -254,32 +281,62 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="mb-0">1350 <small class="h6">USD</small></h4>
-                                    <p class="small">36.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#sentmoney">
+                                        <div class="card-body">
+                                            <i class="bi bi-phone h5 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Phone</p>
+                                        </div>
+                                    </a>
                                 </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#sentmoney">
+                                        <div class="card-body">
+                                            <i class="bi bi-bank h5 avatar avatar-40 rounded text-theme mb-2"></i>
+
+                                            <p class="text-secondary small">Account</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#sentmoney">
+                                        <div class="card-body">
+                                            <i class="bi bi-at h4 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">UPI</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="circle-small">
                                         <div id="circleprogressblue1"></div>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <h5 class="mb-0">{{total_balance|floatformat:2 }} <small class="h6">USD</small></h5>
+                                    <p class="small text-secondary">36.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span> spent</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Pay bills -->
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 mb-4">
+                    <div class="card border-0 mb-4 theme-green bg-gradient-theme-light">
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <div class="avatar avatar-40 rounded bg-light-purple">
-                                        <i class="bi bi-bank h5"></i>
+                                    <div class="avatar avatar-40 rounded bg-light-theme">
+                                        <i class="bi bi-receipt-cutoff h5"></i>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <h6 class="fw-medium mb-0">Bank Balance</h6>
-                                    <p class="small text-secondary">All accounts</p>
+                                    <h6 class="fw-medium mb-0">Wallet Transfer</h6>
+                                    <p class="small text-secondary">House Holds</p>
                                 </div>
                                 <div class="col-auto">
                                     <div class="dropdown d-inline-block">
@@ -322,35 +379,61 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="mb-0">
-                                            {{Header|floatformat:2}}
-                                        
-                                        <small class="h6">USD</small></h4>
-                                    <p class="small">126.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#billpay">
+                                        <div class="card-body">
+                                            <i class="bi bi-lamp h4 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Electricity</p>
+                                        </div>
+                                    </a>
                                 </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#billpay">
+                                        <div class="card-body">
+                                            <i class="bi bi-router h4 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Internet</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#billpay">
+                                        <div class="card-body">
+                                            <i class="bi bi-droplet-half h4 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Water</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="circle-small">
                                         <div id="circleprogressgreen1"></div>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <h5 class="mb-0">{% for i in wallet %} {{i.balance|floatformat:2}} {%endfor%}<small class="h6">USD</small></h5>
+                                    <p class="small">126.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.15%</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- Book ticket -->
                 <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 mb-4">
+                    <div class="card border-0 mb-4 theme-red bg-gradient-theme-light">
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <div class="avatar avatar-40 rounded bg-light-yellow">
-                                        <i class="bi bi-wallet2 h5"></i>
+                                    <div class="avatar avatar-40 rounded bg-light-red">
+                                        <i class="bi bi-ticket-perforated h5"></i>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <h6 class="fw-medium mb-0">Wallet Balance</h6>
-                                    <p class="small text-secondary">All Wallets</p>
+                                    <h6 class="fw-medium mb-0">Book Ticket</h6>
+                                    <p class="small text-secondary">Movie, Flight, Train etc.</p>
                                 </div>
                                 <div class="col-auto">
                                     <div class="dropdown d-inline-block">
@@ -393,90 +476,141 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="mb-0">
-                                        {% for i in wallet %}
-                                        {{i.balance}}
-                                    {% endfor %} <small class="h6">USD</small></h4>
-                                    <p class="small">141.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>4.13%</span></p>
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#ticketbookmovie">
+                                        <div class="card-body">
+                                            <i class="bi bi-film h5 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Movie</p>
+                                        </div>
+                                    </a>
                                 </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#ticketbookflight">
+                                        <div class="card-body">
+                                            <i class="bi bi-send h5 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Flight</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0" data-bs-toggle="modal" data-bs-target="#ticketbookbus">
+                                        <div class="card-body">
+                                            <i class="bi bi-truck h4 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Bus</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="circle-small">
+                                        <div id="circleprogressred1"></div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h5 class="mb-0">{% for i in kwebto %} {{i.balance|floatformat:2}} {%endfor%}<small class="h6">KBT</small></h5>
+                                    <p class="small">101.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.05%</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pay Premiums -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card border-0 mb-4 theme-yellow bg-gradient-theme-light">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-40 rounded bg-light-yellow">
+                                        <i class="bi bi-house-door h5"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h6 class="fw-medium mb-0">Pay Premiums</h6>
+                                    <p class="small text-secondary">Health & Life</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown d-inline-block">
+                                        <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                            <i class="bi bi-columns"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <div class="dropdown-item text-center">
+                                                <div class="row gx-3 mb-3">
+                                                    <div class="col-6">
+                                                        <div class="row select-column-size gx-1">
+                                                            <div class="col-8" data-title="8"><span></span></div>
+                                                            <div class="col-4" data-title="4"><span></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="row select-column-size gx-1">
+                                                            <div class="col-9" data-title="9"><span></span></div>
+                                                            <div class="col-3" data-title="3"><span></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row gx-3">
+                                                    <div class="col-6">
+                                                        <div class="row select-column-size gx-1">
+                                                            <div class="col-6" data-title="6"><span></span></div>
+                                                            <div class="col-6" data-title="6"><span></span></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="row select-column-size gx-1">
+                                                            <div class="col-12" data-title="12"><span></span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0">
+                                        <div class="card-body">
+                                            <i class="bi bi-bandaid h5 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Health</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0">
+                                        <div class="card-body">
+                                            <i class="bi bi-house-door h5 avatar avatar-40 rounded text-theme mb-2"></i>
+
+                                            <p class="text-secondary small">Loan</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col text-center">
+                                    <a href="#" class="card border-0">
+                                        <div class="card-body">
+                                            <i class="bi bi-life-preserver h4 avatar avatar-40 rounded text-theme mb-2"></i>
+                                            <p class="text-secondary small">Insurance</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="circle-small">
                                         <div id="circleprogressyellow1"></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 mb-4">
-                        <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="avatar avatar-40 rounded bg-light-red">
-                                        <b style="color: brown;">k</b>
-                                        <!-- <i class="bi bi-currency-bitcoin h5"></i> -->
-                                    </div>
-                                </div>
                                 <div class="col">
-                                    <h6 class="fw-medium mb-0">Kwebto Assets</h6>
-                                    <p class="small text-secondary">All Kwebto</p>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="dropdown d-inline-block">
-                                        <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                                            <i class="bi bi-columns"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <div class="dropdown-item text-center">
-                                                <div class="row gx-3 mb-3">
-                                                    <div class="col-6">
-                                                        <div class="row select-column-size gx-1">
-                                                            <div class="col-8" data-title="8"><span></span></div>
-                                                            <div class="col-4" data-title="4"><span></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="row select-column-size gx-1">
-                                                            <div class="col-9" data-title="9"><span></span></div>
-                                                            <div class="col-3" data-title="3"><span></span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row gx-3">
-                                                    <div class="col-6">
-                                                        <div class="row select-column-size gx-1">
-                                                            <div class="col-6" data-title="6"><span></span></div>
-                                                            <div class="col-6" data-title="6"><span></span></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div class="row select-column-size gx-1">
-                                                            <div class="col-12" data-title="12"><span></span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h4 class="mb-0">
-                                    {% for i in coin %}
-                                        {{i.balance}}
-                                    {% endfor %} <small class="h6">KBT</small></h4>
-                                    <p class="small">101.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.05%</span></p>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="circle-small">
-                                        <div id="circleprogressred1"></div>
-                                    </div>
+                                    <h5 class="mb-0">5698 <small class="h6">USD</small></h5>
+                                    <p class="small">141.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>4.13%</span></p>
                                 </div>
                             </div>
                         </div>
@@ -484,18 +618,123 @@
                 </div>
             </div>
 
+            <!-- offers and schemes-->
             <div class="row">
-                <!-- Sent money -->
-                <div class="col-12 col-md-12 col-lg-6 col-xxl-3 mb-4 column-set">
-                    <div class="card border-0 h-100">
-                        <div class="card-header">
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <div class="card border-0 bg-radial-gradiant text-white">
+                        <div class="card-body bg-none">
+                            <div class="row">
+                                <div class="col-10 py-2">
+                                    <h3 class="mb-1">Easy to Manage</h3>
+                                    <h5 class="fw-medium">Track your daily transactions</h5>
+                                    <p class="text-muted mb-4">Now make your daily transactions with double security and better tracking.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-none">
+                            <a href="#" class="btn btn-link text-white">Learn more <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card border-0 h-100 overflow-hidden">
+                        <div class=" card-body position-relative">
+                            <div class="coverimg w-75 h-100 end-0 top-0 position-absolute cover-right-center-img">
+                                <img src="assets/img/offer-1.png" class="w-100" alt="">
+                            </div>
+                            <div class="row align-items-center h-100">
+                                <div class="col-6 py-2">
+                                    <h3 class="text-theme mb-1">Refer & Earn 20%</h3>
+                                    <h5 class="fw-medium">Make your wallet even bigger</h5>
+                                    <p class="text-secondary">Share your referral code to your friends and earn flat 20% amount.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <a href="#" class="btn btn-link ">Learn more <i class="bi bi-arrow-right"></i></a>
+                                </div>
+                                <div class="col-auto avatar-group">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </figure>
+                                    <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
+                                        <img src="assets/img/user-3.jpg" alt="">
+                                    </figure>
+                                    <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="col-auto">
+                                    <p class="mb-0">20+ Contacts</p>
+                                    <p class="text-secondary small">Already Refereed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- offers -->
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <div class="card border-0 overflow-hidden h-100">
+                        <div class="card-body p-0">
+                            <div class="row mx-0">
+                                <div class="col-6 pe-0 theme-green bg-theme text-white half-circle-vertical text-center py-4 z-index-1">
+                                    <div class="position-relative">
+                                        <h3 class="mb-0">6.15%</h3>
+                                        <p>Interest Rate</p>
+                                        <p class="text-muted small">Business Loan are at cheaper rate</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 position-relative">
+                                    <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0">
+                                        <img src="assets/img/news-5.jpg" class="w-100" alt="">
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h5 class="mb-0">12541M <small class="h6">USD</small></h5>
+                                    <p class="text-secondary small">Released & Counting</p>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-theme btn-sm">Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="smallchart65 cut-5 mb-1">
+                                <canvas id="areachartgreen1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row mb-4 py-2">
+                <div class="col text-center">
+                    <h4>A key of <span class="text-gradient">Consistency</span> is to be succeed</h4>
+                    <p class="text-secondary">Choose best from different widgets & different colors</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--assets value -->
+                <div class="col-12 col-md-6 col-lg-6 col-xxl-3 column-set">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
+                                    <figure class="avatar avatar-40 rounded-circle coverimg">
+                                        <img src="assets/img/company9.jpg" alt="" />
+                                    </figure>
                                 </div>
-                                <div class="col">
-                                    <h6 class="fw-medium mb-0">Sent Money</h6>
-                                    <p class="small text-secondary">Transfer to Contacts </p>
+                                <div class="col ps-0">
+                                    <h5 class="mb-0">25.45 <small class="h6">XMR</small></h5>
+                                    <p class="small">141.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>4.13%</span></p>
                                 </div>
                                 <div class="col-auto">
                                     <div class="dropdown d-inline-block">
@@ -537,73 +776,45 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-body p-0">
+                            <div class="smallchart65 cut-5 mb-2">
+                                <canvas id="areachartyellow1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-4">
                         <div class="card-body">
-                            <form method="post">
-                                {% csrf_token %}
-                            <input class="form-control amount-input text-center mb-3" name="amount" id="amount" type="number" placeholder="0.00">
-                            <div class="row align-items-center mb-2">
-                                <div class="col-12 mb-2">
-                                    <div class="input-group input-group-md border rounded">
-                                        <span class="input-group-text text-theme px-2"><i class="bi bi-cash"></i></span>
-                                        <select name="type" id="type" class="form-control simplechosen">
-                                            <option value="wallet">Wallet</option>
-                                            <option value="bank" selected>Bank</option>
-                                            <option disabled>Kwebto</option>
-                                        </select>
-                                    </div>
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg">
+                                        <img src="assets/img/company8.jpg" alt="" />
+                                    </figure>
                                 </div>
-                                <div class="col-12">
-                                    <div class="input-group input-group-md border rounded">
-                                        <span class="input-group-text text-theme px-2"><i class="bi bi-bank"></i></span>
-                                        <select id="user" name="user" class="form-control simplechosen">
-                                            {% for u in users %}
-                                            <option value="{{u.username}}">{{u.username}}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
+                                <div class="col ps-0">
+                                    <h5 class="mb-0">113258k <small class="h6">SHIB</small></h5>
+                                    <p class="small">11.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.05%</span></p>
                                 </div>
                             </div>
-                            {% for i in Headeraccount %}
-                            <p class="text-secondary small">Balance: {{i.balance}} USD</p>
-                            {% endfor %}
-                            <div class="input-group input-group-md border rounded mb-3">
-                                <span class="input-group-text text-theme"><i class="bi bi-person-lines-fill"></i></span>
-                                <input class="form-control" id="accounts" name="accounts" type="search" placeholder="Send to.. if Bank enter(account no) / wallet enter(wallet id)">
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="smallchart65 cut-5 mb-2">
+                                <canvas id="areachartred1"></canvas>
                             </div>
-                            <h6 class="fw-medium mb-2">Sent Money to</h6>
-                            <div class="row gx-2">
-                                <div class="col-auto">
-                                    <button type="button" id="money" class="btn btn-square btn-outline-theme" data-bs-toggle="tooltip" data-bs-placement="top" title="Bank Account">
-                                        <i class="bi bi-bank h5"></i>
-                                    </button>
-                                </div>
-                                <div class="col-auto">
-                                    <button type="button" id="money" class="btn btn-square btn-outline-theme" data-bs-toggle="tooltip" data-bs-placement="top" title="Wallet">
-                                        <i class="bi bi-wallet2 h5"></i>
-                                    </button>
-                                </div>
-                                <div class="col-auto">
-                                    <button disabled type="button" class="btn btn-square btn-outline-theme" data-bs-toggle="tooltip" data-bs-placement="top" title="Crypto Address">
-                                        <i class="bi bi-currency-bitcoin h5"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
                         </div>
                     </div>
                 </div>
 
-                <!-- Doughnut Expense Category -->
+                <!-- semiDoughnut Expense Category -->
                 <div class="col-12 col-md-12 col-lg-6 col-xxl-3 mb-4 column-set">
-                    <div class="card border-0 theme-purple">
+                    <div class="card border-0">
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <i class="bi bi-bar-chart h5 avatar avatar-40 bg-light-theme rounded"></i>
+                                    <i class="bi bi-cart h5 avatar avatar-40 bg-light-theme rounded"></i>
                                 </div>
                                 <div class="col">
-                                    <h6 class="fw-medium mb-0">Expense</h6>
-                                    <p class="small text-secondary">Categories</p>
+                                    <h6 class="fw-medium mb-0">Average Expenses</h6>
+                                    <p class="small text-secondary">Last 3 months</p>
                                 </div>
                                 <div class="col-auto">
                                     <div class="dropdown d-inline-block">
@@ -645,78 +856,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="doughnutchart mb-4">
-                                <canvas id="doughnutchart"></canvas>
-                                <div class="countvalue shadow">
-                                    <div class="w-100">
-                                        <h5 class="mb-1">2,55.98K</h5>
-                                        <p class="text-success small">18.71 (0.73%)</p>
-                                    </div>
+                        <div class="card-body text-center">
+                            <div class="semidoughnutchart mb-3">
+                                <div class="expensedatasemidoughnut">
+                                    <p class="text-secondary small mb-0">Total Expense</p>
+                                    <h5>5.4k <small>USD</small></h5>
                                 </div>
+                                <canvas id="semidoughnutchart"></canvas>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <h6 class="fw-medium">Top Categories</h6>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="text-secondary small">Values in thousand</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 mb-3">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="avatar avatar-40 rounded bg-light-yellow">
-                                                <i class="bi bi-egg h5"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">40.00 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Transactions</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-3">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="avatar avatar-40 rounded bg-light-green">
-                                                <i class="bi bi-truck h5"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">10.15 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Transfer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-0">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="avatar avatar-40 rounded bg-light-red">
-                                                <i class="bi bi-people h5"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">15.05 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Withdraw</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 mb-0">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="avatar avatar-40 rounded bg-light-blue">
-                                                <i class="bi bi-house h5"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">25.35 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Received</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <p class="text-secondary">You have spend most on Food and Your monthly average expense is</p>
+                            <h4><span class="increamentcount">5110</span> <small class="lead">USD/month</small></h4>
+
                         </div>
                     </div>
                 </div>
@@ -774,16 +925,8 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="w-100 h-110 mb-4">
+                            <div class="w-100 h-80 mb-3">
                                 <canvas id="barchart"></canvas>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col">
-                                    <h6 class="fw-medium">Details</h6>
-                                </div>
-                                <div class="col-auto">
-
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 px-0">
@@ -812,18 +955,6 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item">
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <p class="mb-0">Shares</p>
-                                                    <p class="text-secondary small">18 Company</p>
-                                                </div>
-                                                <div class="col ps-0 text-end">
-                                                    <p class="mb-0">3750.00 <small>USD</small></p>
-                                                    <p class="small text-secondary">74.00<span class="text-red"><i class="bi bi-arrow-up fs-10"></i>-2.09%</span></p>
-                                                </div>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -834,7 +965,7 @@
                 <!-- Expense by card -->
                 <div class="col-12 col-md-12 col-lg-6 col-xxl-3 mb-4 column-set">
                     <!-- bank card -->
-                    <div class="card border-0 h-100 theme-green">
+                    <div class="card border-0 theme-green">
                         <div class="card-header">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -888,11 +1019,11 @@
                             <div class="swiper-container creditcardsvertical">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <div class="card border-0 mb-2 theme-blue">
+                                        <div class="card border-0 mb-3 theme-blue">
                                             <div class="card-body">
                                                 <div class="row align-items-center mb-4">
                                                     <div class="col-auto align-self-center">
-                                                        <img src="{% static 'assets/img/visa.png' %}" alt="">
+                                                        <img src="assets/img/visa.png" alt="">
                                                     </div>
                                                     <div class="col text-end">
                                                         <p class="size-12">
@@ -901,7 +1032,7 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <p class="fw-medium h6 mb-3">
+                                                <p class="fw-medium h6 mb-4">
                                                     000 0000 0001 546598
                                                 </p>
                                                 <div class="row">
@@ -916,7 +1047,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row amount-data mb-1">
+                                        <div class="row amount-data">
                                             <div class="col">
                                                 <p class="text-secondary small mb-1">Expense</p>
                                                 <p>1500.00 <small class="text-success">18.0% <i class="bi bi-arrow-up"></i></small></p>
@@ -925,50 +1056,14 @@
                                                 <p class="text-secondary small mb-1">Limit Remain</p>
                                                 <p>13500.00</p>
                                             </div>
-                                            <div class="col-12 mt-2">
-                                                <ul class="list-group bg-none">
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto align-self-center">
-                                                                <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                                    <img src="{% static 'assets/img/user-4.jpg' %}" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col px-0 align-self-center">
-                                                                <p class="mb-0">David Warner</p>
-                                                                <p class="small text-secondary">$ 410.00</p>
-                                                            </div>
-                                                            <div class="col-auto ps-0 align-self-center">
-                                                                <i class="bi bi-chevron-right text-muted small vm"></i>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto align-self-center">
-                                                                <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                                    <img src="{% static 'assets/img/user-3.jpg' %}" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col px-0 align-self-center">
-                                                                <p class="mb-0">Shelvey Doe</p>
-                                                                <p class="small text-secondary">$ 180.00</p>
-                                                            </div>
-                                                            <div class="col-auto ps-0 align-self-center">
-                                                                <i class="bi bi-chevron-right text-muted small vm"></i>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <div class="card border-0 theme-pink mb-2">
+                                        <div class="card border-0 theme-pink mb-3">
                                             <div class="card-body">
                                                 <div class="row align-items-center mb-4">
                                                     <div class="col-auto align-self-center">
-                                                        <img src="{% static 'assets/img/visa.png' %}" alt="">
+                                                        <img src="assets/img/visa.png" alt="">
                                                     </div>
                                                     <div class="col text-end">
                                                         <p class="size-12">
@@ -977,7 +1072,7 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <p class="fw-medium h6 mb-3">
+                                                <p class="fw-medium h6 mb-4">
                                                     000 0000 0001 546598
                                                 </p>
                                                 <div class="row">
@@ -1001,50 +1096,14 @@
                                                 <p class="text-secondary small mb-1">Limit Remain</p>
                                                 <p>35500.00</p>
                                             </div>
-                                            <div class="col-12 mt-2">
-                                                <ul class="list-group bg-none">
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto align-self-center">
-                                                                <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                                    <img src="{% static 'assets/img/user-2.jpg' %}" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col px-0 align-self-center">
-                                                                <p class="mb-0">Ms. Linaa Runaout</p>
-                                                                <p class="small text-secondary">$ 410.00</p>
-                                                            </div>
-                                                            <div class="col-auto ps-0 align-self-center">
-                                                                <i class="bi bi-chevron-right text-muted small vm"></i>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto align-self-center">
-                                                                <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                                    <img src="{% static 'assets/img/user-1.jpg' %}" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col px-0 align-self-center">
-                                                                <p class="mb-0">Maxartkiller</p>
-                                                                <p class="small text-secondary">$ 180.00</p>
-                                                            </div>
-                                                            <div class="col-auto ps-0 align-self-center">
-                                                                <i class="bi bi-chevron-right text-muted small vm"></i>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                     <div class="swiper-slide">
-                                        <div class="card border-0 theme-yellow mb-2">
+                                        <div class="card border-0 theme-yellow mb-3">
                                             <div class="card-body">
                                                 <div class="row align-items-center mb-4">
                                                     <div class="col-auto align-self-center">
-                                                        <img src="{% static 'assets/img/visa.png' %}" alt="">
+                                                        <img src="assets/img/visa.png" alt="">
                                                     </div>
                                                     <div class="col text-end">
                                                         <p class="size-12">
@@ -1053,7 +1112,7 @@
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <p class="fw-medium h6 mb-3">
+                                                <p class="fw-medium h6 mb-4">
                                                     000 0000 0001 546598
                                                 </p>
                                                 <div class="row">
@@ -1077,239 +1136,10 @@
                                                 <p class="text-secondary small mb-1">Limit Remain</p>
                                                 <p>13500.00</p>
                                             </div>
-                                            <div class="col-12 mt-2">
-                                                <ul class="list-group bg-none">
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto align-self-center">
-                                                                <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                                    <img src="{% static 'assets/img/user-1.jpg' %}" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col px-0 align-self-center">
-                                                                <p class="mb-0">Mr. Duck Louise</p>
-                                                                <p class="small text-secondary">$ 500.00</p>
-                                                            </div>
-                                                            <div class="col-auto ps-0 align-self-center">
-                                                                <i class="bi bi-chevron-right text-muted small vm"></i>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="col-auto align-self-center">
-                                                                <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                                    <img src="{% static 'assets/img/user-3.jpg' %}" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="col px-0 align-self-center">
-                                                                <p class="mb-0">Anshika Smith</p>
-                                                                <p class="small text-secondary">$ 260.00</p>
-                                                            </div>
-                                                            <div class="col-auto ps-0 align-self-center">
-                                                                <i class="bi bi-chevron-right text-muted small vm"></i>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-4 py-2">
-                <div class="col text-center">
-                    <h4>Make a <span class="text-gradient">Bold Move</span> to be special</h4>
-                    <p class="text-secondary">Unless you make bold decisions, you can't be special. This is the right time.</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- offer -->
-                <div class="col-12 col-md-6 col-lg-3 mb-4">
-                    <div class="card border-0 h-100">
-                        <div class="card-body">
-                            <div class="card border-0 overflow-hidden mb-3">
-                                <div class="row mx-0">
-                                    <div class="col-6 pe-0 theme-green bg-theme text-white half-circle-vertical text-center py-4 z-index-1">
-                                        <div class="position-relative">
-                                            <h3 class="mb-0">6.15%</h3>
-                                            <p>Interest Rate</p>
-                                            <p class="text-muted small">Business Loan are at cheaper rate</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 position-relative">
-                                        <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0">
-                                            <img src="{% static 'assets/img/news-5.jpg' %}" class="mw-100" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h5 class="mb-0">12541M <small class="h6">USD</small></h5>
-                                    <p class="text-secondary small">Released Total</p>
-                                </div>
-                                <div class="col-auto">
-                                    <button class="btn btn-theme btn-sm">Apply</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="smallchart65 cut-5 mb-1">
-                                <canvas id="areachartgreen1"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--assets value -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 mb-4">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <figure class="avatar avatar-40 rounded-circle coverimg">
-                                        <img src="{% static 'assets/img/company9.jpg' %}" alt="" />
-                                    </figure>
-                                </div>
-                                <div class="col ps-0">
-                                    <h5 class="mb-0">25.45 <small class="h6">XMR</small></h5>
-                                    <p class="small">141.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>4.13%</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="smallchart65 cut-5 mb-2">
-                                <canvas id="areachartyellow1"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 mb-4">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <figure class="avatar avatar-40 rounded-circle coverimg">
-                                        <img src="{% static 'assets/img/company8.jpg' %}" alt="" />
-                                    </figure>
-                                </div>
-                                <div class="col ps-0">
-                                    <h5 class="mb-0">113258k <small class="h6">SHIB</small></h5>
-                                    <p class="small">11.00 <span class="text-green"><i class="bi bi-arrow-up fs-10"></i>3.05%</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="smallchart65 cut-5 mb-2">
-                                <canvas id="areachartred1"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- goals and target-->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 position-relative mb-4">
-                        <div class="coverimg position-absolute end-0 top-0 h-100 w-30pct rounded">
-                            <img src="{% static 'assets/img/business-4.jpg' %}" alt="">
-                        </div>
-                        <div class="row">
-                            <div class="col-9">
-                                <div class="card border-0 bg-white shadow-none">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <div class="rounded bg-theme text-white p-3">
-                                                    <i class="bi bi-building mb-1"></i>
-                                                    <p class="text-muted small mb-1">
-                                                        Annual<br>Income
-                                                    </p>
-                                                    <p>$2542</p>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-0 align-self-center">
-                                                <p class="text-secondary small mb-0">United States</p>
-                                                <p>New York</p>
-                                                <div class="mt-4">
-                                                    <div class="progress h-5 mb-1 bg-light-theme">
-                                                        <div class="progress-bar bg-theme w-25" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <p class="small text-secondary">Targeted <span class="float-end">$ 11600</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card border-0 theme-green">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-auto">
-                                    <div class="rounded bg-theme text-white p-3">
-                                        <i class="bi bi-bank mb-1"></i>
-                                        <p class="text-muted small mb-1">
-                                            Assets<br>Income
-                                        </p>
-                                        <p>$2542</p>
-                                    </div>
-                                </div>
-                                <div class="col ps-0 align-self-center">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-secondary small mb-0">United States</p>
-                                            <p>New York</p>
-                                        </div>
-                                        <div class="col-auto text-end">
-                                            <p class="text-secondary small mb-0">New Sales</p>
-                                            <p>120 orders</p>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4">
-                                        <div class="progress h-5 mb-1 bg-light-theme">
-                                            <div class="progress-bar bg-theme w-50" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <p class="small text-secondary">Targeted Orders<span class="float-end">260</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- average expenses -->
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card border-0 mb-4">
-                        <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <i class="bi bi-cart h5 avatar avatar-40 bg-light-theme rounded"></i>
-                                </div>
-                                <div class="col">
-                                    <h6 class="fw-medium mb-0">Average Expenses</h6>
-                                    <p class="small text-secondary">Last 3 months</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <div class="semidoughnutchart mb-3">
-                                <div class="expensedatasemidoughnut">
-                                    <p class="text-secondary small mb-0">Total Expense</p>
-                                    <h5>5.4k <small>USD</small></h5>
-                                </div>
-                                <canvas id="semidoughnutchart"></canvas>
-                            </div>
-
-                            <p class="text-secondary">You have spend most on Food and Your monthly average expense is</p>
-                            <h4><span class="increamentcount">5110</span> <small class="lead">USD/month</small></h4>
-
                         </div>
                     </div>
                 </div>
@@ -1399,13 +1229,13 @@
                                 </div>
                                 <div class="col-auto avatar-group">
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Just Demo">
-                                        <img src="{% static 'assets/img/company2.png" alt="" />
+                                        <img src="assets/img/company2.png" alt="" />
                                     </figure>
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview Purpose">
-                                        <img src="{% static 'assets/img/company3.jpg' %}" alt="" />
+                                        <img src="assets/img/company3.jpg" alt="" />
                                     </figure>
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="to look real">
-                                        <img src="{% static 'assets/img/company4.jpg' %}" alt="" />
+                                        <img src="assets/img/company4.jpg" alt="" />
                                     </figure>
                                 </div>
                             </div>
@@ -1430,13 +1260,13 @@
                                 </div>
                                 <div class="col-auto ps-0 avatar-group">
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
-                                        <img src="{% static 'assets/img/user-2.jpg' %}" alt="" />
+                                        <img src="assets/img/user-2.jpg" alt="" />
                                     </figure>
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Maria Smith">
-                                        <img src="{% static 'assets/img/user-3.jpg' %}" alt="" />
+                                        <img src="assets/img/user-3.jpg" alt="" />
                                     </figure>
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
-                                        <img src="{% static 'assets/img/user-4.jpg' %}" alt="" />
+                                        <img src="assets/img/user-4.jpg" alt="" />
                                     </figure>
                                 </div>
                             </div>
@@ -1528,7 +1358,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company6.png" alt="" />
+                                                        <img src="assets/img/company6.png" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1584,7 +1414,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/user-2.jpg' %}" alt="" />
+                                                        <img src="assets/img/user-2.jpg" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1640,7 +1470,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company2.png" alt="" />
+                                                        <img src="assets/img/company2.png" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1696,7 +1526,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/user-4.jpg' %}" alt="" />
+                                                        <img src="assets/img/user-4.jpg" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1752,7 +1582,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company3.jpg' %}" alt="" />
+                                                        <img src="assets/img/company3.jpg" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1808,7 +1638,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company4.jpg' %}" alt="" />
+                                                        <img src="assets/img/company4.jpg" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1864,7 +1694,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company5.png" alt="" />
+                                                        <img src="assets/img/company5.png" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1920,7 +1750,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company4.jpg' %}" alt="" />
+                                                        <img src="assets/img/company4.jpg" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1976,7 +1806,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company5.png" alt="" />
+                                                        <img src="assets/img/company5.png" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -2032,7 +1862,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company6.png" alt="" />
+                                                        <img src="assets/img/company6.png" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -2088,7 +1918,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company2.png" alt="" />
+                                                        <img src="assets/img/company2.png" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -2144,7 +1974,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company3.jpg' %}" alt="" />
+                                                        <img src="assets/img/company3.jpg" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -2265,9 +2095,9 @@
                             </ul>
                         </div>
                         <div class="col-12 col-md-4 col-xxl-3">
-                            <a class="navbar-brand d-block mb-3" href="https://getWinDOORS.com" target="_blank">
+                            <a class="navbar-brand d-block mb-3" href="../index.html" target="_blank">
                                 <div class="row">
-                                    <div class="col-auto"><img src="{% static 'assets/img/favicon48.png" class="mx-100" alt="" /></div>
+                                    <div class="col-auto"><img src="assets/img/favicon48.png" class="mx-100" alt="" /></div>
                                     <div class="col ps-0 align-self-center d-none d-sm-block">
                                         <h4 class="fw-normal text-dark mb-0">WinDOORS</h4>
                                         <p class="text-secondary">Admin App UI</p>
@@ -2276,7 +2106,7 @@
                             </a>
 
                             <p class="mb-2"><b>Main office:</b></p>
-                            <p class="mb-1"><a href="https://getWinDOORS.com" target="_blank">www.getWinDOORS.com</a></p>
+                            <p class="mb-1"><a href="../index.html" target="_blank">www.getWinDOORS.com</a></p>
                             <p class="mb-4 text-secondary">Test data 103909 Witamer CR, Niagara Falls, NY 14305, United States</p>
 
                             <div class="row align-items-center mb-3">
@@ -2372,4 +2202,366 @@
             </div>
         </div>
     </main>
-    {% endblock content %}  
+
+
+    <!-- Modal sent money -->
+    <div class="modal fade" id="sentmoney" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-arrow-up-right h5 avatar avatar-40 bg-light-theme rounded"></i>
+                        </div>
+                        <div class="col">
+                            <h6 class="fw-medium mb-0">Sent Money</h6>
+                            <p class="small text-secondary">Keep the required fields only</p>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control amount-input text-center mb-3" type="text" placeholder="0.00">
+
+                    <h6 class="fw-medium mb-2">Sent Money From:</h6>
+                    <div class="row mb-2">
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-cash"></i></span>
+                                <select class=" form-control simplechosen">
+                                    <option selected>Bank</option>
+                                    <!-- <option>Wallet</option> -->
+                                    <!-- <option>Crypto</option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-bank"></i></span>
+                                <select class="form-control simplechosen">
+                                    <option>CA Bank</option>
+                                    <option>Larson Bank</option>
+                                    <option>Truelance Bank</option>
+                                    <option selected>Cabilian Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-secondary small mb-4">Balance: 966800.00 USD</p>
+
+                    <h6 class="fw-medium mb-2">Sent Money to:</h6>
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-phone"></i></span>
+                                <input class="form-control" type="text" placeholder="Enter Phone">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-bank"></i></span>
+                                <input class="form-control" type="text" placeholder="Bank Account number">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-person"></i></span>
+                                <input class="form-control" type="text" placeholder="Account holder name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-code-square"></i></span>
+                                <input class="form-control" type="text" placeholder="Bank Code">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-theme w-100">Transfer now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bill pay -->
+    <div class="modal fade" id="billpay" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-receipt-cutoff h5 avatar avatar-40 bg-light-green text-green rounded"></i>
+                        </div>
+                        <div class="col">
+                            <h6 class="fw-medium mb-0">Pay Bills</h6>
+                            <p class="small text-secondary">Keep the required fields only</p>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h6 class="fw-medium mb-2">Pay Bill From:</h6>
+                    <div class="row mb-2">
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-cash"></i></span>
+                                <select class=" form-control simplechosen">
+                                    <option selected>Wallet</option>
+                                    <option>Bank</option>
+                                    <option>Crypto</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-bank"></i></span>
+                                <select class="form-control simplechosen">
+                                    <option>CA Bank</option>
+                                    <option>Larson Bank</option>
+                                    <option>Truelance Bank</option>
+                                    <option selected>Cabilian Bank</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-secondary small mb-4">Balance: 966800.00 USD</p>
+
+                    <h6 class="fw-medium mb-2">Bill Information Money to:</h6>
+                    <div class="row align-items-center mb-2">
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-map"></i></span>
+                                <select class="form-control simplechosen">
+                                    <option selected>United States</option>
+                                    <option>United Kingdom</option>
+                                    <option>Russia</option>
+                                    <option>Australia</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-signpost"></i></span>
+                                <select class=" form-control simplechosen">
+                                    <option selected>New York</option>
+                                    <option>New Jersey</option>
+                                    <option>Los Angeles</option>
+                                    <option>Chicago</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-bank"></i></span>
+                                <input class="form-control" type="text" placeholder="Consumer ID">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-2">
+                            <div class="input-group input-group-md border rounded">
+                                <span class="input-group-text text-theme"><i class="bi bi-phone"></i></span>
+                                <input class="form-control" type="text" placeholder="Consumer name">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-secondary mb-2">Bill Amount</p>
+                    <input class="form-control amount-input text-center" type="text" placeholder="0.00" value="1500.00">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-theme w-100">Pay now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Ticket Book -->
+    <div class="modal fade" id="ticketbookmovie" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header d-block">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <i class="bi bi-ticket-perforated h5 avatar avatar-40 bg-light-red text-red rounded"></i>
+                        </div>
+                        <div class="col">
+                            <h6 class="fw-medium mb-0">Book ticket</h6>
+                            <p class="small text-secondary">Keep the required fields only</p>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-md-6 mb-3 mb-md-0">
+                            <div class="bg-gradient-theme-light rounded overflow-hidden mb-3 border">
+                                <!-- Swiper -->
+                                <div class="swiper movieposter">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/movie1.jpg" alt="" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/movie2.jpg" alt="" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/movie3.jpg" alt="" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/movie1.jpg" alt="" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/movie2.jpg" alt="" />
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/movie3.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-opac text-center text-secondary small">Posters are demo purpose only</p>
+                            <div class="row">
+                                <div class="col-12 col-md-12 mb-2">
+                                    <div class="input-group input-group-md border rounded">
+                                        <span class="input-group-text text-theme"><i class="bi bi-film"></i></span>
+                                        <select class=" form-control">
+                                            <option selected>Brahmastra</option>
+                                            <option>Shang-Chi</option>
+                                            <option>Minari</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-8 mb-2">
+                                    <div class="input-group input-group-md border rounded">
+                                        <span class="input-group-text text-theme"><i class="bi bi-calendar-event"></i></span>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4 mb-2 ps-0">
+                                    <div class="input-group input-group-md border rounded">
+                                        <span class="input-group-text text-theme"><i class="bi bi-clock"></i></span>
+                                        <select class="form-control">
+                                            <option>9:00 am</option>
+                                            <option>12:30 pm</option>
+                                            <option>3:00 pm</option>
+                                            <option selected>9:00 pm</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="input-group input-group-md border rounded">
+                                        <span class="input-group-text text-theme"><i class="bi bi-at h5"></i></span>
+                                        <input type="email" class=" form-control" placeholder="Email address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-3 mb-md-0 align-self-center">
+                            <div class="row gx-2 mb-3 small text-secondary text-center">
+                                <div class="col">
+                                    <p class="">This is Screen Side</p>
+                                </div>
+                            </div>
+                            <div class="seatwrap mb-3">
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                </div>
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                </div>
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                </div>
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                </div>
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                </div>
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair"></div>
+                                </div>
+                                <div class="linerow">
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair occupied"></div>
+                                    <div class="chair"></div>
+                                </div>
+                            </div>
+                            <div class="row gx-2 justify-content-center mb-4 small text-secondary">
+                                <div class="col-auto">
+                                    <div class="chair"></div> Available
+                                </div>
+                                <div class="col-auto">
+                                    <div class="chair selected"></div> Selected
+                                </div>
+                                <div class="col-auto">
+                                    <div class="chair occupied"></div> Occupied
+                                </div>
+                            </div>
+                            <p class="text-center text-secondary">Bill Amount for <span class="fw-medium text-theme" id="count">0</span> seat(s)</p>
+                            <input class="form-control amount-input text-center " type="text" placeholder="0.00" id="total">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-theme">Book now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %} 
