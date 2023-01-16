@@ -1,0 +1,1597 @@
+ {% extends 'Dashbord/base.html' %}
+ {% load static %}
+ {% block content %}
+            <div class="o_main">
+
+
+
+
+
+
+
+
+               <div class="o_main_content">
+                  <div class="o_control_panel o_breadcrumb_full">
+                     <div class="a_cp_top">
+                        <ol class="breadcrumb">
+                           <li><a>Application Type</a></li>
+                           <li class="active">042 RESTAURANT</li>
+                        </ol>
+                        {% comment %} <div class="o_cp_searchview" style="display: none;">
+                           <div class="o_searchview o_hidden">
+                              <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+                              <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
+                              <input class="o_searchview_input" placeholder="Search..." type="text">
+                           </div>
+                        </div> {% endcomment %}
+                     </div>
+
+                     <div class="a_cp_bottom">
+                        
+                        <div class="o_cp_buttons">
+                           <div>
+                              <div class="o_form_buttons_view">
+                                 <button accesskey="a" class="btn btn-primary btn-sm o_form_button_edit" type="button">
+                                 Edit
+                                 </button>
+                                 <button accesskey="c" class="btn btn-default btn-sm o_form_button_create" type="button">
+                                 Create
+                                 </button>
+                              </div>
+                            
+                           </div>
+                        </div>
+                        <div class="o_cp_sidebar">
+                           <div class="btn-group">
+                              {% comment %} <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 Print <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                       <a data-index="0" data-section="print" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Due Payments
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a data-index="1" data-section="print" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Partner Ledger
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div> {% endcomment %}
+                              <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 API Attachment(s) <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li class="o_sidebar_add_attachment">
+                                       <div class="o_hidden_input_file ">
+                                          <form class="o_form_binary_form" enctype="multipart/form-data" method="post" action="http://74.208.168.47:8069/web/binary/upload_attachment" target="oe_fileupload486">
+                                             <input name="csrf_token" type="hidden" value="c5dc48a48626963ba3e1fc62ce328d5e3a48664co">
+                                             <input name="callback" type="hidden" value="oe_fileupload486">
+                                             <input class="o_input_file" name="ufile" type="file" multiple="multiple">
+                                             <input name="model" type="hidden" value="res.partner">
+                                             <input name="id" type="hidden" value="1735936">
+                                             <span>Add Endpoints DOC...</span>
+                                          </form>
+                                          <iframe style="display: none" id="oe_fileupload486" name="oe_fileupload486" src="./042 RESTAURANT - ENUGUDISCO_files/saved_resource.html"></iframe>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                            
+                           </div>
+                        </div>
+                     
+                        <div class="o_cp_pager">
+                           <div>
+                              <span class="o_pager_counter">
+                              <span class="o_pager_value">2</span> / <span class="o_pager_limit">8</span>
+                              </span>
+                              <span class="btn-group btn-group-sm">
+                              <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              </span>
+                           </div>
+                        </div>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons o_hidden"></div>
+                     </div>
+                  </div>
+                  <div class="o_content">
+                     <div class="o_view_manager_content">
+                        <div>
+                           <div class="o_form_view o_form_editable">
+                              <div class="o_form_sheet_bg">
+                               <div class="o_form_statusbar">
+                                 <div class="o_statusbar_buttons">   
+                                         
+                                    <div class="o_field_many2manytags o_field_widget" style="margin-top: 9px;">
+                                       <button  id='valuelist'  data-color="10" data-id="22" data-index="0"  class="btn badge btn-sm btn-default oe_highlight"></button>
+                                       {% comment %} <span id='valuelist' data-color="10" data-id="22" data-index="0" class="badge dropdown o_tag_color_10">
+                                          
+                                           
+                                       </span> {% endcomment %}
+                                   
+                                    </div>      
+                                               {% comment %} <button class="btn btn-sm btn-default oe_highlight">Juice Transactions</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Feeder|Transformer</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Others</button><button class="btn btn-sm btn-default oe_highlight">Get KeyChange</button><button class="btn btn-sm btn-default oe_highlight">Free Issue</button><button class="btn btn-sm btn-default oe_highlight">Set Max Power</button><button class="btn btn-sm btn-default oe_highlight">Juice Account</button><button class="btn btn-sm btn-default oe_highlight">Juice Meter Assign</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Tariff</button> {% endcomment %}
+                                 </div>
+                              </div>
+                                 <div class="o_form_sheet">
+                                    <div class="o_not_full oe_button_box">
+                                    <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-calendar"></div>
+                                          <div name="meeting_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">Unsuccessful</span>
+                                             <span class="o_stat_text">Lunched Web.</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button o_res_partner_tip_opp">
+                                          <div class="fa fa-fw o_button_icon fa-star"></div>
+                                          <div name="opportunity_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">successfully</span>
+                                             <span class="o_stat_text">Lunched Web.</span>
+                                          </div>
+                                       </button>
+                                       
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-globe"></div>
+                                          <div class="o_stat_info published o_field_widget" name="website_published">
+                                             <span class="o_stat_text o_value text-secondry">Developing..</span>
+                                             <span class="o_stat_text">Stage- Web</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-usd"></div>
+                                          <div name="sale_order_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE FIVE</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-book"></div>
+                                          <div name="contracts_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE FOUR</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-archive"></div>
+                                          <div class="o_stat_info o_field_widget" name="active"><span class="o_stat_text o_not_hover text-success">STAGE THREE</span><span class="o_stat_text o_hover text-danger">STAGE THREE</span></div>
+                                       </button>
+                                      
+                                     
+                                       <button class="btn btn-sm oe_stat_button" style="background:#fff">
+                                          <div class="fa fa-fw o_button_icon fa-pencil-square-o"></div>
+                                          <div class="o_form_field o_stat_info"><span class="o_stat_value"><span class="o_field_monetary o_field_number o_field_widget o_readonly_modifier" name="invoice_paid_amount" data-original-title="" title=""></span></span><span class="o_stat_text">STAGE TWO</span></div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button oe_inline">
+                                          <div class="fa fa-fw o_button_icon fa-ticket"></div>
+                                          <div name="support_ticket_string" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE ONE</span>
+                                          </div>
+                                       </button>
+                                    </div>
+
+
+       
+
+
+ <form method="POST" onsubmit="return submitForm(this);" >
+                                                   {% csrf_token %}
+                     
+
+                              <div class="o_field_one2many o_field_widget o_field_x2many o_field_x2many_list" name="prepaid_trans">
+                                                <div class="o_x2m_control_panel">
+                                                   <table class="image_multi_button" style="display:none">
+                                                      <tbody>
+                                                         <tr style="background:white;">
+                                                            <td style="padding: 10px 150px 15px 132px;">
+                                                               <button class="fa fa-search oe-image-preview btn btn-sm oe_form_binary btn-primary" title="Preview" type="button">
+                                                               <span>Image Preview</span>
+                                                               </button>
+                                                            </td>
+                                                            <td>
+                                                               <button class="fa fa-list oe_image_list btn btn-sm oe_form_binary btn-primary" title="All Image" type="button">
+                                                               <span>List All Image</span>
+                                                               </button>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <div class="o_cp_buttons o_hidden"></div>
+                                                   <div class="o_cp_pager">
+                                                      <div class="o_hidden">
+                                                         <span class="o_pager_counter">
+                                                         <span class="o_pager_value"></span> / <span class="o_pager_limit"></span>
+                                                         </span>
+                                                         <span class="btn-group btn-group-sm">
+                                                         <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button"></button>
+                                                         <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button"></button>
+                                                         </span>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                               
+                                                <div class="table-responsive">
+                                                   <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+                                                      <thead>
+                                                         <tr>
+
+                                                            <th class="o_column_sortable">Programing Language</th>
+                                                            <th class="o_column_sortable">Version 1 / 9</th>
+                                                            <th class="o_column_sortable">Version 2 / 9</th>
+                                                            <th class="o_column_sortable">Version 3 / 9</th>
+                                                            <th class="o_column_sortable">Version 4 / 9</th>
+                                                            <th class="o_column_sortable">Version 5 / 9</th>
+                                                            <th class="o_column_sortable">Version 6 / 9</th>
+                                                         </tr>
+                                                      </thead>
+                                            
+
+                                                    <tbody class="ui-sortable">
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:34px;height:30px" src="{% static 'language_logo/html.webp' %}"> HYPER TEXT MARKUP LANGUAGE (HTML)</td>
+                                                            <td class="o_data_cell">VS 1.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' value="HTML - VS 1.9" name="name" onclick="onlyOne(this)"><span></span>
+                                                            </div>
+                                                         </td>
+                                                         <td class="o_data_cell">VS 2.9 
+                                                         <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' value="HTML - VS 2.9" name="name" onclick="onlyOne(this)"><span>
+                                                                  
+                                                               </span>
+                                                            </div>
+                                                         </td>
+                                                         <td class="o_data_cell">VS 3.9 
+                                                         <div class="o_field_boolean o_field_widget o_checkbox">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' value="HTML - VS 3.9"name="name" onclick="onlyOne(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' value="HTML - VS 4.9 " name="name" onclick="onlyOne(this)"><span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' value="HTML - VS 5.9" name="name" onclick="onlyOne(this)"><span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  value="HTML - VS 6.9" name="name" onclick="onlyOne(this)"><span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                      <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/django.png' %}"> DJANGO FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_b" value="DJANGO - VS 1.9"  onclick="onlyOneb(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_b" value="DJANGO - VS 2.9"  onclick="onlyOneb(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_b" value="DJANGO - VS 3.9"  onclick="onlyOneb(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_b" value="DJANGO - VS 4.9"  onclick="onlyOneb(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_b" value="DJANGO - VS 5.9"  onclick="onlyOneb(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_b" value="DJANGO - VS 6.9"  onclick="onlyOneb(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/javascript.png' %}"> JAVASCRIPT LANGUAGE (LAN)</td>
+                                                           <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_c" value="JAVASCRIPT - VS 1.9"  onclick="onlyOnec(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_c" value="JAVASCRIPT - VS 2.9"  onclick="onlyOnec(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_c" value="JAVASCRIPT - VS 3.9"  onclick="onlyOnec(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_c" value="JAVASCRIPT - VS 4.9"  onclick="onlyOnec(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_c" value="JAVASCRIPT - VS 5.9"  onclick="onlyOnec(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_c" value="JAVASCRIPT - VS 6.9"  onclick="onlyOnec(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/react.png' %}"> REACT JS FRAMEWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_g" value="REACT JS - VS 1.9"  onclick="onlyOneg(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_g" value="REACT JS - VS 2.9"  onclick="onlyOneg(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_g" value="REACT JS - VS 3.9"  onclick="onlyOneg(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_g" value="REACT JS - VS 4.9"  onclick="onlyOneg(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_g" value="REACT JS - VS 5.9"  onclick="onlyOneg(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_g" value="REACT JS - VS 6.9"  onclick="onlyOneg(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/python.png' %}"> PYTHON LANGUAGE (LAN)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_h" value="PYTHON - VS 1.9"  onclick="onlyOneh(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_h" value="PYTHON - VS 2.9"  onclick="onlyOneh(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_h" value="PYTHON - VS 3.9"  onclick="onlyOneh(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_h" value="PYTHON - VS 4.9"  onclick="onlyOneh(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_h" value="PYTHON - VS 5.9"  onclick="onlyOneh(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_h" value="PYTHON - VS 6.9"  onclick="onlyOneh(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         </tr>
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/css.webp' %}"> CASCADING STYLE SHEET LANGUAGE (CSS)</td>
+                                                             <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_d" value="CSS - VS 1.9"  onclick="onlyOned(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_d" value="CSS - VS 2.9"  onclick="onlyOned(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_d" value="CSS - VS 3.9"  onclick="onlyOned(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_d" value="CSS - VS 4.9"  onclick="onlyOned(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_d" value="CSS - VS 5.9"  onclick="onlyOned(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_d" value="CSS - VS 6.9"  onclick="onlyOned(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% if mode == 'developer' %}
+                                                          <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/php.png' %}"> PHP LANGUAGE (LAN)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 1.9"  onclick="onlyOnee(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 2.9"  onclick="onlyOnee(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_e" value="PHP - VS 3.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_e" value="PHP - VS 4.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 5.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 6.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                         <tr class="o_data_row" >
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/php.png' %}"> PHP LANGUAGE (LAN)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 1.9"  onclick="onlyOnee(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 2.9"  onclick="onlyOnee(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_e" value="PHP - VS 3.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_e" value="PHP - VS 4.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 5.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_e" value="PHP - VS 6.9"  onclick="onlyOnee(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+
+                                                          {% if mode == 'developer' %}
+                                                          <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/laravel.png' %}"> LARAVEL FRAEMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 1.9"  onclick="onlyOnef(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 2.9"  onclick="onlyOnef(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_f" value="LARAVEL - VS 3.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_f" value="LARAVEL - VS 4.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 5.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 6.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/laravel.png' %}"> LARAVEL FRAEMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 1.9"  onclick="onlyOnef(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 2.9"  onclick="onlyOnef(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_f" value="LARAVEL - VS 3.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_f" value="LARAVEL - VS 4.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 5.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_f" value="LARAVEL - VS 6.9"  onclick="onlyOnef(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+
+                                                         {% if mode == 'developer' %}
+                                                         <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/nest.svg' %}"> NEST JS (FRM)</td>
+                                                           <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 1.9"  onclick="onlyOnei(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 2.9" onclick="onlyOnei(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_i" value="NEST JS - VS 3.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_i" value="NEST JS - VS 4.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 5.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 6.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/nest.svg' %}"> NEST JS (FRM)</td>
+                                                           <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 1.9"  onclick="onlyOnei(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 2.9" onclick="onlyOnei(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_i" value="NEST JS - VS 3.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_i" value="NEST JS - VS 4.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 5.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_i" value="NEST JS - VS 6.9" onclick="onlyOnei(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/bootstrap.png' %}"> BOOSTRAP FRAMWORK (FRM)</td>
+                                                           <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_k" value="BOOSTRAP - VS 1.9" onclick="onlyOnek(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_k" value="BOOSTRAP - VS 2.9" onclick="onlyOnek(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox"  class='checkbox' id='checkbox' name="name_k" value="BOOSTRAP - VS 3.9" onclick="onlyOnek(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_k" value="BOOSTRAP - VS 4.9" onclick="onlyOnek(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_k" value="BOOSTRAP - VS 5.9" onclick="onlyOnek(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_k" value="BOOSTRAP - VS 6.9" onclick="onlyOnek(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                          {% if mode == 'developer' %}
+                                                         <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/next.png' %}"> NEXT JS FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 1.9" onclick="onlyOnej(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 2.9" onclick="onlyOnej(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_j" value="NEXT JS - VS 3.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_j" value="NEXT JS - VS 4.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 5.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 6.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/next.png' %}"> NEXT JS FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 1.9" onclick="onlyOnej(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 2.9" onclick="onlyOnej(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_j" value="NEXT JS - VS 3.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_j" value="NEXT JS - VS 4.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 5.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_j" value="NEXT JS - VS 6.9" onclick="onlyOnej(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+
+                                                         {% if mode == 'developer' %}
+                                                         <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/expressjs.png' %}"> EXPRESS FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 1.9" onclick="onlyOnen(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 2.9" onclick="onlyOnen(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox"  class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 3.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_n" value="EXPRESS - VS 4.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 5.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 6.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/expressjs.png' %}"> EXPRESS FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 1.9" onclick="onlyOnen(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 2.9" onclick="onlyOnen(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox"  class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 3.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_n" value="EXPRESS - VS 4.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 5.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_n" value="EXPRESS - VS 6.9" onclick="onlyOnen(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+                                                         {% if mode == 'developer' %}
+                                                         <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/nodejs.png' %}"> NODE JS FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 1.9" onclick="onlyOnel(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled disabled type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 2.9" onclick="onlyOnel(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_l" value="NODE JS - VS 3.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_l" value="NODE JS - VS 4.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 5.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 6.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/nodejs.png' %}"> NODE JS FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 1.9" onclick="onlyOnel(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 2.9" onclick="onlyOnel(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_l" value="NODE JS - VS 3.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_l" value="NODE JS - VS 4.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 5.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_l" value="NODE JS - VS 6.9" onclick="onlyOnel(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+                                                         
+                                                         {% if mode == 'developer' %}
+                                                         <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/ruby.png' %}"> RUBY ONRAIL FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 1.9" onclick="onlyOnem(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 2.9" onclick="onlyOnem(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox"  class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 3.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_m" value="RUBY - VS 4.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 5.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 6.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% else %}
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/ruby.png' %}"> RUBY ONRAIL FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 1.9" onclick="onlyOnem(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 2.9" onclick="onlyOnem(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox"  class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 3.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_m" value="RUBY - VS 4.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 5.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_m" value="RUBY - VS 6.9" onclick="onlyOnem(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+
+
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/ajax.png' %}"> AJAX JS LANGUAGE (LAN)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_o" value="AJAX JS - VS 1.9" onclick="onlyOneo(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_o" value="AJAX JS - VS 2.9" onclick="onlyOneo(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_o" value="AJAX JS - VS 3.9" onclick="onlyOneo(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox"  class='checkbox' id='checkbox' name="name_o" value="AJAX JS - VS 4.9" onclick="onlyOneo(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_o" value="AJAX JS - VS 5.9" onclick="onlyOneo(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_o" value="AJAX JS - VS 6.9" onclick="onlyOneo(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/jquery.png' %}"> JQURY LANGUAGE (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_p" value="JQURY - VS 1.9" onclick="onlyOnep(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_p" value="JQURY - VS 2.9" onclick="onlyOnep(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_p" value="JQURY - VS 3.9" onclick="onlyOnep(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_p" value="JQURY - VS 4.9" onclick="onlyOnep(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_p" value="JQURY - VS 5.9" onclick="onlyOnep(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_p" value="JQURY - VS 6.9" onclick="onlyOnep(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                          {% if mode == 'developer' %}
+                                                          <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/materialui.png' %}"> MATERIAL UI FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_q" value="MATERIAL UI - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="name_q" value="MATERIAL UI - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                         
+                                                          <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:28px" src="{% static 'language_logo/typescript.png' %}"> TYPESCRIPT (LAN)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="typescript" value="TYPESCRIPT - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="typescript" value="TYPESCRIPT - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                         
+                                                          <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/redux.png' %}"> REDUX (LB)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="redux" value="REDUX - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="redux" value="REDUX - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                          <tr class="o_data_row" style="cursor: not-allowed; background-color:gray">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/tailwind.png' %}"> TAILWIND CSS (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input disabled type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="tailwind_css" value="TAILWIND CSS - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox'  name="tailwind_css" value="TAILWIND CSS - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input disabled type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                         {% else %}
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/materialui.png' %}"> MATERIAL UI FRAMWORK (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_q" value="MATERIAL UI - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="name_q" value="MATERIAL UI - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="name_q" value="MATERIAL UI - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                         
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/typescript.png' %}"> TYPESCRIPT (LAN)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="typescript" value="TYPESCRIPT - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="typescript" value="TYPESCRIPT - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="typescript" value="TYPESCRIPT - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                         
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/redux.png' %}"> REDUX (LB)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="redux" value="REDUX - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="redux" value="REDUX - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="redux" value="REDUX - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+
+                                                          <tr class="o_data_row">
+                                                            <td class="o_data_cell"><image style="width:32px;height:27px" src="{% static 'language_logo/tailwind.png' %}"> TAILWIND CSS (FRM)</td>
+                                                            <td class="o_data_cell">VS 1.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                               <input type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 1.9" onclick="onlyOneq(this)"><span></span>
+                                                            </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 2.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 2.9" onclick="onlyOneq(this)">
+                                                                  <span>
+                                                                     
+                                                                  </span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 3.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="tailwind_css" value="TAILWIND CSS - VS 3.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 4.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox'  name="tailwind_css" value="TAILWIND CSS - VS 4.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 5.9
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 5.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                            <td class="o_data_cell">VS 6.9 
+                                                               <div class="o_field_boolean o_field_widget o_checkbox" name="allow_meter">
+                                                                  <input type="checkbox" class='checkbox' id='checkbox' name="tailwind_css" value="TAILWIND CSS - VS 6.9" onclick="onlyOneq(this)">
+                                                                  <span></span>
+                                                               </div>
+                                                            </td>
+                                                         
+                                                         </tr>
+                                                         {% endif %}
+
+
+                                                         {% comment %} <tr>
+                                                            <td colspan="8" class="o_field_x2many_list_row_add"> 
+                                                               <div class="o_form_buttons_edit">
+                                                            <button accesskey="s" class="btn btn-primary btn-sm o_form_button_save" type="submit">
+                                                            Save
+                                                            </button>
+                                                             </div></td>
+                                                         </tr> {% endcomment %}
+                                                      </tbody>
+
+
+
+                                                         
+                                                      <tfoot>
+                                                         <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                         </tr>
+                                                      </tfoot>
+                                                   </table>
+                                                    <div class="o_form_buttons_edit">
+                                 <button accesskey="s" style="float: right;" class="btn btn-default btn-sm o_form_button_save" type="submit">
+                                 Next Page
+                                 </button>
+                                 {% comment %} <button accesskey="j" class="btn btn-default btn-sm o_form_button_cancel" type="button">
+                                 Discard
+                                 </button> {% endcomment %}
+                              </div>
+                                                  
+                                                </div>
+                                             </div>
+ </form>
+
+                                                   
+
+
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+    </div>
+        {% endblock content %}  

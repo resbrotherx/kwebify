@@ -1,0 +1,829 @@
+ {% extends 'Dashbord/base.html' %}
+ {% block content %}
+          <div class="o_main">
+
+
+
+
+
+
+
+
+               <div class="o_main_content">
+             
+                  <div class="o_control_panel o_breadcrumb_full">
+                     <div class="a_cp_top">
+                        <ol class="breadcrumb">
+                           <li><a>Customers</a></li>
+                           <li class="active">042 RESTAURANT</li>
+                        </ol>
+                        <div class="o_cp_searchview" style="display: none;">
+                           <div class="o_searchview o_hidden">
+                              <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+                              <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
+                              <input class="o_searchview_input" placeholder="Search..." type="text">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="a_cp_bottom">
+                        <div class="o_cp_buttons">
+                           <div>
+                              <div class="o_form_buttons_view o_hidden">
+                                 <button accesskey="a" class="btn btn-primary btn-sm o_form_button_edit" type="button">
+                                 Edit
+                                 </button>
+                                 <button accesskey="c" class="btn btn-default btn-sm o_form_button_create" type="button">
+                                 Create
+                                 </button>
+                              </div>
+                              <div class="o_form_buttons_edit">
+                                 <button accesskey="s" class="btn btn-primary btn-sm o_form_button_save" type="submit">
+                                 submit
+                                 </button>
+                                 <button accesskey="j" class="btn btn-default btn-sm o_form_button_cancel" type="button">
+                                 Discard
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="o_cp_sidebar">
+                           <div class="btn-group o_hidden">
+                              <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 Print <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                       <a data-index="0" data-section="print" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Due Payments
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a data-index="1" data-section="print" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Partner Ledger
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 Attachment(s) <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li class="o_sidebar_add_attachment">
+                                       <div class="o_hidden_input_file ">
+                                          <form class="o_form_binary_form" enctype="multipart/form-data" action="http://74.208.168.47:8069/web/binary/upload_attachment" target="oe_fileupload486">
+                                             <input name="csrf_token" type="hidden" value="c5dc48a48626963ba3e1fc62ce328d5e3a48664co">
+                                             <input name="callback" type="hidden" value="oe_fileupload486">
+                                             <input class="o_input_file" name="ufile" type="file" multiple="multiple">
+                                             <input name="model" type="hidden" value="res.partner">
+                                             <input name="id" type="hidden" value="1735936">
+                                             <span>Add...</span>
+                                          </form> 
+                                          <iframe style="display: none" id="oe_fileupload486" name="oe_fileupload486" src="./042 RESTAURANT - ENUGUDISCO_files/saved_resource.html"></iframe>
+                                       </div>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 Action <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                       <a data-index="0" data-section="other" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Delete
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a data-index="1" data-section="other" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Duplicate
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="btn-group o_search_options" style="display: none;">
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-filter"></span>
+                              <span class="hidden-xs">
+                              Filters
+                              <span class="caret"></span></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right o_filters_menu" role="menu">
+                                 <li class="o_add_filter o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Add Custom Filter</a>
+                                 </li>
+                                 <li class="o_add_filter_menu">
+                                    <button class="btn btn-primary btn-sm o_apply_filter" type="button">Apply</button>
+                                    <button class="btn btn-default btn-sm o_add_condition" type="button"><span class="fa fa-plus-circle"></span>
+                                    Add a condition</button>
+                                 </li>
+                                 <li class="divider"></li>
+                                 <li>
+                                    <a class="o_add_advanced_search">Add Advanced Filter</a>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-bars"></span>
+                              <span class="hidden-xs">
+                              Group By
+                              <span class="caret"></span></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right o_group_by_menu" role="menu">
+                                 <li class="divider"></li>
+                                 <li class="o_add_custom_group o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Add custom group</a>
+                                 </li>
+                                 <li>
+                                    <select class="o_input o_add_group o_group_selector">
+                                       <option data-name="licence_no"> License No</option>
+                                       <option data-name="active">Active</option>
+                                       <option data-name="type">Address Type</option>
+                                       <option data-name="barcode">Barcode</option>
+                                       <option data-name="bill_active_code">Bill Active Code</option>
+                                       <option data-name="bill_status">Billing Active?</option>
+                                       <option data-name="metering_type">Billing Type</option>
+                                       <option data-name="b_cycle">Billing cycle</option>
+                                       <option data-name="book_id">Book</option>
+                                       <option data-name="book_code">Book Code</option>
+                                       <option data-name="cin_no">CIN</option>
+                                       <option data-name="mc_date">CREATED MC DATE</option>
+                                       <option data-name="city_id">City</option>
+                                       <option data-name="city">City</option>
+                                       <option data-name="commercial_partner_id">Commercial Entity</option>
+                                       <option data-name="commercial_partner_country_id">Commercial Entity's Country</option>
+                                       <option data-name="company_id">Company</option>
+                                       <option data-name="company_name">Company Name</option>
+                                       <option data-name="commercial_company_name">Company Name Entity</option>
+                                       <option data-name="connection_type">Connection Type</option>
+                                       <option data-name="country_id">Country</option>
+                                       <option data-name="create_uid">Created by</option>
+                                       <option data-name="create_date">Created on</option>
+                                       <option data-name="acc_no">Customer Account</option>
+                                       <option data-name="customer_category">Customer Category</option>
+                                       <option data-name="customer_class">Customer Class</option>
+                                       <option data-name="cus_state">Customer Region</option>
+                                       <option data-name="cus_state2">Customers State</option>
+                                       <option data-name="date">Date</option>
+                                       <option data-name="dedicated_support_user_id">Dedicated Support User</option>
+                                       <option data-name="ticket_default_email_cc">Default Email CC</option>
+                                       <option data-name="display_name">Display Name</option>
+                                       <option data-name="district">District</option>
+                                       <option data-name="district_code">District Code</option>
+                                       <option data-name="street_number2">Door Number</option>
+                                       <option data-name="email">Email</option>
+                                       <option data-name="email_bounced">Email Bounced</option>
+                                       <option data-name="employee">Employee</option>
+                                       <option data-name="e_type">Entity type</option>
+                                       <option data-name="feeder_id">Feeder</option>
+                                       <option data-name="feeder_code">Feeder Code</option>
+                                       <option data-name="issuevalue">Free Issue Unit (KWH)</option>
+                                       <option data-name="gis_no">GIS CODE</option>
+                                       <option data-name="gis">GIS Customer</option>
+                                       <option data-name="issuetoken">Generated Free Issue Token.</option>
+                                       <option data-name="maxpowertoken">Generated Max-Power Token</option>
+                                       <option data-name="date_localization">Geolocation Date</option>
+                                       <option data-name="allow_meter">Has meter</option>
+                                       <option data-name="street_number">House Number</option>
+                                       <option data-name="h_no">House no</option>
+                                       <option data-name="id_type">ID type</option>
+                                       <option data-name="industry_id">Industry</option>
+                                       <option data-name="ref">Internal Reference</option>
+                                       <option data-name="invoice_warn">Invoice</option>
+                                       <option data-name="is_company">Is a Company</option>
+                                       <option data-name="customer">Is a Customer</option>
+                                       <option data-name="supplier">Is a Vendor</option>
+                                       <option data-name="function">Job Position</option>
+                                       <option data-name="juice_acc_no">Juice Account Number</option>
+                                       <option data-name="assigned_meter">Juice Assigned Meter</option>
+                                       <option data-name="locid">Juice Location ID</option>
+                                       <option data-name="keychange">Key Change Token??</option>
+                                       <option data-name="lang">Language</option>
+                                       <option data-name="message_last_post">Last Message Date</option>
+                                       <option data-name="last_website_so_id">Last Online Sales Order</option>
+                                       <option data-name="write_uid">Last Updated by</option>
+                                       <option data-name="write_date">Last Updated on</option>
+                                       <option data-name="calendar_last_notif_ack">Last notification marked as read from base Calendar</option>
+                                       <option data-name="last_time_entries_checked">Latest Invoices &amp; Payments Matching Date</option>
+                                       <option data-name="mda">MDA</option>
+                                       <option data-name="marketer">Marketer</option>
+                                       <option data-name="marketer_code">Marketer Code</option>
+                                       <option data-name="maxpowervalue">Max-Power (KW)</option>
+                                       <option data-name="meter_make">Meter Make</option>
+                                       <option data-name="meter_no">Meter No.</option>
+                                       <option data-name="meter_operation">Meter Operation</option>
+                                       <option data-name="meter_type">Meter Type</option>
+                                       <option data-name="mobile">Mobile</option>
+                                       <option data-name="name">Name</option>
+                                       <option data-name="contractor">Name of C.E.C.L.B Licensed Electrical Contractor</option>
+                                       <option data-name="new_arrears">Net Arrears</option>
+                                       <option data-name="activity_date_deadline">Next Activity Deadline</option>
+                                       <option data-name="old_acc_no">Old Account Number</option>
+                                       <option data-name="old_odoo_no">Old Smart Acct Number</option>
+                                       <option data-name="opt_out">Opt-Out</option>
+                                       <option data-name="phone">Phone</option>
+                                       <option data-name="p_c_l">Preferred contact language</option>
+                                       <option data-name="p_c_m">Preferred contact method</option>
+                                       <option data-name="premises">Premises Type</option>
+                                       <option data-name="purchase_warn">Purchase Order</option>
+                                       <option data-name="reason">Reason For Suspension</option>
+                                       <option data-name="parent_id">Related Company</option>
+                                       <option data-name="sla_id">SLA</option>
+                                       <option data-name="ststi">STSTI</option>
+                                       <option data-name="team_id">Sales Channel</option>
+                                       <option data-name="sale_warn">Sales Order</option>
+                                       <option data-name="user_id">Salesperson</option>
+                                       <option data-name="service_id">Service Center</option>
+                                       <option data-name="partner_share">Share Partner</option>
+                                       <option data-name="signup_expiration">Signup Expiration</option>
+                                       <option data-name="signup_token">Signup Token</option>
+                                       <option data-name="signup_type">Signup Token Type</option>
+                                       <option data-name="standalone_acc_no">Standalone Account Numbers</option>
+                                       <option data-name="state_id">State</option>
+                                       <option data-name="state">State</option>
+                                       <option data-name="picking_warn">Stock Picking</option>
+                                       <option data-name="street">Street</option>
+                                       <option data-name="street_name">Street</option>
+                                       <option data-name="street2">Street2</option>
+                                       <option data-name="supply_type">Supply Type</option>
+                                       <option data-name="surname">Surname</option>
+                                       <option data-name="tariff_code">Tariff Code</option>
+                                       <option data-name="tariff_name">Tariff Name</option>
+                                       <option data-name="tz">Timezone</option>
+                                       <option data-name="title">Title</option>
+                                       <option data-name="transformer_id">Transformer</option>
+                                       <option data-name="transformer_code">Transformer Code</option>
+                                       <option data-name="website_published">Visible in Website</option>
+                                       <option data-name="website">Website</option>
+                                       <option data-name="website_meta_keywords">Website meta keywords</option>
+                                       <option data-name="website_meta_title">Website meta title</option>
+                                       <option data-name="zip">Zip</option>
+                                       <option data-name="illegal">illegal Customer</option>
+                                       <option data-name="mc_customer">is MC Customer?</option>
+                                    </select>
+                                 </li>
+                                 <li>
+                                    <button class="btn btn-primary btn-sm o_add_group o_select_group" type="button">Apply</button>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-star"></span><span class="hidden-xs"> Favorites <span class="caret"></span></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right o_favorites_menu" role="menu">
+                                 <li class="divider user_filter"></li>
+                                 <li class="o-searchview-custom-public"><a href="http://74.208.168.47:8069/web#">222</a><span class="fa fa-trash-o o-remove-filter"></span></li>
+                                 <li class="o-searchview-custom-public"><a href="http://74.208.168.47:8069/web#">CUSTOMERS FEEDER 1 FEB 10</a><span class="fa fa-trash-o o-remove-filter"></span></li>
+                                 <li class="o-searchview-custom-public"><a href="http://74.208.168.47:8069/web#">DEL</a><span class="fa fa-trash-o o-remove-filter"></span></li>
+                                 <li class="o-searchview-custom-public"><a href="http://74.208.168.47:8069/web#">vv</a><span class="fa fa-trash-o o-remove-filter"></span></li>
+                                 <li class="divider shared_filter" style="display: list-item;"></li>
+                                 <li class="o_save_search o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Save current search</a>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <input type="text">
+                                 </li>
+                                 <li class="o_save_name">
+                                    <span>
+                                       <div class="o_checkbox"><input type="checkbox"><span></span></div>
+                                       Use by default
+                                    </span>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <span>
+                                       <div class="o_checkbox"><input type="checkbox"><span></span></div>
+                                       Share with all users 
+                                    </span>
+                                    <span class="fa fa-users"></span>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <button class="btn btn-primary btn-sm" type="button">Save</button>
+                                 </li>
+                                 <li><a class="add-to-spreadsheet">Add to Google Spreadsheet</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="o_cp_pager">
+                           <div>
+                              <span class="o_pager_counter">
+                              <span class="o_pager_value">2</span> / <span class="o_pager_limit">80</span>
+                              </span>
+                              <span class="btn-group btn-group-sm">
+                              <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              </span>
+                           </div>
+                        </div>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons o_hidden"></div>
+                     </div>
+                  </div>
+                  <div class="o_content">
+                     <div class="o_view_manager_content">
+                        <div>
+                           <div class="o_form_view o_form_editable">
+                              <div class="o_form_sheet_bg">
+                                 <div class="o_form_statusbar">
+                                    <div class="o_statusbar_buttons">
+                                    <button  id='valuelist'  data-color="10" data-id="22" data-index="0"  class="btn badge btn-sm btn-default oe_highlight"></button>
+                                    {% comment %} <button class="btn btn-sm btn-default oe_highlight">Juice Transactions</button>
+                                    <button class="btn btn-sm btn-default oe_highlight">Update Juice Feeder|Transformer</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Others</button><button class="btn btn-sm btn-default oe_highlight">Get KeyChange</button><button class="btn btn-sm btn-default oe_highlight">Free Issue</button><button class="btn btn-sm btn-default oe_highlight">Set Max Power</button><button class="btn btn-sm btn-default oe_highlight">Juice Account</button><button class="btn btn-sm btn-default oe_highlight">Juice Meter Assign</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Tariff</button> {% endcomment %}
+                                    </div>
+                                 </div>
+                                 <div class="o_form_sheet">
+                                    <div class="o_not_full oe_button_box">
+                                    <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-calendar"></div>
+                                          <div name="meeting_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">Unsuccessful</span>
+                                             <span class="o_stat_text">Lunched Web.</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button o_res_partner_tip_opp">
+                                          <div class="fa fa-fw o_button_icon fa-star"></div>
+                                          <div name="opportunity_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">successfully</span>
+                                             <span class="o_stat_text">Lunched Web.</span>
+                                          </div>
+                                       </button>
+                                       
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-globe"></div>
+                                          <div class="o_stat_info published o_field_widget" name="website_published">
+                                             <span class="o_stat_text o_value text-secondry">Developing..</span>
+                                             <span class="o_stat_text">Stage- Web</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-usd"></div>
+                                          <div name="sale_order_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE FIVE</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-book"></div>
+                                          <div name="contracts_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE FOUR</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button"style="background:#fff"> 
+                                          <div class="fa fa-fw o_button_icon fa-archive"></div>
+                                          <div class="o_stat_info o_field_widget" name="active">
+                                          <span class="o_stat_text o_not_hover text-success">STAGE THREE</span><span class="o_stat_text o_hover text-danger">STAGE THREE</span></div>
+                                       </button>
+                                      
+                                     
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-pencil-square-o"></div>
+                                          <div class="o_form_field o_stat_info"><span class="o_stat_value">
+                                          <span class="o_field_monetary o_field_number o_field_widget o_readonly_modifier" name="invoice_paid_amount" data-original-title="" title=""></span></span><span class="o_stat_text">STAGE TWO</span></div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button oe_inline">
+                                          <div class="fa fa-fw o_button_icon fa-ticket"></div>
+                                          <div name="support_ticket_string" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE ONE</span>
+                                          </div>
+                                       </button>
+                                    </div>
+
+
+                  <form method="POST" action="" enctype="multipart/form-data" onsubmit="return submitForm(this);">
+                     {% csrf_token %}
+                     <div class="o_control_panel">
+                     <div class="a_cp_top">
+                        <ol class="breadcrumb">
+                           <li class="active">Apps</li>
+                        </ol>
+                        <div class="o_cp_searchview">
+                           <div class="o_searchview">
+                              <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+                              <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
+                              <div class="o_searchview_facet" tabindex="0">
+                                 <span class="fa fa-filter o_searchview_facet_label"></span>
+                                 <div class="o_facet_values"><span>
+                                    Apps
+                                    </span>
+                                 </div>
+                                 
+                              </div>
+                              <input class="o_searchview_input" id="q" name="q" placeholder="Search..." type="text">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="a_cp_bottom">
+                        <div class="btn-group o_search_options">
+                           <button accesskey="c" class="btn btn-default btn-sm o_form_button_create" type="submit">
+                                 submit
+                                 </button>
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-bars"></span>
+                              <span class="hidden-xs">
+                              Make A request
+                              <span class="caret"></span></span>
+                              </button>
+                                <ul class="dropdown-menu" role="menu">
+                                 {% comment %} <form class="o_form_binary_form" enctype="multipart/form-data" method="post" action="" target="oe_fileupload486"> {% endcomment %}
+                                    <li class="o_sidebar_add_attachment">
+                                       <div class="o_hidden_input_file ">
+                                         
+                                             <input class="o_input_file" name="ufile" type="file" multiple="multiple">
+                                          
+                                         
+                                          <iframe id="oe_fileupload486" name="oe_fileupload486" src="./042 RESTAURANT - ENUGUDISCO_files/saved_resource.html"></iframe>
+                                       </div>
+                                    </li>
+                                 
+                                 <li class="divider" style="display: list-item;"></li>
+                                 <li class="o_add_custom_group o_closed_menu">
+                                   <center> <button type="submit" style="padding:5px">Send app request</button></center>
+                                 </li>
+                                
+                                  {% comment %} </form> {% endcomment %}
+                              </ul>
+                           </div>
+                           <div class="btn-group o_dropdown">
+                              {% comment %} <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-star"></span><span class="hidden-xs"> Favorites <span class="caret"></span></span>
+                              </button> {% endcomment %}
+                              <ul class="dropdown-menu dropdown-menu-right o_favorites_menu" role="menu">
+                                 <li class="divider user_filter"></li>
+                                 <li class="divider shared_filter"></li>
+                                 <li class="o_save_search o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Save current checked</a>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <input type="text">
+                                 </li>
+                                 <li class="o_save_name">
+                                    <span>
+                                       <div class="o_checkbox"><input type="checkbox"><span></span></div>
+                                       Use by default
+                                    </span>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <span>
+                                       <div class="o_checkbox"><input type="checkbox"><span></span></div>
+                                       Share with all users 
+                                    </span>
+                                    <span class="fa fa-users"></span>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <button class="btn btn-primary btn-sm" type="button">Save</button>
+                                 </li>
+                                 <li><a class="add-to-spreadsheet">View all my Favorites</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="o_cp_pager">
+                           <div>
+                              <span class="o_pager_counter">
+                              <span class="o_pager_value">50</span> / <span class="o_pager_limit">50</span>
+                              </span>
+                              <span class="btn-group btn-group-sm">
+                              <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              </span>
+                           </div>
+                        </div>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons"><button type="button" accesskey="k" aria-label="kanban" data-view-type="kanban" title="" class="btn btn-icon fa fa-lg fa-th-large o_cp_switch_kanban active" data-original-title="Kanban"></button>
+                           {% comment %} <button type="button" accesskey="l" aria-label="list" data-view-type="list" title="" class="btn btn-icon fa fa-lg fa-list-ul o_cp_switch_list" data-original-title="List"></button> {% endcomment %}
+                        </div>
+                     </div>
+                     </div>
+
+
+
+
+
+
+                     <div class="o_view_manager_content">
+                        <div class="o_cannot_create">
+                           <div class="o_kanban_view o_kanban_ungrouped">
+                        
+                           {% for n in tags %}
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="{{n.Image.url}}">
+                                 <div class="oe_module_desc" modifiers="{}" title="Assets">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>{{n.title}}</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>{{n.discription}}</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>{{n.tag}}</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" type="button">
+                                       <input type="checkbox" class="check" name="file" placeholder="{{n.title}}" value="{{n.id}}" id="checkbox"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                           {% endfor %}
+                              {% comment %} <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(1).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Product on Asset Depreciation Expense">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Product on Asset Depreciation Expense</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>assets_depreciation_partner</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(2).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Product Category Company Parameter">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Product Category Company Parameter</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>product_category_company_parameter</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(3).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Url Access Restriction">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Url Access Restriction</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>Module Use of Url Access Restriction</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>url_access_restriction</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(4).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Print Bank Statement">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Print Bank Statement</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>This App will Add Print Option in Cash/Bank Statement</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>de_print_bank_statement</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(5).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Employee Advance Expenses Request">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Employee Advance Expenses Request</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>
+                                       Apps will manage Employee Advance Expenses request flow
+                                       </span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>dev_advance_expenses</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(6).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Employee Age">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Employee Age</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>Apps will help to add Employee Age on Employee screen</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>dev_employee_age</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(7).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Employee Profile Report">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Employee Profile Report</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>Employee profile report</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>dev_employee_profile</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(8).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Hr Expense sheet  Uniq Number">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Hr Expense sheet  Uniq Number</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>odoo app will add unique number for each hr expense sheet</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>dev_hr_expense_sheet_number</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(9).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Birthday Wishes">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Birthday Wishes</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>Birthday Wishes for Employee, Customer</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>fl_birthday_wish</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(10).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Purchase Dashboard">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Purchase Dashboard</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>Manage Purchase Dashboard By User</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>gyb_purchase_dashboard</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(11).png">
+                                 <div class="oe_module_desc" modifiers="{}" title="Purchase Amendment">
+                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Purchase Amendment</span></h4>
+                                    <p class="oe_module_name" modifiers="{}">
+                                       <span>Purchase Amendment</span><br modifiers="{}">
+                                    </p>
+                                    <div class="oe_module_action" modifiers="{}">
+                                       <code modifiers="{}"><small modifiers="{}"><span>purchase_amendment</span></small></code>
+                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
+                                    </div>
+                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                                    </div>
+                                 </div>
+                              </div> {% endcomment %}
+                           
+                              <div class="o_kanban_record o_kanban_ghost"></div>
+                              <div class="o_kanban_record o_kanban_ghost"></div>
+                              <div class="o_kanban_record o_kanban_ghost"></div>
+                              <div class="o_kanban_record o_kanban_ghost"></div>
+                              <div class="o_kanban_record o_kanban_ghost"></div>
+                              <div class="o_kanban_record o_kanban_ghost"></div>
+                           </div>
+                        </div>
+                        </div>
+                     </form>
+
+                           </div>
+                        </div>
+                     </div>
+                     </div>
+                   
+               </div>
+            </div>
+         </div>
+         <div class="o_notification_manager"></div>
+         <div class="o_loading"></div>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-4" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-5" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-6" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-7" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-8" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-9" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-10" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-11" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-12" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-13" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-14" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-15" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-16" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-17" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-18" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-19" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-20" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-21" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-22" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-23" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-24" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-25" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-26" tabindex="0" style="display: none;"></ul>
+         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+   
+
+    </div>
+   <script>
+     $('#submitq').on('click', function () {
+        if ($(this).closest('form').find('.check-valid').not('.is-valid').length > 0) {
+            $(this).closest('form').addClass('was-validated').find('.global-alert').removeClass('d-none');
+            setTimeout(function () {
+                $('.global-alert').addClass('d-none');
+            }, 3000)
+        } else {
+            $(this).closest('form').find('.global-success').removeClass('d-none');
+            $(this).closest('form').find('.global-alert').addClass('d-none');
+            setTimeout(function () {
+                // e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url:"/kwebify/formsubmit",
+                    data: {
+                        q: $('#q').val(),
+                        file: $('#file').val(),
+                        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                    },
+                    success: function (respons){
+                        if (respons == "Success! Your Account was created succefully"){
+                            alert(respons)
+                            $('form').find('.global-success').removeClass('d-none');
+                            $('form').find('.global-alert').addClass('d-none');
+                            window.location.replace("/Verify-otp");
+                        } else {
+                            alert(respons);
+                            $('form').find('.check-valid').not('.is-valid').length > 0
+                            $('form').find('.global-alert').removeClass('d-none');
+                        };
+                    },
+                })
+            }, 2000)
+        }
+    })
+
+
+   const search = document.querySelector("#q");
+
+   search.addEventListener("keyup", (e) =>{
+      const serchvalue = e.target.value;
+
+      if (serchvalue.trim().length > 0){
+         fetch("/kwebify/formsubmit",{
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            body:JSON.stringify({ searchText: q }),
+            method:"POST",
+         })
+         .then((res) => res.json())
+         .then((data) => {
+            console.log("data",data)
+         });
+      }
+   });
+   
+   </script>
+    {% endblock content %}

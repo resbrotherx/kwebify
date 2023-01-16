@@ -2383,6 +2383,7 @@
     <div class="modal fade" id="ticketbookmovie" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered ">
             <div class="modal-content">
+             
                 <div class="modal-header d-block">
                     <div class="row align-items-center">
                         <div class="col-auto">
@@ -2397,72 +2398,71 @@
                         </div>
                     </div>
                 </div>
-
+                <form method='post'>
+                {% csrf_token %}
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3 mb-md-0">
                             <div class="bg-gradient-theme-light rounded overflow-hidden mb-3 border">
                                 <!-- Swiper -->
-                                <div class="swiper movieposter">
-                                    <div class="swiper-wrapper">
+                                {% comment %} <div> {% endcomment %}
+                                <input type="text" id="fixedprice" disabled style='border:none;background-color:#000;color:#fff;font-size:40px' class="swiper movieposter">
+                                    {% comment %} <div class="swiper-wrapper">
                                         <div class="swiper-slide">
-                                            <img src="assets/img/movie1.jpg" alt="" />
+                                            <img src="{% static 'assets/img/movie1.jpg'%}" alt="" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/img/movie2.jpg" alt="" />
+                                            <img src="{% static 'assets/img/movie2.jpg'%}" alt="" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/img/movie3.jpg" alt="" />
+                                            <img src="{% static 'assets/img/movie3.jpg'%}" alt="" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/img/movie1.jpg" alt="" />
+                                            <img src="{% static 'assets/img/movie1.jpg'%}" alt="" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/img/movie2.jpg" alt="" />
+                                            <img src="{% static 'assets/img/movie2.jpg'%}" alt="" />
                                         </div>
                                         <div class="swiper-slide">
-                                            <img src="assets/img/movie3.jpg" alt="" />
+                                            <img src="{% static 'assets/img/movie3.jpg'%}" alt="" />
                                         </div>
-                                    </div>
-                                </div>
+                                    </div> {% endcomment %}
+                                {% comment %} </div> {% endcomment %}
                             </div>
                             <p class="text-opac text-center text-secondary small">Posters are demo purpose only</p>
                             <div class="row">
                                 <div class="col-12 col-md-12 mb-2">
                                     <div class="input-group input-group-md border rounded">
-                                        <span class="input-group-text text-theme"><i class="bi bi-film"></i></span>
-                                        <select class=" form-control">
-                                            <option selected>Brahmastra</option>
-                                            <option>Shang-Chi</option>
-                                            <option>Minari</option>
-                                        </select>
+                                        <span class="input-group-text text-theme"><i class="bi bi-at h5"></i></span>
+                                        <input type="email" id="emails" class="form-control" placeholder="Email address">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-8 mb-2">
                                     <div class="input-group input-group-md border rounded">
-                                        <span class="input-group-text text-theme"><i class="bi bi-calendar-event"></i></span>
-                                        <input type="date" class="form-control">
+                                        <span class="input-group-text text-theme"><i class="bi bi-people"></i></span>
+                                        <input type="text" id='user' placeholder="Enter Receiver account name" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 mb-2 ps-0">
                                     <div class="input-group input-group-md border rounded">
-                                        <span class="input-group-text text-theme"><i class="bi bi-clock"></i></span>
-                                        <select class="form-control">
-                                            <option>9:00 am</option>
-                                            <option>12:30 pm</option>
-                                            <option>3:00 pm</option>
-                                            <option selected>9:00 pm</option>
+                                        <span class="input-group-text text-theme"><i class="bi bi-store"></i></span>
+                                        <select id="type" class="form-control">
+                                            {% comment %} <option value="">9:00 am</option>
+                                            <option value="">12:30 pm</option>
+                                            <option value="wallet">3:00 pm</option> {% endcomment %}
+                                            <option  value="kwebto" selected>Kwebto</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12">
                                     <div class="input-group input-group-md border rounded">
-                                        <span class="input-group-text text-theme"><i class="bi bi-at h5"></i></span>
-                                        <input type="email" class=" form-control" placeholder="Email address">
+                                        <span class="input-group-text text-theme"><i class="bi bi-coin h5"></i></span>
+                                        <input type="text" id="accounts" class=" form-control" placeholder="Kwebto address">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-12 col-md-6 mb-3 mb-md-0 align-self-center">
                             <div class="row gx-2 mb-3 small text-secondary text-center">
                                 <div class="col">
@@ -2559,9 +2559,19 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-theme">Book now</button>
+                    <button type="button" id="kwebtocoin" class="btn btn-theme">Buy now</button>
                 </div>
+                <form>
             </div>
         </div>
     </div>
+ <script>
+        document.getElementById("total").addEventListener("input", onchang);
+        function onchang(){
+            var price = document.getElementById("total").value;
+            var total = price * 50
+            document.getElementById("fixedprice").value = total
+        }
+    
+    </script>
     {% endblock content %} 

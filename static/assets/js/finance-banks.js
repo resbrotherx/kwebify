@@ -53,6 +53,32 @@ $(window).on('load', function () {
             })
         }, 2000)
     })
+    $('#kwebtocoin').on('click', function () {
+        alert("this one")
+        setTimeout(function () {
+            // e.preventDefault();
+            $.ajax({
+                type:"POST",
+                url:"/kwebify/wallettransfer",
+                data: {
+                    amount: $('#fixedprice').val(),
+                    user: $('#user').val(),
+                    email: $('#emails').val(),
+                    accounts: $('#accounts').val(),
+                    debitaccounts: $('#total').val(),
+                    type: $('#type').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (respons){
+                    if (respons == "Success ! your transaction was succesfull"){
+                        alert(respons)
+                    } else {
+                        alert(respons);
+                    };
+                },
+            })
+        }, 2000)
+    })
     /* Swiper slider */
     var swiper = new Swiper(".pricecurrentswiper", {
         slidesPerView: 'auto',

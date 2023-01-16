@@ -7,6 +7,7 @@ from users import views as view
 from users.forms import UserLoginForm
 # from crpyto.views import index
 # , authentication_form=UserLoginForm)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),

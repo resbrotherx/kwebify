@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 from PIL import Image
 # Create your models here.
 class Userinfo(models.Model):
+	MODE_CHOICES = (('developer','developer'), ('enterprice',"enterprice"))
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	country = models.CharField(max_length=500)
 	date = models.DateTimeField(auto_now=True)
 	bvn = models.CharField(max_length=12)
+	creation_mode = models.CharField(max_length=400, choices=MODE_CHOICES, default='developer')
 	acc_verified = models.BooleanField(default=False)
 
 	def __str__(self):

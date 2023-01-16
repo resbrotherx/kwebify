@@ -1,0 +1,828 @@
+  {% extends 'kwabify/UserDashboard/base.html' %}
+ {% load static %}            
+     {% block content %} 
+  <main class="main mainheight">
+        <div class="container-fluid">
+            <div class="row align-items-center page-title">
+                <div class="col-12 col-md mb-2 mb-sm-0">
+                    <h5 class="mb-0">Forum</h5>
+                    <p class="text-secondary">Lets make it open environment to get helped</p>
+                </div>
+                <div class="col col-sm-auto">
+                    <div class="input-group input-group-md">
+                        <input type="text" class="form-control bg-none px-0" value="" id="titlecalendar" />
+                        <span class="input-group-text text-secondary bg-none" id="titlecalandershow"><i class="bi bi-calendar-event"></i></span>
+                    </div>
+                </div>
+                <div class="col-auto ps-0">
+                    <div class="dropdown d-inline-block">
+                        <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" href="#" role="button" id="filterintitle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <i class="bi bi-filter"></i>
+                        </a>
+                        <div class="dropdown-menu w-300" aria-labelledby="filterintitle">
+                            <div class="dropdown-item">
+                                <div class="input-group input-group-md border rounded">
+                                    <span class="input-group-text text-theme"><i class="bi bi-box"></i></span>
+                                    <select class="form-control" id="titltfilterlist" multiple>
+                                        <option value="San Francisco">San Francisco</option>
+                                        <option value="New York">New York</option>
+                                        <option value="London">London</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="India" selected>India</option>
+                                        <option value="Sydney">Sydney</option>
+                                        <option value="Seattle">Seattle</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="India">India</option>
+                                    </select>
+                                </div>
+                                <div class="invalid-feedback">You have already selected maximum option allowed. (This is Configurable)</div>
+                            </div>
+                            <div class="dropdown-item">
+                                <h6 class="mb-0">Orders:</h6>
+                                <p class="text-secondary small">1256 orders last week</p>
+                            </div>
+                            <ul class="list-group list-group-flush bg-none mb-2">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col">Online Orders</div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="titleswitch1">
+                                                <label class="form-check-label" for="titleswitch1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col">Offline Orders</div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="titleswitch2" checked="">
+                                                <label class="form-check-label" for="titleswitch2"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dropdown-item">
+                                <div class="row">
+                                    <div class="col"><button class="btn btn-outline-secondary border">cancel</button></div>
+                                    <div class="col-auto">
+                                        <button class="btn btn-theme">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="help-center.html" class="btn btn-link btn-square text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Support">
+                        <i class="bi bi-life-preserver"></i>
+                    </a>
+                    <a href="personalization.html" class="btn btn-link btn-square text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Personalize">
+                        <i class="bi bi-palette"></i>
+                    </a>
+                    <a href="app-pricing.html" class="btn btn-link btn-square text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Buy this">
+                        <span class="bi bi-basket position-relative">
+                            <span class="position-absolute top-0 start-100 p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <nav aria-label="breadcrumb" class="breadcrumb-theme">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="home.html">WinDOORS</a></li>
+                        <li class="breadcrumb-item"><a href="company-profile.html">Company</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Forum</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <!-- Banner title -->
+            <div class="row mb-4 py-3 py-xl-4 align-items-center justify-content-center vh-50 bg-gradient-theme-light">
+                <div class="col-12 col-md-10 col-lg-8 col-xl-6 col-xxl-5 text-center">
+                    <h1>The Place to find <span class="text-gradient">The right answers</span> of your questions.</h1>
+                    <p class="text-secondary mb-4 mb-md-5">Ask questions, Build network, Connect with same tastes people, share your ideas and help other people by helping, votes and give advices.</p>
+                    <button class="btn btn-theme">Join Community <i class="bi bi-chevron-right"></i></button> <button class="btn btn-link ms-2">Watch Demo <i class="bi bi-camera-reels"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <!-- search -->
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="card-body p-1">
+                            <div class="input-group">
+                                <span class="input-group-text text-theme"><i class="bi bi-search"></i></span>
+                                <input class="form-control" type="search" placeholder="Search your query here...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-theme me-2">Ask Query</button>
+                    <button class="btn btn-theme">Write Post</button>
+                </div>
+            </div>
+
+            <!-- summary of community -->
+            <div class="row ">
+                <div class="col-12 col-md-12 col-lg-6 col-xl-3 mb-4">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 rounded-circle bg-purple shadow-sm text-white">
+                                        <i class="bi bi-people h4"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fw-medium">100+ million</h4>
+                                    <p class="small text-secondary mb-1">Monthly visitors & Words Exchanged</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-3 mb-4">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 rounded-circle bg-orange shadow-sm text-white">
+                                        <i class="bi bi-life-preserver h4"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fw-medium">45.1+ billion</h4>
+                                    <p class="small text-secondary mb-1">People get helps and queries solved</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-3 mb-4">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 rounded-circle bg-green shadow-sm text-white">
+                                        <i class="bi bi-patch-check h4"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fw-medium">101% ROI</h4>
+                                    <p class="small text-secondary mb-1">Customer used our premium product features</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-6 col-xl-3 mb-4">
+                    <div class="card border-0">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 rounded-circle bg-theme shadow-sm text-white">
+                                        <i class="bi bi-globe h4 mb-0"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <h4 class="fw-medium">1000</h4>
+                                    <p class="small text-secondary mb-1">Average new web application build per month.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter -->
+            <div class="row align-items-center mb-4">
+                <div class="col">
+                    <h6>{{count}} questions</h6>
+                </div>
+                <div class="col-auto">
+                    <span class="me-2">Sort by:</span>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="Filter toggle">
+                        <input type="radio" name="filterbox" class="btn-check" id="btncheck1filter" checked>
+                        <label class="btn btn-outline-theme" for="btncheck1filter">Newest</label>
+
+                        <input type="radio" name="filterbox" class="btn-check" id="btncheck2filter">
+                        <label class="btn btn-outline-theme" for="btncheck2filter">Active</label>
+
+                        <input type="radio" name="filterbox" class="btn-check" id="btncheck3filter">
+                        <label class="btn btn-outline-theme" for="btncheck3filter">Unanswered</label>
+
+                        <input type="radio" name="filterbox" class="btn-check" id="btncheck4filter">
+                        <label class="btn btn-outline-theme" for="btncheck4filter">Top Rated</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- questions and answer-->
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-9 col-xl-9">
+                   
+                   
+                    {% comment %}<div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-3">
+                                <div class="col">
+                                    <h4><a href="forum-details.html">How to create admin dashboard for Finance Application?</a></h4>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical vm"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end ">
+                                            <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                            <li><a class="dropdown-item" href="#">Report</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="col px-0">
+                                    <p class="small text-secondary mb-0">Asked by</p>
+                                    <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                                </div>
+                            </div>
+                            <p class="text-secondary">You can easily find template for UI with best customize facility named "GetWinDOORS". WinDOORS just because every home with windows needs door. everWhen you get older many people will listen you carefully, no matter if its correct discussion or not.</p>
+                            <p>
+                                <span class="tag bg-light-theme theme-green me-1 mt-1">Support</span>
+                                <span class="tag bg-light-theme theme-red me-1 mt-1">Development</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="btn btn-outline-theme theme-red btn-square rounded-circle">
+                                        <i class="bi bi-heart h5"></i>
+                                    </div>
+                                </div>
+                                <div class="col-auto ps-0">
+                                    <p class="text-secondary small mb-0">Liked by</p>
+                                    <p>1.2k</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-3.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col ps-0">
+                                    <p class="text-secondary small mb-0">Answered by</p>
+                                    <p>9+</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Views</p>
+                                    <p class="mb-0">152</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Watching</p>
+                                    <p class="mb-0">256</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-theme btn-md" href="#">Answer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                     <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-3">
+                                <div class="col">
+                                    <h4><a href="forum-details.html">Couldn't access my whatsapp on my laptop. Can anyone help me?</a></h4>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical vm"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end ">
+                                            <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                            <li><a class="dropdown-item" href="#">Report</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="col px-0">
+                                    <p class="small text-secondary mb-0">Asked by</p>
+                                    <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                                </div>
+                            </div>
+                            <p class="text-secondary">You can easily find template for UI with best customize facility named "GetWinDOORS". WinDOORS just because every home with windows needs door. everWhen you get older many people will listen you carefully, no matter if its correct discussion or not.</p>
+                            <p>
+                                <span class="tag bg-light-theme theme-purple me-1 mt-1">Computer</span>
+                                <span class="tag bg-light-theme theme-yellow me-1 mt-1">General</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="btn btn-outline-theme theme-red btn-square rounded-circle active">
+                                        <i class="bi bi-heart h5"></i>
+                                    </div>
+                                </div>
+                                <div class="col-auto ps-0">
+                                    <p class="text-secondary small mb-0">Liked by</p>
+                                    <p>1.2k</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-3.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col ps-0">
+                                    <p class="text-secondary small mb-0">Answered by</p>
+                                    <p>2+</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Views</p>
+                                    <p class="mb-0">152</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Watching</p>
+                                    <p class="mb-0">256</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-theme btn-md" href="#">Answer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                    {% for i in forum %}
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-3">
+                                <div class="col">
+                                    <h4><a href="{{i.get_absolute_url }}">{{i.title}}</a></h4>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical vm"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end ">
+                                            <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                            <li><a class="dropdown-item" href="#">Report</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                                        <img src="{{i.user.profile.image.url}}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="col px-0">
+                                    <p class="small text-secondary mb-0">Asked by</p>
+                                    <p class="mb-0">{{i.user}} <small class="text-secondary"> {{i.date_created}} ago</small></p>
+                                </div>
+                            </div>
+                            <p class="text-secondary">{{i.discription}}</p>
+                            <p>
+                            {% for o in i.tags.all %}
+                                {% comment %}<span class="tag bg-light-theme theme-teal me-1 mt-1">Environment</span> {% endcomment %}
+                                <span class="tag bg-light-theme theme-cyan me-1 mt-1">{{o.name}}</span>
+                            {% endfor %}
+                                {% comment %} <span class="tag bg-light-theme theme-cyan me-1 mt-1">Environment</span> {% endcomment %}
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="btn btn-outline-theme theme-red btn-square rounded-circle">
+                                        <i class="bi bi-heart h5"></i>
+                                    </div>
+                                </div>
+                                <div class="col-auto ps-0">
+                                    <p class="text-secondary small mb-0">Liked by</p>
+                                    <p>1.2k</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-3.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col ps-0">
+                                    <p class="text-secondary small mb-0">Answered by</p>
+                                    <p>3+</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Views</p>
+                                    <p class="mb-0">152</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Watching</p>
+                                    <p class="mb-0">256</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-theme btn-md" href="#">Answer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% comment %} <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-3">
+                                <div class="col">
+                                    <h4><a href="forum-details.html">Raja Ravi Varma is not king and don't have any kingdom. Why he called Raja(King)?</a></h4>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical vm"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end ">
+                                            <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                            <li><a class="dropdown-item" href="#">Report</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="col px-0">
+                                    <p class="small text-secondary mb-0">Asked by</p>
+                                    <p class="mb-0">Madhuvani <small class="text-secondary">10 hr ago</small></p>
+                                </div>
+                            </div>
+                            <p class="text-secondary">You can easily find template for UI with best customize facility named "GetWinDOORS". WinDOORS just because every home with windows needs door. everWhen you get older many people will listen you carefully, no matter if its correct discussion or not.</p>
+                            <p>
+                                <span class="tag bg-light-theme theme-pink me-1 mt-1">Art</span>
+                                <span class="tag bg-light-theme theme-orange me-1 mt-1">History</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="btn btn-outline-theme theme-red btn-square rounded-circle">
+                                        <i class="bi bi-heart h5"></i>
+                                    </div>
+                                </div>
+                                <div class="col-auto ps-0">
+                                    <p class="text-secondary small mb-0">Liked by</p>
+                                    <p>1.2k</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-3.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col ps-0">
+                                    <p class="text-secondary small mb-0">Answered by</p>
+                                    <p>9+</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Views</p>
+                                    <p class="mb-0">152</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Watching</p>
+                                    <p class="mb-0">256</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-theme btn-md" href="#">Answer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-3">
+                                <div class="col">
+                                    <h4><a href="forum-details.html">Which the best template for Admin and Dashboard Application?</a></h4>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link text-secondary dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical vm"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end ">
+                                            <li><a class="dropdown-item" href="#">Hide from Timeline</a></li>
+                                            <li><a class="dropdown-item" href="#">Report</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto">
+                                    <figure class="avatar avatar-40 rounded-circle coverimg vm">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </figure>
+                                </div>
+                                <div class="col px-0">
+                                    <p class="small text-secondary mb-0">Asked by</p>
+                                    <p class="mb-0">David Warner <small class="text-secondary">1 hr ago</small></p>
+                                </div>
+                            </div>
+                            <p class="text-secondary">You can easily find template for UI with best customize facility named "GetWinDOORS". WinDOORS just because every home with windows needs door. everWhen you get older many people will listen you carefully, no matter if its correct discussion or not.</p>
+                            <p>
+                                <span class="tag bg-light-theme theme-green me-1 mt-1">Support</span>
+                                <span class="tag bg-light-theme theme-red me-1 mt-1">Development</span>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="btn btn-outline-theme theme-red btn-square rounded-circle active">
+                                        <i class="bi bi-heart h5"></i>
+                                    </div>
+                                </div>
+                                <div class="col-auto ps-0">
+                                    <p class="text-secondary small mb-0">Liked by</p>
+                                    <p>30.2k</p>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-2.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-3.jpg" alt="">
+                                    </div>
+                                    <div class="avatar avatar-44 coverimg rounded-circle me-1">
+                                        <img src="assets/img/user-4.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col ps-0">
+                                    <p class="text-secondary small mb-0">Answered by</p>
+                                    <p>9+</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Views</p>
+                                    <p class="mb-0">152</p>
+                                </div>
+                                <div class="col-auto text-center">
+                                    <p class="small text-secondary mb-0">Watching</p>
+                                    <p class="mb-0">256</p>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="btn btn-theme btn-md" href="#">Answer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 col-xl-3">
+                    <div class="card border-0 bg-gradient-theme-light theme-purple mb-4">
+                        <div class="card-header border-bottom">
+                            <h6>Featured Questions</h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush bg-none">
+                                {% for futured in futured %}
+                                <a href="forum-details.html" class="list-group-item list-group-item-action">{{futured.title}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- advertisement -->
+                    <p class="text-secondary text-center small">Advertisement</p>
+                    <div class="card border-0 overflow-hidden mb-4">
+                        <div class="row mx-0">
+                            <div class="col-6 pe-0 bg-theme text-white half-circle-vertical text-center py-4 z-index-1">
+                                <div class="position-relative">
+                                    <h4 class="mb-2">15% OFF</h4>
+                                    <p class="text-muted small mb-3">Price including with our launch offer get 5% Extra</p>
+                                    <button class="copy-text btn btn-sm btn-rounded btn-outline-dashed text-white border-white">GOREELLAUNCH</button>
+                                </div>
+                            </div>
+                            <div class="col-6 position-relative">
+                                <figure class="coverimg position-absolute w-100 h-100 start-0 top-0 m-0">
+                                    <img src="assets/img/news-3.jpg" class="mw-100" alt="" />
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="title">Trending Tags</h6>
+                    <div>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Android</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">iOS</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Windows11</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Fluent ui</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Win UI</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Template</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Dashboard</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Bootstrap</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Angular admin</a>
+                        <a href="#" class="tag bg-light-theme me-1 my-1">Free Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container-fluid footer-page mt-4 py-5">
+            <div class="row mb-5">
+                <div class="col-12 col-xxl-11 mx-auto">
+                    <div class="row">
+                        <div class="col-12 col-xxl-4 mb-5 mb-xxl-0">
+                            <h2 class="mb-3"><span class="text-gradient">#1 Creative</span> &<br /><span class="text-gradient">Multipurpose</span> HTML Template</h2>
+                            <h5 class="mb-4">Clean & Trending UI design with<br />a great user experience</h5>
+                            <p class="text-secondary">WinDOORS is creative and multipurpose template. You can use it for CRM, Business application, Intranet Application, Portal service and Many more.
+                                It comes with unlimited possibilities and 10+ predefined styles which you can also mix up and create new style. Do support and spread a word for us. </p>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-xxl-2 ms-xxl-auto mb-5 mb-md-0">
+                            <h5 class="mb-3">Main <span class="text-gradient">Dashboards</span></h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="finance-dashboard.html">Finance</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="network-dashboard.html">Network</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="inventory-dashboard.html">Inventory</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="social-dashboard.html">Social</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="project-dashboard.html">Project</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="learning-dashboard.html">Learning</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4 col-xxl-2 mb-5 mb-md-0">
+                            <h5 class="mb-3">Creative <span class="text-gradient">Pages</span></h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="app-calendar.html">Calendar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="app-email.html">Email</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="app-explorer.html">Explorer</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="app-support.html">We need Support <i class="bi bi-heart-fill text-red"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-0" href="app-pricing.html" target="_blank">Buy Now <i class="bi bi-arrow-up-right-square"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-4 col-xxl-3">
+                            <a class="navbar-brand d-block mb-3" href="../index.html" target="_blank">
+                                <div class="row">
+                                    <div class="col-auto"><img src="assets/img/favicon48.png" class="mx-100" alt="" /></div>
+                                    <div class="col ps-0 align-self-center d-none d-sm-block">
+                                        <h4 class="fw-normal text-dark mb-0">WinDOORS</h4>
+                                        <p class="text-secondary">Admin App UI</p>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <p class="mb-2"><b>Main office:</b></p>
+                            <p class="mb-1"><a href="../index.html" target="_blank">www.getWinDOORS.com</a></p>
+                            <p class="mb-4 text-secondary">Test data 103909 Witamer CR, Niagara Falls, NY 14305, United States</p>
+
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto"><i class="bi bi-clock text-theme"></i></div>
+                                <div class="col ps-0">0441-215-518625<br /><span class="text-secondary">Mon - Sat, 9:00 am - 10:00pm</span></div>
+                            </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-auto"><i class="bi bi-telephone text-theme"></i></div>
+                                <div class="col ps-0">+1-000 000 100000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-xxl-11 mx-auto">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-auto mb-4 mb-md-0">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link text-secondary" href="https://www.facebook.com/maxartkiller/" target="_blank">
+                                        <i class="bi bi-facebook h5"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-secondary" href="https://twitter.com/maxartkiller" target="_blank">
+                                        <i class="bi bi-twitter h5"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-secondary" href="https://linkedin.com/company/maxartkiller" target="_blank">
+                                        <i class="bi bi-linkedin h5"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-secondary" href="https://www.instagram.com/maxartkiller/" target="_blank">
+                                        <i class="bi bi-instagram h5"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-secondary" href="https://www.youtube.com/get-windoors/" target="_blank">
+                                        <i class="bi bi-youtube h5"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-auto ms-auto">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <i class="bi bi-microsoft h4 text-secondary"></i>
+                                            </div>
+                                            <div class="col ps-0">
+                                                <p class="mb-0 small text-secondary">Get this on</p>
+                                                <p>Microsoft Store</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <i class="bi bi-play-fill h3 text-secondary"></i>
+                                            </div>
+                                            <div class="col ps-0">
+                                                <p class="mb-0 small text-secondary">Get this on</p>
+                                                <p>Google Play</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <i class="bi bi-apple h4 text-secondary"></i>
+                                            </div>
+                                            <div class="col ps-0">
+                                                <p class="mb-0 small text-secondary">Get this on</p>
+                                                <p>App Store</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}  

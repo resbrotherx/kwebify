@@ -1,0 +1,691 @@
+
+
+ {% extends 'Dashbord/base.html' %}
+ {% load static %}
+ {% block content %}
+ <style type="text/css">
+    .buttonsize{
+        width: 130px;
+    }
+
+
+ [data-tab-content] {
+  display: none;
+}
+.no-gutters>.col, .no-gutters>[class*=col-] {
+  padding-right: 0;
+  padding-left: 0;
+}
+.active[data-tab-content] {
+  display: block;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid black;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.tab.active {
+  background-color: #CCC;
+}
+
+.tab:hover {
+  background-color: #AAA;
+}
+
+.tab-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.btn-primary{
+    color: #ffffff;
+    background-color: #6325c6;
+    border-color: #6325c6;
+}
+title{
+    background-color: ;
+}
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+}
+a{
+    text-decoration: none;
+}
+.bg{
+    position: fixed;
+    background: #000;
+    width: 102.7%;
+    height: 100vh;
+    display: none;
+    opacity: .4;
+    z-index: 2;
+}
+.containers{
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* product card box */
+.product{
+    width: 30%;
+    margin:10px 1% 30px;
+}
+
+.product .image{
+    position: relative;
+    height: 200px;
+    z-index: 1;
+}
+.product .image img{
+    max-width: 100%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
+.product .description{
+    background-color: #f3f3f3;
+/*    border-radius: 10px;*/
+    padding: 30px 15px 15px;
+    position: relative;
+    margin-top: -50px;
+}
+.product .favorite{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}
+.product .product-title{
+    margin-bottom: 20px;
+}
+
+.product .detail{
+    display: flex;
+}
+.product .detail div{
+    width: 50%;
+}
+.product .to-cart{
+    text-align: right;
+}
+
+/* both */
+.title{
+    color: #003566;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+.subtitle{
+    color: #001d3d;
+    font-size: 1em;
+}
+.favorite i{
+    color:#ff2d7e;
+}
+.price{
+    font-size: 1.3em;
+    color:#000814;
+    font-weight: 800;
+}
+.btn-add{
+    border:0;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: #003566;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* full product */
+.full-product{
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    max-width: 600px;
+    border-radius: 10px;
+/*    padding: 40px;*/
+    top:-50%;
+    left:23%;
+    transform:translate(-50%, -50%);
+}
+.full-product .image img{
+    max-width: 100%;
+}
+.info,
+.appreciation,
+.cart{
+    display: flex;
+}
+.info div,
+.appreciation div,
+.cart div{
+    width: 50%;;
+}
+
+.full-product .description,
+.full-product .review,
+.full-product .favorite{
+    text-align: right;
+}
+.full-product h2{
+    margin: 10px 0;
+}
+.full-product .more-info{
+    padding: 20px 0;
+}
+.full-product .yellow{
+    color:#ffba39;
+}
+.full-product .gray{
+    color:#dbdbdb;
+}
+
+/* animations */
+.transition{
+    transition: all 200ms ease-in;
+}
+.product:hover .image{
+    transform:scale(1.2) rotate(-5deg);
+}
+.product:hover .description{
+    background-color: #efe3ff;
+}
+@media (min-width: 320px) and (max-width: 480px) { 
+    .containers{
+        display: block;
+        padding: 10px 20px;
+    }
+    .containers > div{
+        width: 100%;
+    }
+    .product .image img{
+        max-width: 70%;
+    }
+}
+
+</style>
+          <div class="o_main">
+
+
+
+
+
+
+
+
+               <div class="o_main_content">
+                  <div class="o_control_panel o_breadcrumb_full">
+                     <div class="a_cp_top">
+                        <ol class="breadcrumb">
+                           <li><a>Customers</a></li>
+                           <li class="active">042 RESTAURANT</li>
+                        </ol>
+                        <div class="o_cp_searchview" style="display: none;">
+                           <div class="o_searchview o_hidden">
+                              <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+                              <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
+                              <input class="o_searchview_input" placeholder="Search..." type="text">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="a_cp_bottom">
+                        <div class="o_cp_buttons">
+                           <div>
+                              <div class="o_form_buttons_view o_hidden">
+                                 <button accesskey="a" class="btn btn-primary btn-sm o_form_button_edit" type="button">
+                                 Edit
+                                 </button>
+                                 <button accesskey="c" class="btn btn-default btn-sm o_form_button_create" type="button">
+                                 Create
+                                 </button>
+                              </div>
+                              <div class="o_form_buttons_edit">
+                                 <button accesskey="s" class="btn btn-primary btn-sm o_form_button_save" type="button">
+                                 Save
+                                 </button>
+                                 <button accesskey="j" class="btn btn-default btn-sm o_form_button_cancel" type="button">
+                                 Discard
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="o_content">
+                     <div class="o_view_manager_content">
+                        <div>
+                           <div class="o_form_view o_form_editable">
+                              <div class="o_form_sheet_bg">
+                                 {% comment %} <div class="o_form_statusbar">
+                                    <div class="o_statusbar_buttons"><button class="btn btn-sm btn-default oe_highlight">Juice Transactions</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Feeder|Transformer</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Others</button><button class="btn btn-sm btn-default oe_highlight">Get KeyChange</button><button class="btn btn-sm btn-default oe_highlight">Free Issue</button><button class="btn btn-sm btn-default oe_highlight">Set Max Power</button><button class="btn btn-sm btn-default oe_highlight">Juice Account</button><button class="btn btn-sm btn-default oe_highlight">Juice Meter Assign</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Tariff</button></div>
+                                 </div> {% endcomment %}
+    <div class="o_form_sheet">
+
+
+
+
+                                      <div class="o_not_full oe_button_box">
+                                    <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-calendar"></div>
+                                          <div name="meeting_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">Unsuccessful</span>
+                                             <span class="o_stat_text">Lunched Web.</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button o_res_partner_tip_opp">
+                                          <div class="fa fa-fw o_button_icon fa-star"></div>
+                                          <div name="opportunity_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">successfully</span>
+                                             <span class="o_stat_text">Lunched Web.</span>
+                                          </div>
+                                       </button>
+                                       
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-globe"></div>
+                                          <div class="o_stat_info published o_field_widget" name="website_published">
+                                             <span class="o_stat_text o_value text-secondry">Developing..</span>
+                                             <span class="o_stat_text">Stage- Web</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-usd"></div>
+                                          <div name="sale_order_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE FIVE</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button"style="background:#fff">
+                                          <div class="fa fa-fw o_button_icon fa-book"></div>
+                                          <div name="contracts_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE FOUR</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button"> 
+                                          <div class="fa fa-fw o_button_icon fa-archive"></div>
+                                          <div class="o_stat_info o_field_widget" name="active">
+                                          <span class="o_stat_text o_not_hover text-success">STAGE THREE</span><span class="o_stat_text o_hover text-danger">STAGE THREE</span></div>
+                                       </button>
+                                      
+                                     
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-pencil-square-o"></div>
+                                          <div class="o_form_field o_stat_info"><span class="o_stat_value">
+                                          <span class="o_field_monetary o_field_number o_field_widget o_readonly_modifier" name="invoice_paid_amount" data-original-title="" title=""></span></span><span class="o_stat_text">STAGE TWO</span></div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button oe_inline">
+                                          <div class="fa fa-fw o_button_icon fa-ticket"></div>
+                                          <div name="support_ticket_string" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value"></span>
+                                             <span class="o_stat_text">STAGE ONE</span>
+                                          </div>
+                                       </button>
+                                    </div>
+
+
+                                        <div class="o_control_panel">
+                                             <div class="a_cp_top">
+                                                <ol class="breadcrumb">
+                                                   <li class="active">Template</li>
+                                                </ol>
+                                                <div class="o_cp_searchview">
+                                                   <div class="o_searchview">
+                                                      <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+                                                      <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
+                                                      <div class="o_searchview_facet" tabindex="0">
+                                                         <span class="fa fa-filter o_searchview_facet_label"></span>
+                                                         <div class="o_facet_values"><span>
+                                                           Template
+                                                            </span>
+                                                         </div>
+                                                         
+                                                      </div>
+                                                      <input class="o_searchview_input"  id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name" type="text">
+                                                   </div>
+                                                </div>
+                                             </div>
+
+
+
+
+
+
+
+<form method="POST">
+    {% csrf_token %}
+
+
+
+
+                                             <div class="a_cp_bottom">
+                                                <div class="o_cp_buttons o_hidden"></div>
+                                                <div class="o_cp_sidebar o_hidden"></div>
+                                                <div class="btn-group o_search_options">
+                                                   <div class="btn-group o_dropdown">
+                                                     <div class="o_form_buttons_edit">
+                                 <button accesskey="s" class="btn btn-primary btn-sm o_form_button_save" type="submit">
+                                 Submit
+                                 </button>
+                              </div>
+                                                     
+                                                   </div>
+                                                   <div class="btn-group o_dropdown">
+                                                      <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                      <span class="fa fa-bars"></span>
+                                                      <span class="hidden-xs">
+                                                      Group By
+                                                      <span class="caret"></span></span>
+                                                      </button>
+                                                      <ul class="dropdown-menu dropdown-menu-right o_group_by_menu" role="menu">
+                                                         <li data-index="0">
+                                                            <a href="http://74.208.168.47:8069/web#">Author</a>
+                                                         </li>
+                                                         <li data-index="1">
+                                                            <a href="http://74.208.168.47:8069/web#">Category</a>
+                                                         </li>
+                                                         <li>
+                                                            <button class="btn btn-primary btn-sm o_add_group o_select_group" type="button">Apply</button>
+                                                         </li>
+                                                      </ul>
+                                                   </div>
+                                                   <div class="btn-group o_dropdown">
+                                                      <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                                      <span class="fa fa-star"></span><span class="hidden-xs"> Favorites <span class="caret"></span></span>
+                                                      </button>
+                                                      <ul class="dropdown-menu dropdown-menu-right o_favorites_menu" role="menu">
+                                                        
+                                                         <li>
+                                                            <a href="http://74.208.168.47:8069/web#">Save current search</a>
+                                                         </li>
+                                                         <li>
+                                                            <a class="add-to-spreadsheet">Add to Google Spreadsheet</a>
+                                                        </li>
+
+                                                         <li style="margin-left: 18px;">
+                                                            <input type="file" name="image">
+                                                        </li>
+                                                      </ul>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                        </div>
+
+
+
+
+
+
+
+                <div class="o_view_manager_content">
+                        <div class="o_cannot_create">
+                          <div class="TTG-m">
+                              
+                              <div class="_1o7LM">
+                               
+                                 <div class="m0T0C">
+                                    <div class="_47ahp" data-test-selector="search-results">
+                                      
+{% comment %} <iframe src="https://www.google.com/search?q=iframe+embedding&oq=ifram&aqs=chrome.9.0i512l2j69i57j0i512l7.10269j0j7&sourceid=chrome&ie=UTF-8" width="90%" height="400" name="iframe" title="This is my video"></iframe> {% endcomment %}
+                                      <div class="container-fluid">
+                                      
+                                       <div class="bg" style="margin-top: -382px;
+    margin-left: -100px;"></div>
+                                       <div class="containers">
+                                       {% for i in templat %}
+                                          <!-- product item -->
+                                          <div class="product">
+                                                <input type="hidden"  name="image" value="{{i.template_pic.url}}"/>
+                                                <a href="#" class="product-link" data-productid="{{i.id}}">
+                                                   <div class="image transition">
+                                                      <img src="{{i.template_pic.url}}" alt="{{i.template_name}}">
+                                                   </div> </a>
+                                                   <div class="description transition">
+                                                      <div class="favorite">
+                                                            <i class="fas fa-heart"></i>
+                                                      </div>
+                                                      <div class="product-title">
+                                                            <h2 class="title">{{i.template_name}}</h2>
+                                                            <!-- <h3 class="subtitle">Keyboard</h3> -->
+                                                      </div>
+                                                      <div class="detail">
+                                                            <div>
+                                                               <span class="price">50.99</span>
+                                                            </div>
+                                                            <div class="to-cart">
+                                                               <button type="submit" name="red" value="{{i.id}}" class="btn-add">Add to Cart</button>
+                                                            </div>
+                                                      </div>
+                                                   </div>
+                                             
+                                          </div>
+                                          <!-- product full -->
+                                          <div class="full-product transition" id="{{i.id}}">
+                                                <center>
+                                                   <iframe src="{{i.your_template_demo}}" style="margin-top: -35%;" width="340%" height="800" name="iframe"></iframe>
+                                                   <a href="#" class="product-link" data-productid="1">x</a>
+                                                </center>
+                                          </div>
+                                          {% endfor %}
+                                       </div>
+                                    </div>
+                                
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+</form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+
+         </div>
+         
+   
+
+    </div>
+
+
+
+
+
+
+
+
+{% comment %} <footer class="shared-global_footer-footer_component__root" role="navigation" data-turbo="false">
+  <div class="shared-global_footer-footer_component__topContainer">
+    <div class="shared-global_footer-footer_component__topLinks">
+        <nav class="shared-global_footer-footer_component__topLinksGroup">
+          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Envato Market</strong>
+            <a class="shared-global_footer-footer_component__topLink" href="/legal/market">
+              Terms
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="/licenses">
+              Licenses
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://build.envato.com">
+              Market API
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/market/affiliate-program">
+              Become an affiliate
+            </a>
+        </nav>
+        <nav class="shared-global_footer-footer_component__topLinksGroup">
+          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Help</strong>
+            <a class="shared-global_footer-footer_component__topLink" href="https://help.market.envato.com">
+              Help Center
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://help.author.envato.com/hc/en-us">
+              Authors
+            </a>
+        </nav>
+        <nav class="shared-global_footer-footer_component__topLinksGroup">
+          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Our Community</strong>
+            <a class="shared-global_footer-footer_component__topLink" href="http://community.envato.com">
+              Community
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/blog">
+              Blog
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://forums.envato.com">
+              Forums
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="http://community.envato.com/#/events">
+              Meetups
+            </a>
+        </nav>
+        <nav class="shared-global_footer-footer_component__topLinksGroup">
+          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Meet Envato</strong>
+            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com">
+              About Envato
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="http://careers.envato.com">
+              Careers
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/privacy/">
+              Privacy Policy
+            </a>
+            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/sitemap/">
+              Sitemap
+            </a>
+        </nav>
+    </div>
+    <div class="shared-global_footer-footer_component__topStats">
+      <div class="shared-global_footer-footer_component__topStatsMeta">
+        <img loading="lazy" class="shared-global_footer-footer_component__logo" alt="Envato Market" width="168" height="20" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/logos/envato-market-f6121fbbfec25dbc851a3e5aea13c8ad.svg">
+        <ul class="shared-global_footer-footer_component__statsList">
+            <li class="shared-global_footer-footer_component__statsListItem">
+              <span class="shared-global_footer-footer_component__stats">65,854,031</span>
+              items sold
+            </li>
+            <li class="shared-global_footer-footer_component__statsListItem">
+              <span class="shared-global_footer-footer_component__stats">$954,344,293</span>
+              community earnings
+            </li>
+        </ul>
+      </div>
+      <div class="shared-global_footer-footer_component__bottomBCorp">
+        <a href="https://bcorporation.net/directory/envato" class="shared-global_footer-footer_component__bcorpLink" target="_blank" rel="noopener">
+          <img loading="lazy" width="50" height="84" alt="B Corp logo" class="shared-global_footer-footer_component__bcorpLogo" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/logos/bcorp-bfc565be3a93741fc88cbfcefe84d817.svg">
+          </a>
+      </div>
+    </div>
+  </div>
+  <div class="shared-global_footer-footer_component__bottomContainer">
+    <nav class="shared-global_footer-footer_component__bottomSocial" itemscope="" itemtype="http://schema.org/Organization">
+        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Twitter" href="https://twitter.com/envato">          <img loading="lazy" alt="Twitter" title="Twitter" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-twitter-ab9290f5d6a0413c0838e5b7da72d0b6.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Facebook" href="https://www.facebook.com/envato">          <img loading="lazy" alt="Facebook" title="Facebook" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-facebook-92e7976b8b4c9e219582df64a1e8a752.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="YouTube" href="https://www.youtube.com/user/Envato">          <img loading="lazy" alt="YouTube" title="YouTube" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-youtube-1917b1659c5e432fa16736ddb8eece47.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Instagram" href="https://www.instagram.com/envato/">          <img loading="lazy" alt="Instagram" title="Instagram" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-instagram-0d05cca274498f7aab6a8c2d4c72b023.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Pinterest" href="https://www.pinterest.com/envato/">          <img loading="lazy" alt="Pinterest" title="Pinterest" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-pinterest-082aba983bc285ff9a25bbd813fd52fa.svg" width="22" height="22"></a>    </nav>
+    <div class="shared-global_footer-footer_component__bottomLinks">
+      <nav class="shared-global_footer-footer_component__companyLinks">
+          <a class="shared-global_footer-footer_component__companyLink" href="https://envato.com">Envato.com</a>
+          <a class="shared-global_footer-footer_component__companyLink" href="https://elements.envato.com">Envato Elements</a>
+          <a class="shared-global_footer-footer_component__companyLink" href="https://placeit.net">Placeit by Envato</a>
+          <a class="shared-global_footer-footer_component__companyLink" href="https://tutsplus.com">Envato Tuts+</a>
+          <a class="shared-global_footer-footer_component__companyLink" href="https://envato.com/products">All Products</a>
+          <a class="shared-global_footer-footer_component__companyLink" href="https://envato.com/sitemap/">Sitemap</a>
+          <a class="shared-global_footer-footer_component__companyLink" href="https://milkshake.app">Milkshake</a>
+      </nav>
+      <div class="shared-global_footer-footer_component__notice">
+        Price is in US dollars and excludes tax
+      </div>
+      <div class="shared-global_footer-footer_component__copyrights">
+        © 2021 Envato Pty Ltd. Trademarks and brands are the property of their respective owners.
+      </div>
+    </div>
+  </div>
+</footer> {% endcomment %}
+</div>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>    
+<script src="{% static 'static/js/jquery-3.5.1.slim.min.js' %}" ></script>
+    <script src="{% static 'static/js/popper.min.js' %}" ></script>
+    <script src="{% static 'static/js/bootstrap.min.js' %}"></script>
+  
+  <script src="{% static 'static/js/lightbox-plus-jQuery.js' %}"></script>
+<script>
+   
+bg = document.getElementsByClassName("bg");
+//product = document.getElementsByClassName("product-link");
+
+// asign event all links
+document.querySelectorAll(".product-link").forEach(item => {
+    item.addEventListener("click", event => {
+        id = item.getAttribute("data-productid");
+
+        productFull = document.getElementById( id );
+        bg[0].style.display = "block";
+
+        productFull.style.top = "50%";
+    });
+});
+
+document.addEventListener('click', function(event){
+	if(event.key === "Escape"){
+		bg[0].style.display = "none";
+        document.querySelectorAll(".full-product").forEach(productFull => {
+            productFull.style.top = "-50%";
+        });
+	}
+});
+
+
+
+</script>
+<a href="https://fm-pedia.web.id/" ref="dofollow" style="display:none"></a>
+<a href="https://animeindoku.xyz/" ref="dofollow" style="display:none"></a>
+<a href="https://www.blogtikus.com/" ref="dofollow" style="display:none"></a>
+    <!-- Wrapper end -->
+    <!-- jquery -->
+    <script src="{% static 'static/js/jquery.min.js' %}"></script>
+    <!-- Plugins js -->
+    <script src="{% static 'static/js/plugins.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'static/js/custom.js' %}"></script>
+    <!-- script js -->
+    <script src="{% static 'static/js/script.js' %}"></script>
+    {% endblock content %}

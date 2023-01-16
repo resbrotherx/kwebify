@@ -1,0 +1,1136 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Otika - Admin Dashboard Template</title>
+  <!-- General CSS Files -->
+
+
+
+<!--   <link rel="stylesheet" href="assets/css/app.min.css"> -->
+  <!-- Template CSS --><!-- 
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css"> -->
+  <!-- Custom style CSS -->
+<!-- 
+  <link rel="stylesheet" href="assets/css/custom.css"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>account details</title>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'juicestatic/web/content/103818-884abc9/web.assets_common.0.css' %}">
+
+
+    <script src="web/cont/markerclusterer.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'juicestatic/web/cont/patrick1.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'juicestatic/web/cont/patrick2.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'juicestatic/web/cont/patrick3.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'juicestatic/web/cont/patrick.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'juicestatic/web/cont/patricko.css' %}">
+    <script type="text/javascript" src="{% static 'juicestatic/web/cont/web.assets_common.js' %}"></script>
+
+
+    <meta http-equiv="cleartype" content="on">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="{% static 'juicestatic/web/cont/nv.d3.css' %}" rel="stylesheet" type="text/css">
+<style type="text/css">
+    .buttonsize{
+        width: 130px;
+    }
+
+
+ [data-tab-content] {
+  display: none;
+}
+
+.active[data-tab-content] {
+  display: block;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid black;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 10px;
+}
+
+.tab.active {
+  background-color: #CCC;
+}
+
+.tab:hover {
+  background-color: #AAA;
+}
+
+.tab-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.btn-primary{
+    color: #ffffff;
+    background-color: #6325c6;
+    border-color: #6325c6;
+}
+</style>
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<body class="o_web_client" style="">
+       
+         <div class="a_canvas">
+    <nav class="a_navbar" role="navigation">
+               <button type="button" class="a_app_menu_toggler">
+               <span class="sr-only">Toggle App Menu</span>
+               <i class="fa fa-th fa-lg app-drawer-icon-open"></i>
+               </button><span class="navbar-title">
+               Billing
+               </span>
+               <div class="a_menu_placeholder">
+                  <ul class="nav navbar-nav a_menu">
+                     <li>
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" role="button">
+                        Customers
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-scrollable">
+                           <li>
+                              <a data-action-id="1767" data-action-model="ir.actions.act_window" data-menu="1480" data-menu-xmlid="electricity_billing.prepaid_menu_view_location" href="http://74.208.168.47:8069/web#menu_id=1480&amp;action=1767">
+                              Prepaid Customers
+                              </a>
+                           </li>
+                           <li>
+                              <a data-action-id="49" data-action-model="ir.actions.act_window" data-menu="679" data-menu-xmlid="electricity_billing.partner_menu_view_ebil" href="http://74.208.168.47:8069/web#menu_id=679&amp;action=49">
+                              Customers
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" role="button">
+                        Meter Menu 
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-scrollable">
+                           <li>
+                              <a data-action-id="865" data-action-model="ir.actions.act_window" data-menu="702" data-menu-xmlid="electricity_billing.meter_details_sub_menu" href="http://74.208.168.47:8069/web#menu_id=702&amp;action=865">
+                              Meter Details
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" role="button">
+                        System Control
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-scrollable">
+                           <li>
+                              <a data-action-id="859" data-action-model="ir.actions.act_window" data-menu="695" data-menu-xmlid="electricity_billing.daily_tripping_view" href="http://74.208.168.47:8069/web#menu_id=695&amp;action=859">
+                              Daily Tripping
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" role="button">
+                        Clusters
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-scrollable">
+                           <li>
+                              <a data-action-id="1763" data-action-model="ir.actions.act_window" data-menu="1475" data-menu-xmlid="electricity_billing.service_cluster_menu" href="http://74.208.168.47:8069/web#menu_id=1475&amp;action=1763">
+                              Service Clusters
+                              </a>
+                           </li>
+                           <li>
+                              <a data-action-id="1764" data-action-model="ir.actions.act_window" data-menu="1476" data-menu-xmlid="electricity_billing.tariff_extention_menu" href="http://74.208.168.47:8069/web#menu_id=1476&amp;action=1764">
+                              Tariff Extention
+                              </a>
+                           </li>
+                           <li>
+                              <a data-action-id="1765" data-action-model="ir.actions.act_window" data-menu="1477" data-menu-xmlid="electricity_billing.tariff_rate_menu" href="http://74.208.168.47:8069/web#menu_id=1477&amp;action=1765">
+                              Tariff Category
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" role="button">
+                        Scratch Card
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-scrollable">
+                           <li>
+                              <a data-action-id="866" data-action-model="ir.actions.act_window" data-menu="704" data-menu-xmlid="electricity_billing.scratch_card_sub_sub_menu2" href="http://74.208.168.47:8069/web#menu_id=704&amp;action=866">
+                              Scratch Card
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" role="button">
+                        Billing Report
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-scrollable">
+                           <li>
+                              <a data-action-id="1527" data-action-model="ir.actions.act_window" data-menu="1228" data-menu-xmlid="electricity_billing.report_billing_view" href="http://74.208.168.47:8069/web#menu_id=1228&amp;action=1527">
+                              Report Form
+                              </a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right a_systray_menu">
+                     <li class="o_planner_systray hidden-xs">
+                        <div class="progress o_hidden" data-original-title="" title="">
+                           <div class="progress-bar"></div>
+                        </div>
+                     </li>
+                     <li class="o_mail_navbar_item o_no_notification">
+                        <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" title="Activities">
+                        <i class="fa fa-clock-o"></i> <span class="o_notification_counter badge">0</span>
+                        </a>
+                        <ul class="o_mail_navbar_dropdown dropdown-menu" role="menu">
+                           <li class="o_mail_navbar_dropdown_channels">
+                           </li><li class="text-center o_no_activity">
+                              <span>No activities planned.</span>
+                           </li>
+                           
+                        </ul>
+                     </li>
+                     <li class="o_mail_navbar_item">
+                        <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#" title="Conversations">
+                        <i class="fa fa-comments"></i> <span class="o_notification_counter badge">15</span>
+                        </a>
+                        <ul class="o_mail_navbar_dropdown dropdown-menu" role="menu">
+                           <li class="o_mail_navbar_dropdown_top">
+                              <div>
+                                 <button class="btn btn-sm o_filter_button active" type="button"> All </button>
+                                 <button class="btn btn-sm o_filter_button" data-filter="chat" type="button"> Chat </button>
+                                 <button class="btn btn-sm o_filter_button" data-filter="channels" type="button"> Channels </button>
+                              </div>
+                              <button class="btn btn-sm o_new_message" type="button"> New message </button>
+                           </li>
+                           <li class="o_mail_navbar_dropdown_channels"></li>
+                        </ul>
+                     </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right a_user_menu">
+                     <li class="o_user_menu">
+                        <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="http://74.208.168.47:8069/web#">
+                        <img class="img-circle oe_topbar_avatar" src="./042 RESTAURANT - ENUGUDISCO_files/image">
+                        <span class="oe_topbar_name">Administrator Admin</span>
+                        <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                           <li>
+                              <a href="http://74.208.168.47:8069/web?debug">Activate developer mode</a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <a data-menu="settings" href="http://74.208.168.47:8069/web#">Preferences</a>
+                           </li>
+                           <li>
+                              <a data-menu="logout" href="http://74.208.168.47:8069/web#">Log out</a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+               </div>
+               <button type="button" class="a_menu_toggler">
+               <span class="sr-only">Toggle Menu</span>
+               <i class="fa fa-bars fa-lg"></i>
+               </button>
+            </nav>
+<div class="o_main">
+
+<div class="o_main_content">
+                  <div class="o_control_panel o_breadcrumb_full">
+                     <div class="a_cp_top">
+                        <ol class="breadcrumb">
+                           <li><a>Apps</a></li>
+                           <li class="active">Employee Advance Expenses Request</li>
+                        </ol>
+                        <div class="o_cp_searchview" style="display: none;">
+                           <div class="o_searchview o_hidden">
+                              <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
+                              <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
+                              <div class="o_searchview_facet" tabindex="0">
+                                 <span class="fa fa-filter o_searchview_facet_label"></span>
+                                 <div class="o_facet_values"><span>
+                                    Apps
+                                    </span>
+                                 </div>
+                                 <div class="fa fa-sm fa-remove o_facet_remove"></div>
+                              </div>
+                              <input class="o_searchview_input" placeholder="Search..." type="text">
+                           </div>
+                        </div>
+                     </div>
+                     <div class="a_cp_bottom">
+                        <div class="o_cp_buttons">
+                           <div>
+                              <div class="o_form_buttons_view">
+                              </div>
+                              <div class="o_form_buttons_edit o_hidden">
+                                 <button accesskey="s" class="btn btn-primary btn-sm o_form_button_save" type="button">
+                                 Save
+                                 </button>
+                                 <button accesskey="j" class="btn btn-default btn-sm o_form_button_cancel" type="button">
+                                 Discard
+                                 </button>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="o_cp_sidebar">
+                           <div class="btn-group">
+                              <div class="btn-group o_dropdown" style="display: none;">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 Print <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                 </ul>
+                              </div>
+                              <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 1
+                                 Attachment(s) <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                       <a data-index="0" data-section="files" href="http://74.208.168.47:8069/dev_advance_expenses/images/main_screenshot.png" title="" data-original-title="
+                                          <b>Attachment : </b><br/>
+                                          main_screenshot.png
+                                          <br/>
+                                          <b>Created by : </b><br/>
+                                          Administrator Admin  01/26/2020 08:34:37
+                                          " target="_blank">
+                                       main_screenshot.png
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                              <div class="btn-group o_dropdown">
+                                 <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                                 Action <span class="caret"></span>
+                                 </button>
+                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                       <a data-index="0" data-section="other" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Delete
+                                       </a>
+                                    </li>
+                                    <li>
+                                       <a data-index="1" data-section="other" href="http://74.208.168.47:8069/web#" target="_blank">
+                                       Duplicate
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="btn-group o_search_options" style="display: none;">
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-filter"></span>
+                              <span class="hidden-xs">
+                              Filters
+                              <span class="caret"></span></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right o_filters_menu" role="menu">
+                                 <li data-index="0" class="selected">
+                                    <a href="http://74.208.168.47:8069/web#">Apps</a>
+                                 </li>
+                                 <li data-index="1">
+                                    <a href="http://74.208.168.47:8069/web#">Extra</a>
+                                 </li>
+                                 <li class="divider"></li>
+                                 <li data-index="0">
+                                    <a href="http://74.208.168.47:8069/web#">Installed</a>
+                                 </li>
+                                 <li data-index="1">
+                                    <a href="http://74.208.168.47:8069/web#">Not Installed</a>
+                                 </li>
+                                 <li class="divider"></li>
+                                 <li class="o_add_filter o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Add Custom Filter</a>
+                                 </li>
+                                 <li class="o_add_filter_menu">
+                                    <button class="btn btn-primary btn-sm o_apply_filter" type="button">Apply</button>
+                                    <button class="btn btn-default btn-sm o_add_condition" type="button"><span class="fa fa-plus-circle"></span>
+                                    Add a condition</button>
+                                 </li>
+                                 <li class="divider"></li>
+                                 <li>
+                                    <a class="o_add_advanced_search">Add Advanced Filter</a>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-bars"></span>
+                              <span class="hidden-xs">
+                              Group By
+                              <span class="caret"></span></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right o_group_by_menu" role="menu">
+                                 <li data-index="0">
+                                    <a href="http://74.208.168.47:8069/web#">Author</a>
+                                 </li>
+                                 <li data-index="1">
+                                    <a href="http://74.208.168.47:8069/web#">Category</a>
+                                 </li>
+                                 <li class="divider" style="display: list-item;"></li>
+                                 <li class="o_add_custom_group o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Add custom group</a>
+                                 </li>
+                                 <li>
+                                    <select class="o_input o_add_group o_group_selector">
+                                       <option data-name="application">Application</option>
+                                       <option data-name="author">Author</option>
+                                       <option data-name="auto_install">Automatic Installation</option>
+                                       <option data-name="category_id">Category</option>
+                                       <option data-name="create_uid">Created by</option>
+                                       <option data-name="create_date">Created on</option>
+                                       <option data-name="demo">Demo Data</option>
+                                       <option data-name="icon">Icon URL</option>
+                                       <option data-name="imported">Imported Module</option>
+                                       <option data-name="latest_version">Installed Version</option>
+                                       <option data-name="write_uid">Last Updated by</option>
+                                       <option data-name="write_date">Last Updated on</option>
+                                       <option data-name="license">License</option>
+                                       <option data-name="maintainer">Maintainer</option>
+                                       <option data-name="shortdesc">Module Name</option>
+                                       <option data-name="published_version">Published Version</option>
+                                       <option data-name="state">Status</option>
+                                       <option data-name="summary">Summary</option>
+                                       <option data-name="name">Technical Name</option>
+                                       <option data-name="url">URL</option>
+                                       <option data-name="website">Website</option>
+                                    </select>
+                                 </li>
+                                 <li>
+                                    <button class="btn btn-primary btn-sm o_add_group o_select_group" type="button">Apply</button>
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="btn-group o_dropdown">
+                              <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
+                              <span class="fa fa-star"></span><span class="hidden-xs"> Favorites <span class="caret"></span></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-right o_favorites_menu" role="menu">
+                                 <li class="divider user_filter"></li>
+                                 <li class="divider shared_filter"></li>
+                                 <li class="o_save_search o_closed_menu">
+                                    <a href="http://74.208.168.47:8069/web#">Save current search</a>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <input type="text">
+                                 </li>
+                                 <li class="o_save_name">
+                                    <span>
+                                       <div class="o_checkbox"><input type="checkbox"><span></span></div>
+                                       Use by default
+                                    </span>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <span>
+                                       <div class="o_checkbox"><input type="checkbox"><span></span></div>
+                                       Share with all users 
+                                    </span>
+                                    <span class="fa fa-users"></span>
+                                 </li>
+                                 <li class="o_save_name">
+                                    <button class="btn btn-primary btn-sm" type="button">Save</button>
+                                 </li>
+                                 <li><a class="add-to-spreadsheet">Add to Google Spreadsheet</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="o_cp_pager">
+                           <div>
+                              <span class="o_pager_counter">
+                              <span class="o_pager_value">6</span> / <span class="o_pager_limit">80</span>
+                              </span>
+                              <span class="btn-group btn-group-sm">
+                              <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              </span>
+                           </div>
+                        </div>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons o_hidden"></div>
+                     </div>
+                  </div>
+
+
+
+
+
+                  <div class="o_content">
+                     <div class="o_view_manager_content">
+                        <div class="o_cannot_create">
+                           <div class="o_form_view o_form_readonly">
+                              <div class="o_form_sheet_bg">
+                                 <div class="o_form_statusbar">
+                                    <div class="o_statusbar_buttons"><button class="btn btn-sm btn-default oe_highlight">Juice Transactions</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Feeder|Transformer</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Others</button><button class="btn btn-sm btn-default oe_highlight">Get KeyChange</button><button class="btn btn-sm btn-default oe_highlight">Free Issue</button><button class="btn btn-sm btn-default oe_highlight">Set Max Power</button><button class="btn btn-sm btn-default oe_highlight">Juice Account</button><button class="btn btn-sm btn-default oe_highlight">Juice Meter Assign</button><button class="btn btn-sm btn-default oe_highlight">Update Juice Tariff</button></div>
+                                 </div>
+
+
+
+
+                                 <link rel="stylesheet" href="./Employee Advance Expenses Request - ENUGUDISCO_files/description.css">
+                                 <div class="o_form_sheet">
+                                    <div class="o_not_full oe_button_box">
+                                       <button class="btn btn-sm oe_stat_button o_res_partner_tip_opp">
+                                          <div class="fa fa-fw o_button_icon fa-star"></div>
+                                          <div name="opportunity_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">0</span>
+                                             <span class="o_stat_text">Opportunities</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-calendar"></div>
+                                          <div name="meeting_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">0</span>
+                                             <span class="o_stat_text">Meetings</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-globe"></div>
+                                          <div class="o_stat_info published o_field_widget" name="website_published">
+                                             <span class="o_stat_text o_value text-danger">Unpublished</span>
+                                             <span class="o_stat_text">On Website</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-usd"></div>
+                                          <div name="sale_order_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">0</span>
+                                             <span class="o_stat_text">Sales</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-book"></div>
+                                          <div name="contracts_count" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">0</span>
+                                             <span class="o_stat_text">Analytic Accounts</span>
+                                          </div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-archive"></div>
+                                          <div class="o_stat_info o_field_widget" name="active"><span class="o_stat_text o_not_hover text-success">Active</span><span class="o_stat_text o_hover text-danger">Archive</span></div>
+                                       </button>
+                                      
+                                     
+                                       <button class="btn btn-sm oe_stat_button">
+                                          <div class="fa fa-fw o_button_icon fa-pencil-square-o"></div>
+                                          <div class="o_form_field o_stat_info"><span class="o_stat_value"><span class="o_field_monetary o_field_number o_field_widget o_readonly_modifier" name="invoice_paid_amount" data-original-title="" title="">0.00</span></span><span class="o_stat_text">Paid Amount</span></div>
+                                       </button>
+                                       <button class="btn btn-sm oe_stat_button oe_inline">
+                                          <div class="fa fa-fw o_button_icon fa-ticket"></div>
+                                          <div name="support_ticket_string" class="o_field_widget o_stat_info o_readonly_modifier">
+                                             <span class="o_stat_value">0 (0)</span>
+                                             <span class="o_stat_text">Support Tickets</span>
+                                          </div>
+                                       </button>
+                                    </div>
+                                    
+                                    <div class="o_field_image o_field_widget o_readonly_modifier oe_avatar" name="icon_image"><img class="img img-responsive" border="1" name="icon_image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyIAAAMiCAYAAACSTXdeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo0MDNDQzQ0OTk4NDAxMUU0ODA3OTg1NTk3NDFDRDVGNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3NDY0MDYwNENBODkxMUU0ODg0QkNCNTZEREVGODQ2QSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3NDY0MDYwM0NBODkxMUU0ODg0QkNCNTZEREVGODQ2QSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDphNTExMDY0ZC1kZTA2LTRlMDYtYjY3Ny0zZTg4Yjg3YmJjNDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NDAzQ0M0NDk5ODQwMTFFNDgwNzk4NTU5NzQxQ0Q1RjUiLz4gPC9yZGY6RGVz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">
+                                    </div>
+                                    <div class="oe_title">
+                                       <h1><span class="o_field_char o_field_widget o_readonly_modifier" name="shortdesc">Employee Advance Expenses Request</span></h1>
+                                       <h3 class="oe_fade">
+                                          By <span class="o_field_char o_field_widget o_readonly_modifier oe_inline" name="author">DevIntelle Consulting Service Pvt.Ltd</span>
+                                       </h3>
+                                       <div><button name="button_immediate_install" states="uninstalled" type="object" class="btn btn-sm btn btn-primary" modifiers="[object Object]" options="[object Object]"><span>Install</span></button><button name="button_immediate_upgrade" states="installed" type="object" class="btn btn-sm btn btn-primary o_invisible_modifier" modifiers="[object Object]" options="[object Object]"><span>Upgrade</span></button><button name="button_uninstall_wizard" states="installed" type="object" class="btn btn-sm btn btn-default o_invisible_modifier" modifiers="[object Object]" options="[object Object]"><span>Uninstall</span></button><button name="button_uninstall_cancel" states="to remove" type="object" class="btn btn-sm btn btn-default o_invisible_modifier" modifiers="[object Object]" options="[object Object]"><span>Cancel Uninstall</span></button><button name="button_upgrade_cancel" states="to upgrade" type="object" class="btn btn-sm btn btn-default o_invisible_modifier" modifiers="[object Object]" options="[object Object]"><span>Cancel Upgrade</span></button><button name="button_install_cancel" states="to install" type="object" class="btn btn-sm btn btn-default o_invisible_modifier" modifiers="[object Object]" options="[object Object]"><span>Cancel Install</span></button></div>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                    <div class="o_notebook">
+                                       <ul class="nav nav-tabs">
+                                          <li class="active"><a data-toggle="tab" disable_anchor="true" href="http://74.208.168.47:8069/web#notebook_page_95" role="tab" aria-expanded="true">Information</a></li>
+                                          <li class=""><a data-toggle="tab" disable_anchor="true" href="http://74.208.168.47:8069/web#notebook_page_102" role="tab" aria-expanded="false">Technical Data</a></li>
+                                          <li class="o_invisible_modifier"><a data-toggle="tab" disable_anchor="true" href="http://74.208.168.47:8069/web#notebook_page_109" role="tab">Installed Features</a></li>
+                                       </ul>
+                                       <div class="tab-content nav nav-tabs">
+                                          <div class="tab-pane active" id="notebook_page_95">
+                                             <div class="o_group">
+                                                <table class="o_group o_inner_group o_group_col_6">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_96">Website</label></td>
+                                                         <td style="width: 100%;"><a class="o_field_url o_field_widget o_form_uri o_text_overflow o_readonly_modifier" name="website" target="_blank" href="http://www.devintellecs.com/" id="o_field_input_96">http://www.devintellecs.com</a></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_97">Category</label></td>
+                                                         <td style="width: 100%;"><span name="category_id" class="o_field_widget o_readonly_modifier">Human Resources</span></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_98">Summary</label></td>
+                                                         <td style="width: 100%;"><span class="o_field_char o_field_widget o_readonly_modifier" name="summary">
+                                                            Apps will manage Employee Advance Expenses request flow
+                                                            </span>
+                                                         </td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                                <table class="o_group o_inner_group o_group_col_6">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td class="o_td_label"><label class="o_form_label o_readonly_modifier o_required_modifier" for="o_field_input_99">Technical Name</label></td>
+                                                         <td style="width: 100%;"><span class="o_field_char o_field_widget o_readonly_modifier o_required_modifier" name="name">dev_advance_expenses</span></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_100">License</label></td>
+                                                         <td style="width: 100%;"><span name="license" class="o_field_widget o_readonly_modifier">LGPL Version 3</span></td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_101">Latest Version</label></td>
+                                                         <td style="width: 100%;"><span class="o_field_char o_field_widget o_readonly_modifier" name="installed_version">11.0.1.0</span></td>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </div>
+                                          <div class="tab-pane" id="notebook_page_102">
+                                             <table class="o_group o_inner_group">
+                                                <tbody>
+                                                   <tr>
+                                                      <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_103">Demo Data</label></td>
+                                                      <td style="width: 50%;">
+                                                         <div class="o_field_boolean o_field_widget o_checkbox o_readonly_modifier" name="demo"><input type="checkbox" disabled="" id="o_field_input_103"><span></span></div>
+                                                      </td>
+                                                      <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_104">Application</label></td>
+                                                      <td style="width: 50%;">
+                                                         <div class="o_field_boolean o_field_widget o_checkbox o_readonly_modifier" name="application"><input type="checkbox" disabled="" id="o_field_input_104"><span></span></div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td class="o_td_label"><label class="o_form_label o_readonly_modifier" for="o_field_input_105">Status</label></td>
+                                                      <td style="width: 33.3333%;"><span name="state" class="o_field_widget o_readonly_modifier">Not Installed</span></td>
+                                                   </tr>
+                                                </tbody>
+                                             </table>
+                                             <table class="o_group o_inner_group o_invisible_modifier">
+                                                <tbody>
+                                                   <tr>
+                                                      <td colspan="2" style="width: 100%;">
+                                                         <div class="o_horizontal_separator">Created Views</div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr></tr>
+                                                </tbody>
+                                             </table>
+                                             <p class="oe_grey o_invisible_modifier" attrs="{'invisible': ['|',('views_by_module','not in',[None,False]),('state','!=','installed')]}"> -This module does not create views.</p>
+                                             <span class="o_field_text o_field_widget o_readonly_modifier o_field_empty" name="views_by_module"></span>
+                                             <table class="o_group o_inner_group">
+                                                <tbody>
+                                                   <tr>
+                                                      <td colspan="2" style="width: 100%;">
+                                                         <div class="o_horizontal_separator">Dependencies</div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr></tr>
+                                                </tbody>
+                                             </table>
+                                             <p class="oe_grey o_invisible_modifier" attrs="{'invisible': [('dependencies_id','not in',[None,False])]}"> -This module does not depends on any other module.</p>
+                                             <div class="o_field_one2many o_field_widget o_field_x2many o_field_x2many_list o_readonly_modifier" name="dependencies_id">
+                                                <div class="o_x2m_control_panel">
+                                                   <table class="image_multi_button" style="display:none">
+                                                      <tbody>
+                                                         <tr style="background:white;">
+                                                            <td style="padding: 10px 150px 15px 132px;">
+                                                               <button class="fa fa-search oe-image-preview btn btn-sm oe_form_binary btn-primary" title="Preview" type="button">
+                                                               <span>Image Preview</span>
+                                                               </button>
+                                                            </td>
+                                                            <td>
+                                                               <button class="fa fa-list oe_image_list btn btn-sm oe_form_binary btn-primary" title="All Image" type="button">
+                                                               <span>List All Image</span>
+                                                               </button>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <div class="o_cp_buttons o_hidden"></div>
+                                                   <div class="o_cp_pager">
+                                                      <div class="o_hidden">
+                                                         <span class="o_pager_counter">
+                                                         <span class="o_pager_value"></span> / <span class="o_pager_limit"></span>
+                                                         </span>
+                                                         <span class="btn-group btn-group-sm">
+                                                         <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button"></button>
+                                                         <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button"></button>
+                                                         </span>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="table-responsive">
+                                                   <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+                                                      <thead>
+                                                         <tr>
+                                                            <th class="o_column_sortable">Name</th>
+                                                            <th>Status</th>
+                                                         </tr>
+                                                      </thead>
+                                                      <tbody class="ui-sortable">
+                                                         <tr class="o_data_row">
+                                                            <td class="o_data_cell">hr_expense</td>
+                                                            <td class="o_data_cell o_readonly_modifier">Not Installed</td>
+                                                         </tr>
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                      </tbody>
+                                                      <tfoot>
+                                                         <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                         </tr>
+                                                      </tfoot>
+                                                   </table>
+                                                </div>
+                                             </div>
+                                             <table class="o_group o_inner_group">
+                                                <tbody>
+                                                   <tr>
+                                                      <td colspan="2" style="width: 100%;">
+                                                         <div class="o_horizontal_separator">Exclusions</div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr></tr>
+                                                </tbody>
+                                             </table>
+                                             <p class="oe_grey o_invisible_modifier" attrs="{'invisible': [('exclusion_ids','not in',[None,False])]}"> -This module does not exclude any other module.</p>
+                                             <div class="o_field_one2many o_field_widget o_field_x2many o_field_x2many_list o_readonly_modifier" name="exclusion_ids">
+                                                <div class="o_x2m_control_panel">
+                                                   <table class="image_multi_button" style="display:none">
+                                                      <tbody>
+                                                         <tr style="background:white;">
+                                                            <td style="padding: 10px 150px 15px 132px;">
+                                                               <button class="fa fa-search oe-image-preview btn btn-sm oe_form_binary btn-primary" title="Preview" type="button">
+                                                               <span>Image Preview</span>
+                                                               </button>
+                                                            </td>
+                                                            <td>
+                                                               <button class="fa fa-list oe_image_list btn btn-sm oe_form_binary btn-primary" title="All Image" type="button">
+                                                               <span>List All Image</span>
+                                                               </button>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <div class="o_cp_buttons o_hidden"></div>
+                                                   <div class="o_cp_pager">
+                                                      <div class="o_hidden">
+                                                         <span class="o_pager_counter">
+                                                         <span class="o_pager_value"></span> / <span class="o_pager_limit"></span>
+                                                         </span>
+                                                         <span class="btn-group btn-group-sm">
+                                                         <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button"></button>
+                                                         <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button"></button>
+                                                         </span>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                                <div class="table-responsive">
+                                                   <table class="o_list_view table table-condensed table-striped o_list_view_ungrouped">
+                                                      <thead>
+                                                         <tr>
+                                                            <th class="o_column_sortable">Name</th>
+                                                            <th>Status</th>
+                                                         </tr>
+                                                      </thead>
+                                                      <tbody class="ui-sortable">
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                         <tr>
+                                                            <td colspan="2">&nbsp;</td>
+                                                         </tr>
+                                                      </tbody>
+                                                      <tfoot>
+                                                         <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                         </tr>
+                                                      </tfoot>
+                                                   </table>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="tab-pane" id="notebook_page_109">
+                                             <table class="o_group o_inner_group">
+                                                <tbody>
+                                                   <tr>
+                                                      <td colspan="2" style="width: 100%;">
+                                                         <div class="o_horizontal_separator">Created Menus</div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr></tr>
+                                                </tbody>
+                                             </table>
+                                             <p class="oe_grey o_invisible_modifier" attrs="{'invisible': [('menus_by_module','not in',[None,False])]}"> -This module does not create menu.</p>
+                                             <span class="o_field_text o_field_widget o_readonly_modifier o_field_empty" name="menus_by_module"></span>
+                                             <table class="o_group o_inner_group">
+                                                <tbody>
+                                                   <tr>
+                                                      <td colspan="2" style="width: 100%;">
+                                                         <div class="o_horizontal_separator">Defined Reports</div>
+                                                      </td>
+                                                   </tr>
+                                                   <tr></tr>
+                                                </tbody>
+                                             </table>
+                                             <p class="oe_grey o_invisible_modifier" attrs="{'invisible': [('reports_by_module','not in',[None,False])]}"> -This module does not create report.</p>
+                                             <span class="o_field_text o_field_widget o_readonly_modifier o_field_empty" name="reports_by_module"></span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="oe_form_field oe_form_field_html_text o_field_widget o_readonly_modifier oe_styling_v8" name="description_html">
+                                       <div class="o_readonly">
+                                          <section class="oe_container oe_dark lead" style="padding-top:50px;">
+                                             <h2>
+                                                <font>
+                                                   <p class="text-primary text-center" style="color:#004460;"><b>Employee Advance Expenses Request</b>
+                                                      <br>For Helping to allow to Create Advance Expenses.
+                                                   </p>
+                                                </font>
+                                             </h2>
+                                             <div class="oe_row">
+                                                <div class="oe_span12" style="width:835px">
+                                                   <div class="panel panel-primary" id="wkid0" style="border-color:#00cc99;">
+                                                      <div class="panel-heading" style="background-color:#004460;">
+                                                         <h3 class="panel-title" style="font-size: 25px;">
+                                                            <b style="color:white;"> DevIntelle Consulting Service Pvt.Ltd.</b>
+                                                         </h3>
+                                                      </div>
+                                                      <div class="panel-body">
+                                                         <div class="alert alert-info" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#1ab2ff;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> 
+                                                            <b style="color:white;"> Features </b>
+                                                         </div>
+                                                         <ul class="list-unstyled ">
+                                                            <li> <i class="fa fa-hand-o-right text-primary"></i>Employee Expense Multiple Request.</li>
+                                                            <li> <i class="fa fa-hand-o-right text-primary"></i>Expense Request Approve by HR Manager.</li>
+                                                            <li> <i class="fa fa-hand-o-right text-primary"></i>Integrated with Expense and Accounting Entry.</li>
+                                                            <li> <i class="fa fa-hand-o-right text-primary"></i>Draft-&gt; Waiting for HR Manager Confirm -&gt; Confirm by HR Manager-&gt;Submit.</li>
+                                                         </ul>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </section>
+                                          <!--                  setup block -->
+                                          <section class="oe_container oe_dark lead">
+                                             <div class="oe_row">
+                                                <div class="oe_span12" style="width:835px">
+                                                   <div class="panel panel-success" id="wkid2" style="border-color:#004460;">
+                                                      <div class="panel-heading" style="background-color:#004460;">
+                                                         <h3 class="panel-title" style="font-size: 25px;">
+                                                            <i class="fa fa-cogs" style="color:white;"></i> 
+                                                            <b style="color:white;">Setup &amp; Configure</b> 
+                                                         </h3>
+                                                      </div>
+                                                      <div class="panel-body">
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Advance Expenses Request</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/form.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">Fill All the fields Value in Advance Expenses request Form.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Send Advance Expenses Request to HR Manager</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/request_mail.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">Employee click to Send Request button Mail send to the HR manager confirm the Advance Expenses Request.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Confirm or Reject Advance Expenses Request</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/confirm_hr.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">HR manager Confirm the Request by clicking Confirm Button or reject the request by clicking the Reject Button.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Confirm Advance Expenses Request Mail to Employee</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/confirmation_mail.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">HR manager Confirm the Request by clicking Confirm Button mail send to the employee.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Reject Advance Expenses Request Mail to Employee</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/reject_mail.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">HR manager Reject the Request by clicking Reject Button mail send to the employee.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Submit Advance Expenses Request</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/submit_expenses.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">After the Hr Confirmation Employee Submit the Advance Expenses, so Related all the Expenses is created in the Expenses to Submit Menu.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">View Hr Expense Create From Advance Expenses Request</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/view_hr_expenses.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">Using this Button User view all the Expenses created by this Request.</p>
+                                                         <p>
+                                                         </p>
+                                                         <div class="alert alert-success" style="padding:8px;font-weight: 300; font-size: 20px;background-color:#004460;">
+                                                            <i class="fa fa-arrow-circle-o-right" style="color:white;"></i> <b style="color:white;">Created Expenses from the Advance Expenses Request</b>
+                                                         </div>
+                                                         <p>
+                                                            <img class="oe_picture oe_screenshot" src="./Employee Advance Expenses Request - ENUGUDISCO_files/created_expenses.png" alt="DevIntelle Consulting Service Pvt.Ltd.">
+                                                         </p>
+                                                         <p class="text-primary">Expenses Create by clicking the Submit to Expenses Button.</p>
+                                                         <p>
+                                                         </p>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </section>
+                                          <!--                          Footer block-->
+                                          <section class="oe_container ">
+                                             <div class="oe_row oe_spaced">
+                                                <table style="font-family: 'Helvetica Neue', Helvetica, Arial,
+                                                   sans-serif;" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td>
+                                                            <center>
+                                                               <span class="fa fa-certificate fa-1x" style="color:#1f2327;"></span>&nbsp;Demo&nbsp;  
+                                                               <span class="fa fa-certificate fa-1x" style="color:#1f2327;padding-bottom:15px;"></span>
+                                                            </center>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td style="padding-bottom:12px;">
+                                                            <center>
+                                                               <a href="https://www.youtube.com/channel/UCrmu-T0c8rhMXGuB44bH7gA" class="btn btn-yt" style="color:#fff;background-color:#E62117;border-color:rgba(0,0,0,0.2)"><i class="fa fa-youtube left"></i> YouTube</a>     
+                                                            </center>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="border-top:#004460 solid 1px; line-height:10px;">&nbsp; </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td>
+                                                            <center>
+                                                               <span class="fa fa-certificate fa-1x" style="color:#1f2327;"></span>Our Odoo Services 
+                                                               <span class="fa fa-certificate fa-1x" style="color:#1f2327;"></span>
+                                                            </center>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="border-bottom:#004460 solid 1px; line-height:10px;">&nbsp; 
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2">
+                                                            <table style="font-size:13px; color:#697582; line-height:25px;" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <td width="30%"><span class="fa fa-globe fa-1x" style="color:#697582;"> <a href="https://www.devintellecs.com/odoo-implementation/" style="color:#697582; text-decoration:none;">Odoo Implementation</a></span></td>
+                                                                     <td width="30%"><span class="fa fa-globe fa-1x" style="color:#697582;"> <a href="https://www.devintellecs.com/odoo-customization/" style="color:#697582; text-decoration:none;">Odoo Customization</a></span></td>
+                                                                     <td width="30%"><span class="fa fa-globe fa-1x" style="color:#697582;"> <a href="https://www.devintellecs.com/odoo-migration/" style="color:#697582; text-decoration:none;">Odoo Migration</a></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                     <td width="30%"><span class="fa fa-globe fa-1x" style="color:#697582;"> <a href="https://www.devintellecs.com/odoo-training/" style="color:#697582; text-decoration:none;">Odoo Training</a></span></td>
+                                                                     <td width="30%"><span class="fa fa-globe fa-1x" style="color:#697582;"> <a href="https://www.devintellecs.com/odoo-hosting/" style="color:#697582; text-decoration:none;">Odoo Hosting</a></span></td>
+                                                                     <td width="30%"><span class="fa fa-globe fa-1x" style="color:#697582;"> <a href="https://www.devintellecs.com/odoo-support/" style="color:#697582; text-decoration:none;">Odoo Support</a></span></td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="border-bottom:#004460 solid 1px; line-height:10px;">&nbsp;
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="font-size:16px; color:#d74930; font-weight:bold;" width="100%" align="center">
+                                                            <center><span class="fa fa-certificate fa-1x" style="color:#1f2327;">our Odoo Products Apps 
+                                                               </span><span class="fa fa-certificate fa-1x" style="color:#1f2327;"></span>
+                                                            </center>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="border-bottom:#004460 solid 1px; line-height:10px;">&nbsp;
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2">
+                                                            <table style="font-size:11px; color:#697582; line-height:25px;" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_export_excel/" style="color:#697582; text-decoration:none;">Dynamic Export Excel </a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_inventory_ageing_report/" style="color:#697582; text-decoration:none;">Stock Aging Report</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_split_purchase/" style="color:#697582; text-decoration:none;">Split Purchase Order</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_bank_reconciliation/" style="color:#697582; text-decoration:none;">Bank Reconciliation &amp; Bank Statement</a></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_hr_loan/" style="color:#697582; text-decoration:none;">Employee Loan Management</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/8.0/purchase_invoice_discount/" style="color:#697582; text-decoration:none;">Discount on purchase and Invoice</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/9.0/dev_import_mass_image_url/" style="color:#697582; text-decoration:none;">Import product Image From URL through CSV</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_product_expiry_excel_report/" style="color:#697582; text-decoration:none;">Product Expiry Excel Report &amp; Reminder</a></span></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_sale_excel_dashboard/" style="color:#697582; text-decoration:none;">Top Sales Dashboard on Excel-Sheet</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_set_product_pricelist/" style="color:#697582; text-decoration:none;">Multiple Pricelist on Sale Order Line</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/9.0/dev_customer_credit_limit/" style="color:#697582; text-decoration:none;">Customer Credit Limit</a></span></td>
+                                                                     <td width="25%"><span class="fa fa-coffee fa-1x" style="color:#697582;"> <a href="https://www.odoo.com/apps/modules/10.0/dev_export_sale_order/" style="color:#697582; text-decoration:none;">Export Sale Order in Excel</a></span></td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="border-bottom:#004460 solid 1px; line-height:10px;">&nbsp;
+                                                         </td>
+                                                      </tr>
+                                                      <!--Footer set-->
+                                                      <tr>
+                                                         <td colspan="2" style="font-size:16px; color:#d74930; font-weight:bold;" width="100%" align="center">
+                                                            <center><span class="fa fa-certificate fa-1x" style="color:#1f2327;">For any questions, support and development contact us.
+                                                               </span><span class="fa fa-certificate fa-1x" style="color:#1f2327;"></span>
+                                                            </center>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td colspan="2" style="border-bottom:#004460 solid 1px; line-height:10px;">&nbsp;
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                      </tr>
+                                                   </tbody>
+                                                </table>
+                                             </div>
+                                          </section>
+                                          <section style="margin-top:-20px;">
+                                             <div class="oe_dark oe_quote" style="height:350px">
+                                                <div class="col-md-12">
+                                                   <div class="col-md-6">
+                                                      <h3 class="oe_slogan"><b>Odoo Support Services</b></h3>
+                                                      <p>For any other assistance related to the new Odoo feature, customization or Odoo Development.Our Odoo experts will help you to build your business </p>
+                                                      <img class="oe_photo" src="./Employee Advance Expenses Request - ENUGUDISCO_files/logo.png" alt="DevIntelle Consulting Service Pvt.Ltd(Export Excel)">
+                                                   </div>
+                                                   <div class="col-md-6 text-left">
+                                                      <div class="oe_author"><b>Get In Touch</b></div>
+                                                      <br>
+                                                      <div class="oe_job"><i class="fa fa-envelope"></i> <span><a href="mailto:devintelle@gmail.com;" target="_blank">devintelle@gmail.com</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-mobile fa-2x"></i> <span><a href="tel:+918780543446" target="_blank">+91 87805 43446</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-skype"></i> <span><a href="skype:devintelle" target="_blank">devintelle</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-facebook-square"></i> <span><a href="https://www.facebook.com/Odoodevintellecs/" target="_blank">DevIntelle</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-google-plus-square"></i> <span><a href="https://plus.google.com/u/0/106859683363969286567" target="_blank">+DevIntelle</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-twitter-square"></i> <span><a href="https://twitter.com/Odoodevintellecs" target="_blank">@Odoodevintellecs</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-youtube-square fa-1x"></i> <span><a href="https://www.youtube.com/channel/UCrmu-T0c8rhMXGuB44bH7gA" target="_blank">DevIntellecs</a></span></div>
+                                                      <div class="oe_job"><i class="fa fa-globe"></i> <span><a href="https://www.devintellecs.com/" target="_blank">www.devintellecs.com</a></span></div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </section>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+
+
+
+
+          
+
+
+</div>
+
+</body>
+
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <script src="assets/bundles/apexcharts/apexcharts.min.js"></script>
+  <!-- Page Specific JS File -->
+  <script src="assets/js/page/index.js"></script>
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+
+  <script type="text/javascript">
+     
+     const tabs = document.querySelectorAll('[data-tab-target]')
+const tabContents = document.querySelectorAll('[data-tab-content]')
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.tabTarget)
+    tabContents.forEach(tabContent => {
+      tabContent.classList.remove('active')
+    })
+    tabs.forEach(tab => {
+      tab.classList.remove('active')
+    })
+    tab.classList.add('active')
+    target.classList.add('active')
+  })
+})
+  </script>
+</body>
+</html>

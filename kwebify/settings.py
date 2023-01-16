@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'webify',
+    'mail',
+    'Dashbord',
 ]
 
 MIDDLEWARE = [
@@ -101,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# AUTH_USER_MODEL = 'user.User'
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -159,3 +161,7 @@ EMAIL_HOST_PASSWORD = 'Francis1@male'
 # EMAIL_HOST_PASSWORD = 'Bitechfx.x101'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+
+
+SECURE_REFERRER_POLICY = "no-referrer-when-downgrade"

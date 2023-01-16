@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import requests
@@ -134,6 +134,8 @@ def wallettransfer(request):
 	if request.method == "POST":
 		amount = int(request.POST["amount"])
 		payment_user = request.POST["user"]
+		debitaccounts = request.POST["debitaccounts"]
+		received_email = request.POST["email"]
 		account = request.POST["accounts"]
 		type_ = request.POST["type"]
 		if type_ == "bank":
@@ -195,8 +197,8 @@ def wallettransfer(request):
 			user = Userwallet.objects.filter(user=request.user)
 			for i in user:
 				kwebto_bal = i.balance
-			if kwebto_bal < int(float(amount)):
-				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="buy",reason="you dont have enough money in you wallet account Balance",status="error",amount=amount)
+			if kwebto_bal < int(float(debitaccounts)):
+				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="buy",reason="you dont have enough money in you wallet account Balance",status="error",amount=debitaccounts)
 				response = "Sorry ! you dont have enough money in you Bank account Balance"
 			else:
 				if Usercryptowallet.objects.filter(crpyto_wallet_address=account).exists():
@@ -207,10 +209,10 @@ def wallettransfer(request):
 					email = user_wallet.update(balance=acs)
 					accoutdetail = Userwallet.objects.filter(user=request.user)
 					for i in accoutdetail:
-						accba = float(i.balance) - amount
+						accba = float(i.balance) - float(debitaccounts)
 						Userwallet.objects.filter(user=request.user).update(balance=accba)
-					PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="buy",reason="your transaction was succesfull",status="success",amount=amount)
-					PayHistory.objects.create(user=use,payied_to=request.user.email,acc_type=type_,reason_type="received",reason="a transaction was deposited to your account",status="success",amount=amount)
+					PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="buy",reason="your transaction was succesfull",status="success",amount=debitaccounts)
+					PayHistory.objects.create(user=use,payied_to=request.user.email,acc_type=type_,reason_type="received",reason="a transaction was deposited to your kwebto",status="success",amount=amount)
 					response = "Success ! your transaction was succesfull"
 				else:
 					PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="buy",reason="You won't belive it but this is an error somthing went wrong",status="error",amount=amount)
@@ -220,6 +222,7 @@ def wallettransfer(request):
 		else:
 			respons = "Error ! Something went Wrong please check your details"
 		return HttpResponse(response)
+
 
 @login_required
 def pay(request):
@@ -298,3 +301,89 @@ def call_back_url(request):
 		Subscription.objects.create(user_membership=user_membership,expires_in=dt.now().date() + timedelta(days=user_membership.membership.duration))
 		return redirect('/subscribed')  
 	return render(request, 'Template/payment.html') 
+
+
+def forum(request):
+	forum = Forum.objects.all().order_by('-date_created')
+	count = forum.count()
+	futured = Forum.objects.filter(futured=True)[0:5]
+	context = {
+		"forum":forum,
+		"count":count,
+		"futured":futured,
+	}
+	return render(request,"kwabify/UserDashboard/forum.html",context)
+
+def forum_details(request, id):
+	furum = Forum.objects.get(id=id)
+	coment = ForumComment.objects.filter(question=furum)
+	profiles = coment[0:3]
+	const = {
+		"profiles":profiles,
+		"count":profiles.count(),
+		"coment":coment,
+		"furum":furum,
+	}
+	return render(request,"kwabify/UserDashboard/forum-details.html",const)
+
+@login_required
+def liked_qustion(request, id):
+	user=request.user
+	Like=False
+	if request.method=="POST":
+		qustion_id=request.POST['qustion_id']
+		get_qustion=get_object_or_404(Forum, id=qustion_id)
+		if user in get_qustion.likes.all():
+			get_qustion.likes.remove(user)
+			Like=False
+		else:
+			get_qustion.likes.add(user)
+			Like=True
+		data={
+			"liked":Like,
+			"likes_count":create_comment.likes.all().count()
+		}
+		return JsonResponse(data, safe=False)
+	return redirect(reverse("forum_details", args=[str(id)]))
+
+@login_required
+def question_comment(request, id):
+	comments=False
+	if request.method =="POST":
+		comment=request.POST['comment']
+		qus=Forum.objects.get(id=id)
+		
+		if comment is not None:
+			create_comment=ForumComment(question=qus, user=request.user, comment=comment)
+			create_comment.save()
+			comments=True
+			data={
+			"comment":comments,
+			"comment_count":get_qustion.likes.all().count()
+		}
+		return JsonResponse(data, safe=False)
+	return redirect(reverse("forum_details", args=[str(id)]))
+	# return redirect('forum_details', question_id=id)
+# @login_required
+# def dislike_qustion(request, id):
+# 	user=request.user
+# 	Like=False
+# 	if request.method == "POST":
+# 		qustion_id=request.POST['qustion_id']
+# 		print("printing ajax id", qustion_id)
+# 		watch=get_object_or_404(Forum, id=qustion_id)
+# 		if user in watch.likes.all():
+# 			watch.dislikes.remove(user)
+# 			Dislikes=False
+# 		else:
+# 			if user in watch.likes.all():
+# 				watch.likes.remove(user)
+# 			watch.dislikes.add(user)
+# 			watch.save()
+# 			Dislikes=True
+# 		data={
+# 			"disliked":Dislikes,
+# 			'dislike_count':watch.dislikes.all().count()
+# 		}
+# 		return JsonResponse(data, safe=False)
+# 	return redirect(reverse("forum_details", args=[str(id)]))

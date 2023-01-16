@@ -8,8 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title>Get WinDOORS - Admin, Dashboard, Web Application HTML template, UI kit, UI templates</title>
-
+    
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Mail{% endblock %}</title>
+       
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="{% static 'assets/manifest.json' %}" />
@@ -2626,7 +2629,7 @@
     </div>
     <!-- chat window ends -->
 
-
+ 
     <!-- Required jquery and libraries -->
     <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'assets/js/popper.min.js' %}"></script>
@@ -2668,7 +2671,45 @@
     <script src="{% static 'assets/js/header-title.js' %}"></script>
     <script src="{% static 'assets/js/finance-banks.js' %}"></script>
     <script src="{% static 'assets/js/finance-wallet.js' %}"></script>
+    <script>
+        $('#kwebtocoin').on('click', function () {
+        setTimeout(function () {
+            // e.preventDefault();
+            $.ajax({
+                type:"POST",
+                url:"/kwebify/wallettransfer",
+                data: {
+                    amount: $('#fixedprice').val(),
+                    user: $('#user').val(),
+                    email: $('#emails').val(),
+                    accounts: $('#accounts').val(),
+                    debitaccounts: $('#total').val(),
+                    type: $('#type').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (respons){
+                    if (respons == "Success ! your transaction was succesfull"){
+                        alert(respons)
+                    } else {
+                        alert(respons);
+                    };
+                },
+            })
+        }, 2000)
+    }) 
+    </script>
+        <script>
+        'use strict'
+        $(window).on('load', function () {
 
+            /* ck editor */
+            ClassicEditor
+                .create(document.querySelector('#ckeditor'))
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
 </body>
 
 </html>

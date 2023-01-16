@@ -1,6 +1,6 @@
 'use strict'
 $(window).on('load', function () {
-
+   
     /* Swiper slider */
     var swiper = new Swiper(".pricecurrentswiper", {
         slidesPerView: 'auto',
