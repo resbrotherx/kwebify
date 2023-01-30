@@ -63,7 +63,7 @@
                     <div class="right-door"></div>
                 </div>
                 <h5 class="mb-0">Thanks for the patience</h5>
-                <p class="text-secondary small">Amazing things coming from the <span class="text-dark">WinDOORS</span></p>
+                <p class="text-secondary small">Amazing things coming from the <span class="text-dark">Kwebify</span></p>
                 <div class="spinner-border text-primary mt-3" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -92,8 +92,8 @@
                         <div class="row">
                             <div class="col-auto"><img src="{% static 'assets/img/favicon48.png' %}" class="mx-100" alt="" /></div>
                             <div class="col ps-0 align-self-center d-none d-sm-block">
-                                <h5 class="fw-normal text-dark mb-0">WinDOORS</h5>
-                                <p class="small text-secondary">Admin App UI</p>
+                                <h5 class="fw-normal text-dark mb-0">Kwebify</h5>
+                                <p class="small text-secondary">{{user}} Admin App</p>
                             </div>
                         </div>
                     </a>
@@ -836,13 +836,13 @@
                                     <div class="row">
                                         <div class="col-auto align-self-center">
                                             <figure class="avatar avatar-40 rounded-circle coverimg vm">
-                                                <img src="{% static 'assets/img/user-1.jpg' %}" alt="" id="userphotoonboarding2" />
+                                                <img src="{% static '{{user.profile.image.url}}' %}" alt="" id="userphotoonboarding2" />
                                             </figure>
                                         </div>
                                         <div class="col ps-0 align-self-center d-none d-lg-block">
                                             <p class="mb-0">
-                                                <span class="text-dark username">Maxartkiller</span><br>
-                                                <small class="small">United States</small>
+                                                <span class="text-dark username">{{user.username}}</span><br>
+                                                <small class="small">{{user.userinfo.country}}</small>
                                             </p>
                                         </div>
                                         <div class="col ps-0 align-self-center d-none d-lg-block">
@@ -859,8 +859,8 @@
                                                 </figure>
                                             </div>
                                             <div class="col align-self-center ps-0">
-                                                <h6 class="mb-0"><span class="username">Maxartkiller</span></h6>
-                                                <p class="text-muted small">Balance: $100.00</p>
+                                                <h6 class="mb-0"><span class="username">{{user.username}}</span></h6>
+                                                <p class="text-muted small">Balance: ${{user.useraccount.balance}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1802,7 +1802,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check"></i> 2:00 am</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1820,7 +1820,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all"></i> 2:00 am</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1838,7 +1838,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all text-info"></i> 2:00 am</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1856,7 +1856,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all text-success"></i> 2 days ago</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1874,7 +1874,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all"></i> 4 days ago</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1892,7 +1892,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check"></i> 1 mo ago</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1906,7 +1906,7 @@
                                     <div class="col-9 align-self-center ps-0">
                                         <div class="row g-0">
                                             <div class="col-8">
-                                                <p class="text-truncate mb-0">getWinDOORS Support</p>
+                                                <p class="text-truncate mb-0">getKwebify Support</p>
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check"></i> 2:00 am</small></div>
                                         </div>
@@ -1928,7 +1928,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all"></i> 2:00 am</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1946,7 +1946,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all text-info"></i> 2:00 am</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1964,7 +1964,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all text-success"></i> 2 days ago</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -1982,7 +1982,7 @@
                                             </div>
                                             <div class="col-4 text-end"><small class="text-muted fs-10 mb-1"><i class="bi bi-check-all"></i> 4 days ago</small></div>
                                         </div>
-                                        <p class="text-secondary small text-truncate">Spread love and spread this template</p>
+                                        <p class="text-secondary small text-truncate">Spread love and spread Kindness</p>
                                     </div>
                                 </div>
                             </li>
@@ -2069,7 +2069,7 @@
                                 </figure>
                             </div>
                             <div class="col ps-0">
-                                <p class="h6 fw-medium">WINUX: getWinDOORS</p>
+                                <p class="h6 fw-medium">WINUX: getKwebify</p>
                                 <p>Learning for better user experience on Universal app. development</p>
                                 <div class="mb-3">
                                     <figure class="avatar avatar-24 coverimg rounded-circle" data-bs-toggle="tooltip" title="Angelina David">
@@ -2097,7 +2097,7 @@
                                 </figure>
                             </div>
                             <div class="col ps-0">
-                                <p><a href="profile.html">The Maxartkiller</a> commented: "Thank you so much for this deep view at getWinDOORS..."</p>
+                                <p><a href="profile.html">The Maxartkiller</a> commented: "Thank you so much for this deep view at getKwebify..."</p>
                                 <p class="text-secondary small">6 days ago <a href="javascript:void(0)" class="float-end text-secondary text-muted"><i class="bi bi-trash"></i></a></p>
                             </div>
                         </div>
@@ -2192,7 +2192,7 @@
                                 <div class="chat-block">
                                     <div class="row">
                                         <div class="col">
-                                            WinDOORS is amazing and we thank you. How can we buy?
+                                            Kwebify is amazing and we thank you.
                                         </div>
                                     </div>
                                 </div>
@@ -2256,7 +2256,7 @@
                                 <div class="chat-block">
                                     <div class="row">
                                         <div class="col">
-                                            <p>Ohh... Thats great. WinDOORS is HTML template can be used in various business domains like
+                                            <p>Ohh... Thats great. Kwebify is A Compeny That can be used in various business domains like
                                                 Manufacturing, inventory, IT, administration etc.</p>
                                         </div>
                                     </div>
@@ -2362,7 +2362,7 @@
                                 <div class="chat-block">
                                     <div class="row">
                                         <div class="col">
-                                            WinDOORS is amazing and we thank you. How can we buy?
+                                            Kwebify is amazing and we thank you.
                                         </div>
                                     </div>
                                 </div>
@@ -2426,7 +2426,7 @@
                                 <div class="chat-block">
                                     <div class="row">
                                         <div class="col">
-                                            <p>Ohh... Thats great. WinDOORS is HTML template can be used in various business domains like
+                                            <p>Ohh... Thats great. Kwebify A Compeny That can be used in various business domains like
                                                 Manufacturing, inventory, IT, administration etc.</p>
                                         </div>
                                     </div>
@@ -2473,7 +2473,7 @@
                     <div class="card-header">
                         <div class="row align-items-center">
                             <div class="col align-self-center">
-                                <p class="mb-0">WinDOORS Support</p>
+                                <p class="mb-0">Kwebify Support</p>
                                 <p class="text-secondary small">Just now</p>
                             </div>
                             <div class="col-auto">
@@ -2536,7 +2536,7 @@
                                 <div class="chat-block">
                                     <div class="row">
                                         <div class="col">
-                                            WinDOORS is amazing and we thank you. How can we buy?
+                                            Kwebify is amazing and we thank you.
                                         </div>
                                     </div>
                                 </div>
@@ -2600,7 +2600,7 @@
                                 <div class="chat-block">
                                     <div class="row">
                                         <div class="col">
-                                            <p>Ohh... Thats great. WinDOORS is HTML template can be used in various business domains like
+                                            <p>Ohh... Thats great. Kwebify is A Company That can be used in various business domains like
                                                 Manufacturing, inventory, IT, administration etc.</p>
                                         </div>
                                     </div>
@@ -2696,7 +2696,7 @@
                 },
             })
         }, 2000)
-    }) 
+    })
     </script>
         <script>
         'use strict'

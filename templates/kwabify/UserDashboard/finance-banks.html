@@ -540,7 +540,8 @@
                         <div class="card-body">
                             <form method="post">
                                 {% csrf_token %}
-                            <input class="form-control amount-input text-center mb-3" name="amount" id="amount" type="number" placeholder="0.00">
+                            
+                            <input class="form-control amount-input text-center mb-3" name="amount" id="it" type="number" placeholder="0.00">
                             <div class="row align-items-center mb-2">
                                 <div class="col-12 mb-2">
                                     <div class="input-group input-group-md border rounded">
@@ -650,8 +651,8 @@
                                 <canvas id="doughnutchart"></canvas>
                                 <div class="countvalue shadow">
                                     <div class="w-100">
-                                        <h5 class="mb-1">2,55.98K</h5>
-                                        <p class="text-success small">18.71 (0.73%)</p>
+                                        <h5 class="mb-1">${{totalhistorytrans}} usd</h5>
+                                        <p class="text-success small">${{totalsuccefullytrans}} usd</p>
                                     </div>
                                 </div>
                             </div>
@@ -672,8 +673,8 @@
                                             </div>
                                         </div>
                                         <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">40.00 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Transactions</p>
+                                            <h6 class="fw-medium mb-0">$0.00 <small class="fs-10">USD</small></h6>
+                                            <p class="small text-secondary">Total Withdrawn</p>
                                         </div>
                                     </div>
                                 </div>
@@ -685,8 +686,8 @@
                                             </div>
                                         </div>
                                         <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">10.15 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Transfer</p>
+                                            <h6 class="fw-medium mb-0">${{totalsuccefullytransfer}} <small class="fs-10">USD</small></h6>
+                                            <p class="small text-secondary">Total Transferd</p>
                                         </div>
                                     </div>
                                 </div>
@@ -698,8 +699,8 @@
                                             </div>
                                         </div>
                                         <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">15.05 <small class="fs-10">USD</small></h6>
-                                            <p class="small text-secondary">Total Withdraw</p>
+                                            <h6 class="fw-medium mb-0">${{totalerrorreceived}} <small class="fs-10">USD</small></h6>
+                                            <p class="small text-secondary">Total Failed</p>
                                         </div>
                                     </div>
                                 </div>
@@ -711,7 +712,7 @@
                                             </div>
                                         </div>
                                         <div class="col ps-0">
-                                            <h6 class="fw-medium mb-0">25.35 <small class="fs-10">USD</small></h6>
+                                            <h6 class="fw-medium mb-0">${{totalsuccefullyreceived}} <small class="fs-10">USD</small></h6>
                                             <p class="small text-secondary">Total Received</p>
                                         </div>
                                     </div>
@@ -887,6 +888,8 @@
                         <div class="card-body px-0">
                             <div class="swiper-container creditcardsvertical">
                                 <div class="swiper-wrapper">
+
+                                    {% for card in userlist %}
                                     <div class="swiper-slide">
                                         <div class="card border-0 mb-2 theme-blue">
                                             <div class="card-body">
@@ -896,22 +899,22 @@
                                                     </div>
                                                     <div class="col text-end">
                                                         <p class="size-12">
-                                                            <span class="text-muted small">City Bank</span><br>
-                                                            <span class="">Credit Card</span>
+                                                            <span class="text-muted small">Kwebify Bank</span><br>
+                                                            <span class="">{{card.acc_type}} Card</span>
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <p class="fw-medium h6 mb-3">
-                                                    000 0000 0001 546598
+                                                    {{card.account_number}}
                                                 </p>
                                                 <div class="row">
                                                     <div class="col-auto size-12">
-                                                        <p class="mb-0 text-muted small">Expiry</p>
-                                                        <p>09/023</p>
+                                                        <p class="mb-0 text-muted small">Create Date</p>
+                                                        <p>{{card.date_updated|date:"SHORT_DATE_FORMAT"}}</p>
                                                     </div>
                                                     <div class="col text-end size-12">
-                                                        <p class="mb-0 text-muted small">Card Holder</p>
-                                                        <p>Maxartkiller</p>
+                                                        <p class="mb-0 text-muted small">Bank Holder</p>
+                                                        <p>{{card.user}}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -922,8 +925,8 @@
                                                 <p>1500.00 <small class="text-success">18.0% <i class="bi bi-arrow-up"></i></small></p>
                                             </div>
                                             <div class="col-auto text-end">
-                                                <p class="text-secondary small mb-1">Limit Remain</p>
-                                                <p>13500.00</p>
+                                                <p class="text-secondary small mb-1">Balance Remain</p>
+                                                <p>${{card.balance}}</p>
                                             </div>
                                             <div class="col-12 mt-2">
                                                 <ul class="list-group bg-none">
@@ -963,7 +966,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
+                                    {% endfor %}
+                                    {% for cardc in cardeincome %}
+                                     <div class="swiper-slide">
                                         <div class="card border-0 theme-pink mb-2">
                                             <div class="card-body">
                                                 <div class="row align-items-center mb-4">
@@ -972,13 +977,13 @@
                                                     </div>
                                                     <div class="col text-end">
                                                         <p class="size-12">
-                                                            <span class="text-muted small">City Bank</span><br>
-                                                            <span class="">Credit Card</span>
+                                                            <span class="text-muted small">Kwebify Bank</span><br>
+                                                            <span class="">{{cardc.acc_type}} Card</span>
                                                         </p>
                                                     </div>
                                                 </div>
                                                 <p class="fw-medium h6 mb-3">
-                                                    000 0000 0001 546598
+                                                   {{cardc.account_number}}
                                                 </p>
                                                 <div class="row">
                                                     <div class="col-auto size-12">
@@ -1039,6 +1044,8 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
+                                    {% for cardu in cardeinvestment %}
                                     <div class="swiper-slide">
                                         <div class="card border-0 theme-yellow mb-2">
                                             <div class="card-body">
@@ -1115,6 +1122,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {% endfor %}
+
+
+                                   
+                                   
                                 </div>
                             </div>
                         </div>
@@ -1399,7 +1411,7 @@
                                 </div>
                                 <div class="col-auto avatar-group">
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Just Demo">
-                                        <img src="{% static 'assets/img/company2.png" alt="" />
+                                        <img src="{% static 'assets/img/company2.png'%}" alt="" />
                                     </figure>
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Preview Purpose">
                                         <img src="{% static 'assets/img/company3.jpg' %}" alt="" />
@@ -1419,16 +1431,16 @@
                                 <div class="col-auto">
                                     <div class="circle-small">
                                         <div id="circleprogresswhite"></div>
-                                        <div class="avatar h5 bg-light-white text-white rounded-circle">
+                                        {% comment %} <div class="avatar h5 bg-light-white text-white rounded-circle">
                                             <i class="bi bi-envelope-check"></i>
-                                        </div>
+                                        </div> {% endcomment %}
                                     </div>
                                 </div>
                                 <div class="col">
                                     <p class="text-muted small mb-1">Sent Money</p>
                                     <h5 class="fw-medium">1545 <small>k USD</small></h5>
                                 </div>
-                                <div class="col-auto ps-0 avatar-group">
+                                {% comment %} <div class="col-auto ps-0 avatar-group">
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Shelvey Doe">
                                         <img src="{% static 'assets/img/user-2.jpg' %}" alt="" />
                                     </figure>
@@ -1438,7 +1450,7 @@
                                     <figure class="avatar avatar-40 rounded-circle coverimg overlay-ms-15" data-bs-toggle="tooltip" data-bs-placement="top" title="Steve Branden">
                                         <img src="{% static 'assets/img/user-4.jpg' %}" alt="" />
                                     </figure>
-                                </div>
+                                </div> {% endcomment %}
                             </div>
                         </div>
                     </div>
@@ -1522,48 +1534,60 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                {% for u in history_table %}
                                     <tr>
                                         <td></td>
                                         <td>
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company6.png" alt="" />
+                                                        <i class="bi bi-shop h5 avatar avatar-40 bg-light-theme rounded"></i>
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
-                                                    <p class="mb-0">BitCoins</p>
+                                                    <p class="mb-0">{{u.payied_to}}</p>
                                                     <p class="text-secondary small">1 way trip</p>
                                                 </div>
                                             </div>
                                         </td>
+                                        {% if u.status == "success" %}
+                                         <td>
+                                            <p class="mb-0 text-green">${{u.amount}}</p>
+                                            <p class="text-secondary small">Bank</p>
+                                        </td>
+                                        {% else %}
                                         <td>
-                                            <p class="mb-0 text-red">-0.000015</p>
-                                            <p class="text-secondary small">BTC</p>
+                                            <p class="mb-0 text-red">${{u.amount}}</p>
+                                            <p class="text-secondary small">Bank</p>
+                                        </td>
+                                        {% endif %}
+                                        <td>
+                                            <p class="mb-0">{{u.date|date}}</p>
+                                            <p class="text-secondary small">{{u.date|time}}</p>
                                         </td>
                                         <td>
-                                            <p class="mb-0">20-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Traveling</p>
+                                            <p class="mb-0">{{u.reason_type}}</p>
                                             <p class="text-secondary small">Work</p>
                                         </td>
                                         <td>
-                                            Delivered
+                                            {{u.status}}
                                         </td>
                                         <td>
-                                            John McGra
+                                            {{u.user}}
                                         </td>
                                         <td>
                                             2356, Street-5, New York 4586, US
                                         </td>
                                         <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
+                                            <p class="mb-1">{{u.reason}}</p>
                                             <p class="text-secondary small">This can be a map also</p>
                                         </td>
                                         <td>
-                                            <span class="badge badge-sm bg-green">Paid</span>
+                                            {% if u.status == "success" %}
+                                            <span class="badge badge-sm bg-green">{{u.status}}</span>
+                                            {% else %}
+                                            <span class="badge badge-sm bg-red">{{u.status}}</span>
+                                            {% endif %}
                                         </td>
                                         <td>
                                             <div class="dropdown d-inline-block">
@@ -1578,7 +1602,9 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
+                                {% endfor %}
+
+                                    {% comment %} <tr>
                                         <td></td>
                                         <td>
                                             <div class="row align-items-center">
@@ -1640,7 +1666,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-auto">
                                                     <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company2.png" alt="" />
+                                                        <img src="{% static 'assets/img/company2.png'%}" alt="" />
                                                     </figure>
                                                 </div>
                                                 <div class="col ps-0">
@@ -1857,343 +1883,8 @@
                                                 </ul>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company5.png" alt="" />
-                                                    </figure>
-                                                </div>
-                                                <div class="col ps-0">
-                                                    <p class="mb-0">UserCars</p>
-                                                    <p class="text-secondary small">Round Trip</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 text-red">-251.00</p>
-                                            <p class="text-secondary small">USD</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">18-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Travelling</p>
-                                            <p class="text-secondary small">Home</p>
-                                        </td>
-                                        <td>
-                                            Delivered
-                                        </td>
-                                        <td>
-                                            John McGra
-                                        </td>
-                                        <td>
-                                            2356, Street-5, New York 4586, US
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
-                                            <p class="text-secondary small">This can be a map also</p>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-sm bg-blue">Waiting</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown d-inline-block">
-                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company4.jpg' %}" alt="" />
-                                                    </figure>
-                                                </div>
-                                                <div class="col ps-0">
-                                                    <p class="mb-0">Zomaatos</p>
-                                                    <p class="text-secondary small">Meal</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 text-red">-12.00</p>
-                                            <p class="text-secondary small">USD</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">18-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Food</p>
-                                            <p class="text-secondary small">Work</p>
-                                        </td>
-                                        <td>
-                                            Delivered
-                                        </td>
-                                        <td>
-                                            John McGra
-                                        </td>
-                                        <td>
-                                            2356, Street-5, New York 4586, US
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
-                                            <p class="text-secondary small">This can be a map also</p>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-sm bg-green">Paid</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown d-inline-block">
-                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company5.png" alt="" />
-                                                    </figure>
-                                                </div>
-                                                <div class="col ps-0">
-                                                    <p class="mb-0">UserCars</p>
-                                                    <p class="text-secondary small">Round Trip</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 text-red">-251.00</p>
-                                            <p class="text-secondary small">USD</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">18-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Travelling</p>
-                                            <p class="text-secondary small">Home</p>
-                                        </td>
-                                        <td>
-                                            Delivered
-                                        </td>
-                                        <td>
-                                            John McGra
-                                        </td>
-                                        <td>
-                                            2356, Street-5, New York 4586, US
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
-                                            <p class="text-secondary small">This can be a map also</p>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-sm bg-blue">Waiting</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown d-inline-block">
-                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company6.png" alt="" />
-                                                    </figure>
-                                                </div>
-                                                <div class="col ps-0">
-                                                    <p class="mb-0">BitCoins</p>
-                                                    <p class="text-secondary small">1 way trip</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 text-red">-0.000015</p>
-                                            <p class="text-secondary small">BTC</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">18-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Traveling</p>
-                                            <p class="text-secondary small">Work</p>
-                                        </td>
-                                        <td>
-                                            Delivered
-                                        </td>
-                                        <td>
-                                            John McGra
-                                        </td>
-                                        <td>
-                                            2356, Street-5, New York 4586, US
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
-                                            <p class="text-secondary small">This can be a map also</p>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-sm bg-green">Paid</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown d-inline-block">
-                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company2.png" alt="" />
-                                                    </figure>
-                                                </div>
-                                                <div class="col ps-0">
-                                                    <p class="mb-0">Starbucks</p>
-                                                    <p class="text-secondary small">2 Coffee</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 text-red">-6.00</p>
-                                            <p class="text-secondary small">USD</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">18-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Food</p>
-                                            <p class="text-secondary small">Work</p>
-                                        </td>
-                                        <td>
-                                            Delivered
-                                        </td>
-                                        <td>
-                                            John McGra
-                                        </td>
-                                        <td>
-                                            2356, Street-5, New York 4586, US
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
-                                            <p class="text-secondary small">This can be a map also</p>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-sm bg-blue">Waiting</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown d-inline-block">
-                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>
-                                            <div class="row align-items-center">
-                                                <div class="col-auto">
-                                                    <figure class="avatar avatar-40 mb-0 coverimg rounded-circle">
-                                                        <img src="{% static 'assets/img/company3.jpg' %}" alt="" />
-                                                    </figure>
-                                                </div>
-                                                <div class="col ps-0">
-                                                    <p class="mb-0">EasyMall</p>
-                                                    <p class="text-secondary small">12 Items</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 text-red">-180.00</p>
-                                            <p class="text-secondary small">USD</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">18-1-2022</p>
-                                            <p class="text-secondary small">9:00 am</p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0">Grocery</p>
-                                            <p class="text-secondary small">Home</p>
-                                        </td>
-                                        <td>
-                                            Delivered
-                                        </td>
-                                        <td>
-                                            John McGra
-                                        </td>
-                                        <td>
-                                            2356, Street-5, New York 4586, US
-                                        </td>
-                                        <td>
-                                            <p class="mb-1">Lat: 5.678167, Long: 12.078613</p>
-                                            <p class="text-secondary small">This can be a map also</p>
-                                        </td>
-                                        <td>
-                                            <span class="badge badge-sm bg-red">Unpaid</span>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown d-inline-block">
-                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
-                                                    <i class="bi bi-three-dots"></i>
-                                                </a>
-                                                <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
-                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    </tr> {% endcomment %}
+                                   
                                 </tbody>
                             </table>
                             <div class="row align-items-center mx-0 mb-3">
@@ -2211,165 +1902,25 @@
         </div>
 
         <!-- Footer -->
-        <div class="container-fluid footer-page mt-4 py-5">
-            <div class="row mb-5">
-                <div class="col-12 col-xxl-11 mx-auto">
-                    <div class="row">
-                        <div class="col-12 col-xxl-4 mb-5 mb-xxl-0">
-                            <h2 class="mb-3"><span class="text-gradient">#1 Creative</span> &<br /><span class="text-gradient">Multipurpose</span> HTML Template</h2>
-                            <h5 class="mb-4">Clean & Trending UI design with<br />a great user experience</h5>
-                            <p class="text-secondary">WinDOORS is creative and multipurpose template. You can use it for CRM, Business application, Intranet Application, Portal service and Many more.
-                                It comes with unlimited possibilities and 10+ predefined styles which you can also mix up and create new style. Do support and spread a word for us. </p>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-xxl-2 ms-xxl-auto mb-5 mb-md-0">
-                            <h5 class="mb-3">Main <span class="text-gradient">Dashboards</span></h5>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="finance-dashboard.html">Finance</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="network-dashboard.html">Network</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="inventory-dashboard.html">Inventory</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="social-dashboard.html">Social</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="project-dashboard.html">Project</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="learning-dashboard.html">Learning</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-sm-6 col-md-4 col-xxl-2 mb-5 mb-md-0">
-                            <h5 class="mb-3">Creative <span class="text-gradient">Pages</span></h5>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="app-calendar.html">Calendar</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="app-email.html">Email</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="app-explorer.html">Explorer</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="app-support.html">We need Support <i class="bi bi-heart-fill text-red"></i></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link px-0" href="app-pricing.html" target="_blank">Buy Now <i class="bi bi-arrow-up-right-square"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-md-4 col-xxl-3">
-                            <a class="navbar-brand d-block mb-3" href="https://getWinDOORS.com" target="_blank">
-                                <div class="row">
-                                    <div class="col-auto"><img src="{% static 'assets/img/favicon48.png" class="mx-100" alt="" /></div>
-                                    <div class="col ps-0 align-self-center d-none d-sm-block">
-                                        <h4 class="fw-normal text-dark mb-0">WinDOORS</h4>
-                                        <p class="text-secondary">Admin App UI</p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <p class="mb-2"><b>Main office:</b></p>
-                            <p class="mb-1"><a href="https://getWinDOORS.com" target="_blank">www.getWinDOORS.com</a></p>
-                            <p class="mb-4 text-secondary">Test data 103909 Witamer CR, Niagara Falls, NY 14305, United States</p>
-
-                            <div class="row align-items-center mb-3">
-                                <div class="col-auto"><i class="bi bi-clock text-theme"></i></div>
-                                <div class="col ps-0">0441-215-518625<br /><span class="text-secondary">Mon - Sat, 9:00 am - 10:00pm</span></div>
-                            </div>
-                            <div class="row align-items-center mb-3">
-                                <div class="col-auto"><i class="bi bi-telephone text-theme"></i></div>
-                                <div class="col ps-0">+1-000 000 100000</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12 col-xxl-11 mx-auto">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-auto mb-4 mb-md-0">
-                            <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="https://www.facebook.com/maxartkiller/" target="_blank">
-                                        <i class="bi bi-facebook h5"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="https://twitter.com/maxartkiller" target="_blank">
-                                        <i class="bi bi-twitter h5"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="https://linkedin.com/company/maxartkiller" target="_blank">
-                                        <i class="bi bi-linkedin h5"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="https://www.instagram.com/maxartkiller/" target="_blank">
-                                        <i class="bi bi-instagram h5"></i>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-secondary" href="https://www.youtube.com/get-windoors/" target="_blank">
-                                        <i class="bi bi-youtube h5"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-12 col-md-auto ms-auto">
-                            <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <i class="bi bi-microsoft h4 text-secondary"></i>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <p class="mb-0 small text-secondary">Get this on</p>
-                                                <p>Microsoft Store</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <i class="bi bi-play-fill h3 text-secondary"></i>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <p class="mb-0 small text-secondary">Get this on</p>
-                                                <p>Google Play</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <i class="bi bi-apple h4 text-secondary"></i>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <p class="mb-0 small text-secondary">Get this on</p>
-                                                <p>App Store</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       {% include 'kwabify/UserDashboard/footer.html' %}
     </main>
+    <script>
+    $('#it').on('input', function () {
+        alert("nice one")
+        $.ajax({
+            type:"post",
+            url:"",
+            data: {
+                istypin:$("#istypin").value(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            },
+        success:function (respons){
+            console.log(respons)
+        },
+        error:function(response){
+            console.log("Failed ", response)
+        },
+        }),
+    });
+    </script>
     {% endblock content %}  

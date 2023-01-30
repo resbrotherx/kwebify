@@ -14,9 +14,32 @@ from django.db.models import Sum
 def bank(request):
 	users = User.objects.all()
 	history = PayHistory.objects.filter(user=request.user)
+
+	succefullytrans = history.filter(status="success")
+	totalsuccefullytrans = succefullytrans.aggregate(Sum('amount'))['amount__sum']
+
+	succefullytransfer = succefullytrans.filter(reason_type="transfer")
+	totalsuccefullytransfer = succefullytransfer.aggregate(Sum('amount'))['amount__sum']
+
+	succefullyreceived = succefullytrans.filter(reason_type="received")
+	totalsuccefullyreceived = succefullyreceived.aggregate(Sum('amount'))['amount__sum']
+
+
+	errorsent = history.filter(status="error")
+	totalerrorreceived = errorsent.aggregate(Sum('amount'))['amount__sum']
+
+	# all_card = 
+
+	history_table = history.filter(acc_type='bank')
 	userlist = Useraccount.objects.filter(user=request.user)
+
+	cardefaut = userlist.filter(acc_type = 'expense')
+	cardeincome = userlist.filter(acc_type = 'income')
+	cardeinvestment = userlist.filter(acc_type = 'investment')
+
 	Headeraccount = userlist.filter(default=True)
 	Header = userlist.aggregate(Sum('balance'))['balance__sum']
+	totalhistorytrans = history.aggregate(Sum('amount'))['amount__sum']
 	all_ = Useraccount.objects.filter(user=request.user)[0:4]
 	wallet = Userwallet.objects.filter(user=request.user)
 	coin = Usercryptowallet.objects.filter(user=request.user)
@@ -26,7 +49,17 @@ def bank(request):
 		"wallet":wallet,
 		"Header":Header,
 		"coin":coin,
-		"users":users
+		"users":users,
+		"history_table":history_table,
+		"totalhistorytrans":totalhistorytrans,
+		"totalsuccefullytrans":totalsuccefullytrans,
+		"totalsuccefullytransfer":totalsuccefullytransfer,
+		"totalsuccefullyreceived":totalsuccefullyreceived,
+		"totalerrorreceived":totalerrorreceived,
+		"userlist":cardefaut,
+		"cardeincome":cardeincome,
+		"cardeinvestment":cardeinvestment
+
 	}
 	return render(request,"kwabify/UserDashboard/finance-banks.html",const)
 
@@ -77,7 +110,7 @@ def transfermoney(request):
 				accba = i.balance
 			if accba < int(float(amount)):
 				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="transfer",reason="you dont have enough money in you Bank account Balance",status="error",amount=amount)
-				response = "Sorry ! you dont have enough money in you Bank account Balance"
+				response = "Sorry ! you dont have enough money in your Bank account Balance"
 			else:
 				if Useraccount.objects.filter(account_number=account).exists(): 
 					user_acc = Useraccount.objects.filter(account_number=account)
@@ -95,7 +128,7 @@ def transfermoney(request):
 					response = "Success ! your transaction was succesfull"
 				else:
 					PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="transfer",reason="You won't belive it but this is an error somthing went wrong",status="error",amount=amount)
-					response = "Error ! You won't belive it but this is an error somthing went wrong"
+					response = "Error ! You won't belive it but this is an error something went wrong"
 				return HttpResponse(response)
 			return HttpResponse(response)
 		elif type_ == "wallet":
@@ -105,7 +138,7 @@ def transfermoney(request):
 				accba = i.balance
 			if accba < int(float(amount)):
 				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="transfer",reason="you dont have enough money in you Bank account Balance",status="error",amount=amount)
-				response = "Sorry ! you dont have enough money in you Bank account Balance"
+				response = "Sorry ! you dont have enough money in your Bank account Balance"
 			else:
 				if Userwallet.objects.filter(wallet_id=account).exists():
 					user_wallet = Userwallet.objects.filter(wallet_id=account)
@@ -145,7 +178,7 @@ def wallettransfer(request):
 				accba = i.balance
 			if accba < int(float(amount)):
 				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="transfer",reason="you dont have enough money in you Bank account Balance",status="error",amount=amount)
-				response = "Sorry ! you dont have enough money in you Bank account Balance"
+				response = "Sorry ! you dont have enough money in your Bank account Balance"
 			else:
 				if Useraccount.objects.filter(account_number=account).exists(): 
 					user_acc = Useraccount.objects.filter(account_number=account)
@@ -163,7 +196,7 @@ def wallettransfer(request):
 					response = "Success ! your transaction was succesfull"
 				else:
 					PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="transfer",reason="You won't belive it but this is an error somthing went wrong",status="error",amount=amount)
-					response = "Error ! You won't belive it but this is an error somthing went wrong"
+					response = "Error ! You won't belive it but this is an error something went wrong"
 				return HttpResponse(response)
 			return HttpResponse(response)
 		elif type_ == "wallet":
@@ -173,7 +206,7 @@ def wallettransfer(request):
 				accba = i.balance
 			if accba < int(float(amount)):
 				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="transfer",reason="you dont have enough money in you Bank account Balance",status="error",amount=amount)
-				response = "Sorry ! you dont have enough money in you Bank account Balance"
+				response = "Sorry ! you dont have enough money in your Bank account Balance"
 			else:
 				if Userwallet.objects.filter(wallet_id=account).exists():
 					user_wallet = Userwallet.objects.filter(wallet_id=account)
@@ -199,7 +232,7 @@ def wallettransfer(request):
 				kwebto_bal = i.balance
 			if kwebto_bal < int(float(debitaccounts)):
 				PayHistory.objects.create(user=request.user,payied_to=account,acc_type=type_,reason_type="buy",reason="you dont have enough money in you wallet account Balance",status="error",amount=debitaccounts)
-				response = "Sorry ! you dont have enough money in you Bank account Balance"
+				response = "Sorry ! you dont have enough money in your Bank account Balance"
 			else:
 				if Usercryptowallet.objects.filter(crpyto_wallet_address=account).exists():
 					user_wallet = Usercryptowallet.objects.filter(crpyto_wallet_address=account)
