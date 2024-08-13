@@ -105,7 +105,7 @@ $(window).on('load', function () {
             setTimeout(function () {
                 $.ajax({
                     type:'POST',
-                    url:'/auth',
+                    url:'/auth/auth',
                     data:{
                         username: $('#username').val(),
                         password1: $('#password1').val(),
@@ -116,7 +116,7 @@ $(window).on('load', function () {
                             alert(respons)
                             $('form').find('.global-success').removeClass('d-none');
                             $('form').find('.global-alert').addClass('d-none');
-                            window.location.replace("/");
+                            window.location.replace("/dashboard-home");
                         } else {
                             alert(respons);
                             $('form').find('.check-valid').not('.is-valid').length > 0
@@ -171,7 +171,7 @@ $(window).on('load', function () {
                 // e.preventDefault();
                 $.ajax({
                     type:"POST",
-                    url:"/create",
+                    url:"/auth/create",
                     data: {
                         username: $('#username').val(),
                         email: $('#email').val(),
@@ -189,7 +189,7 @@ $(window).on('load', function () {
                             alert(respons)
                             $('form').find('.global-success').removeClass('d-none');
                             $('form').find('.global-alert').addClass('d-none');
-                            window.location.replace("/Verify-otp");
+                            window.location.replace("/auth/Verify-otp");
                         } else {
                             alert(respons);
                             $('form').find('.check-valid').not('.is-valid').length > 0
@@ -351,7 +351,7 @@ $(window).on('load', function () {
         // e.preventDefault();
         $.ajax({
             type:"POST",
-            url:"/send_otp",
+            url:"/auth/send_otp",
             data: {
                 // username: $('#username').val(),
                 otp: OTPvalue,

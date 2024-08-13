@@ -226,7 +226,7 @@ abbr[title] {
 }
 
 b, strong {
-    font-weight: bold;
+    font-weight: initial;
 }
 
 dfn {
@@ -354,7 +354,7 @@ textarea {
 }
 
 optgroup {
-    font-weight: bold;
+    font-weight: initial;
 }
 
 table {
@@ -671,7 +671,7 @@ td, th {
     content: "\e047";
 }
 
-.glyphicon-bold:before {
+.glyphicon-initial:before {
     content: "\e048";
 }
 
@@ -1743,7 +1743,7 @@ mark, .mark {
 }
 
 .text-primary {
-    color: #6325c6;
+    color: #33b89f;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -1784,7 +1784,7 @@ a.text-danger:hover, a.text-danger:focus {
 
 .bg-primary {
     color: #fff;
-    background-color: #6325c6;
+    background-color: #33b89f;
 }
 
 a.bg-primary:hover, a.bg-primary:focus {
@@ -1865,7 +1865,7 @@ dt, dd {
 }
 
 dt {
-    font-weight: bold;
+    font-weight: initial;
 }
 
 dd {
@@ -1966,7 +1966,7 @@ kbd {
 kbd kbd {
     padding: 0;
     font-size: 100%;
-    font-weight: bold;
+    font-weight: initial;
     box-shadow: none;
 }
 
@@ -3140,7 +3140,7 @@ label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: initial;
 }
 
 input[type="search"] {
@@ -3201,7 +3201,7 @@ output {
 }
 
 .form-control:focus {
-    border-color: #6325c6;
+    border-color: #33b89f;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(99, 37, 198, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(99, 37, 198, 0.6);
@@ -3645,7 +3645,7 @@ textarea.input-lg, select[multiple].input-lg {
 .btn {
     display: inline-block;
     margin-bottom: 0;
-    font-weight: bold;
+    font-weight: initial;
     text-align: center;
     vertical-align: middle;
     touch-action: manipulation;
@@ -5629,8 +5629,8 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
     z-index: 2;
     color: #ffffff;
-    background-color: #6325c6;
-    border-color: #6325c6;
+    background-color: #33b89f;
+    border-color: #33b89f;
     cursor: default;
 }
 
@@ -5716,7 +5716,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
     display: inline;
     padding: .2em .6em .3em;
     font-size: 75%;
-    font-weight: bold;
+    font-weight: initial;
     line-height: 1;
     color: #ffffff;
     text-align: center;
@@ -5749,7 +5749,7 @@ a.label:hover, a.label:focus {
 }
 
 .label-primary {
-    background-color: #6325c6;
+    background-color: #33b89f;
 }
 
 .label-primary[href]:hover, .label-primary[href]:focus {
@@ -5928,7 +5928,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 
 .alert .alert-link {
-    font-weight: bold;
+    font-weight: initial;
 }
 
 .alert > p, .alert > ul {
@@ -6047,7 +6047,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     line-height: 20px;
     color: #ffffff;
     text-align: center;
-    background-color: #6325c6;
+    background-color: #33b89f;
     -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     -webkit-transition: width 0.6s ease;
@@ -6598,26 +6598,26 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 }
 
 .panel-primary {
-    border-color: #6325c6;
+    border-color: #33b89f;
 }
 
 .panel-primary > .panel-heading {
     color: #ffffff;
-    background-color: #6325c6;
-    border-color: #6325c6;
+    background-color: #33b89f;
+    border-color: #33b89f;
 }
 
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-    border-top-color: #6325c6;
+    border-top-color: #33b89f;
 }
 
 .panel-primary > .panel-heading .badge {
-    color: #6325c6;
+    color: #33b89f;
     background-color: #ffffff;
 }
 
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-    border-bottom-color: #6325c6;
+    border-bottom-color: #33b89f;
 }
 
 .panel-success {
@@ -6770,7 +6770,7 @@ a.list-group-item-danger.active, button.list-group-item-danger.active, a.list-gr
 .close {
     float: right;
     font-size: 21px;
-    font-weight: bold;
+    font-weight: initial;
     line-height: 1;
     color: #000000;
     text-shadow: 0 1px 0 #ffffff;
@@ -7902,8 +7902,8 @@ button.close {
 
 .o_field_selector.o_edit_mode > .o_field_selector_popover .o_field_selector_popover_header {
     color: white;
-    background: #6325c6;
-    font-weight: bold;
+    background: #33b89f;
+    font-weight: initial;
     padding: 5px 0 5px 0.4em;
 }
 
@@ -7951,7 +7951,7 @@ button.close {
     content: "";
     border-left: 7px solid rgba(0, 0, 0, 0);
     border-right: 7px solid rgba(0, 0, 0, 0);
-    border-bottom: 7px solid #6325c6;
+    border-bottom: 7px solid #33b89f;
 }
 
 .o_field_selector.o_edit_mode > .o_field_selector_popover .o_field_selector_popover_body .o_field_selector_page {
@@ -7998,7 +7998,7 @@ button.close {
 }
 
 .o_field_selector.o_edit_mode > .o_field_selector_popover .o_field_selector_popover_footer {
-    background: #6325c6;
+    background: #33b89f;
     padding: 5px 0.4em;
 }
 
@@ -8920,7 +8920,7 @@ body .text-epsilon {
 }
 
 .bg-primary {
-    background-color: #6325c6;
+    background-color: #33b89f;
     color: #ffffff;
 }
 
@@ -8929,7 +8929,7 @@ body .text-epsilon {
 }
 
 body .text-primary {
-    color: #6325c6;
+    color: #33b89f;
 }
 
 .bg-success {
@@ -9428,12 +9428,12 @@ body .text-white-75 {
 }
 
 .o_mail_chat .o_mail_chat_sidebar .o_mail_chat_channel_item.o_active {
-    background: #6325c6;
+    background: #33b89f;
     color: #ffffff;
 }
 
 .o_mail_chat .o_mail_chat_sidebar .o_mail_chat_channel_item.o_onread_messages {
-    font-weight: bold;
+    font-weight: initial;
 }
 
 .o_mail_chat .o_mail_chat_sidebar .o_mail_chat_channel_item .o_channel_name {
@@ -9711,7 +9711,7 @@ body .text-white-75 {
 }
 
 .o_chat_window .o_chat_header {
-    background-color: #6325c6;
+    background-color: #33b89f;
     color: #ffffff;
     padding: 8px 8px;
     display: -ms-flexbox;
@@ -9838,7 +9838,7 @@ body .text-white-75 {
 }
 
 .o_chat_window_dropdown {
-    background-color: #6325c6;
+    background-color: #33b89f;
     border-bottom: none;
     color: #ffffff;
     cursor: pointer;
@@ -9852,7 +9852,7 @@ body .text-white-75 {
 
 .o_chat_window_dropdown .o_chat_window_dropdown_toggler .o_total_unread_counter {
     color: #ffd4e4;
-    font-weight: bold;
+    font-weight: initial;
 }
 
 .o_chat_window_dropdown.open .o_chat_window_dropdown_toggler .o_total_unread_counter {
@@ -10216,7 +10216,7 @@ body .text-white-75 {
     width: 100%;
     min-height: 56px;
     max-height: 56px;
-    background-color: #571fbd;
+    background-color: #33b89f;
     color: #ffffff;
     cursor: auto;
     padding-left: 15px;
@@ -10399,7 +10399,7 @@ body .text-white-75 {
 
 .o_followers .o_followers_actions .o_followers_follow_button {
     color: #191919;
-    font-weight: bold;
+    font-weight: initial;
     padding-right: 0;
 }
 
@@ -10442,7 +10442,7 @@ body .text-white-75 {
 }
 
 .o_followers .o_followers_title_box .dropdown-toggle .o_followers_count {
-    font-weight: bold;
+    font-weight: initial;
     padding-right: 5px;
 }
 
@@ -10632,7 +10632,7 @@ body .text-white-75 {
 
 .o_mail_thread .o_thread_new_messages_separator .o_thread_separator_label {
     background: #ffffff;
-    color: #6325c6;
+    color: #33b89f;
     font-size: 12px;
     padding: 0 15px;
     position: relative;
@@ -10831,7 +10831,7 @@ body .text-white-75 {
 
 .o_thread_date_separator .o_thread_date {
     background: #ffffff;
-    font-weight: bold;
+    font-weight: initial;
     margin: 0 auto;
     padding: 0 15px;
     position: relative;
@@ -10921,7 +10921,7 @@ body .text-white-75 {
     color: #ff3b84;
     font-weight: normal;
     border-radius: 0;
-    font-weight: bold;
+    font-weight: initial;
 }
 
 .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_filter_button, .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_new_message, .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_filter_button:active, .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_new_message:active, .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_filter_button.active, .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_new_message.active, .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_filter_button[disabled], .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_new_message[disabled], fieldset[disabled] .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_filter_button, fieldset[disabled] .o_mail_navbar_item .o_mail_navbar_dropdown .o_mail_navbar_dropdown_top .o_new_message {

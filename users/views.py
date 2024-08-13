@@ -73,7 +73,7 @@ def create(request):
 			}
 			html_template = 'users/signup_massage.html'
 			html_message = render_to_string(html_template, context=mydict)
-			subject = 'Kwebify'
+			subject = 'Apsuni'
 			email_from = settings.EMAIL_HOST_USER
 			recipient_list = [email]
 			message = EmailMessage(subject, html_message,

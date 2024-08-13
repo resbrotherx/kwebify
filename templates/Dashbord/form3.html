@@ -1,32 +1,37 @@
  {% extends 'Dashbord/base.html' %}
  {% block content %}
           <div class="o_main">
-
-
-
-
-
-
-
-
                <div class="o_main_content">
              
                   <div class="o_control_panel o_breadcrumb_full">
                      <div class="a_cp_top">
                         <ol class="breadcrumb">
                            <li><a>Customers</a></li>
-                           <li class="active">042 RESTAURANT</li>
+                           <li class="active">{{website}}</li>
                         </ol>
-                        <div class="o_cp_searchview" style="display: none;">
+                        <!-- <div class="o_cp_searchview" style="display: none;">
                            <div class="o_searchview o_hidden">
                               <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
                               <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
                               <input class="o_searchview_input" placeholder="Search..." type="text">
                            </div>
+                        </div> -->
+
+                        <div class="o_cp_pager">
+                           <div>
+                              <span class="o_pager_counter">
+                              <span class="o_pager_value">3</span> / <span class="o_pager_limit">8</span>
+                              </span>
+                              <span class="btn-group btn-group-sm">
+                              <button aria-label="Previous" onclick="alert('not allowed')" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" onclick="alert('not allowed')" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              </span>
+                           </div>
                         </div>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons o_hidden"></div>
                      </div>
                      <div class="a_cp_bottom">
-                        <div class="o_cp_buttons">
+                        <!-- <div class="o_cp_buttons">
                            <div>
                               <div class="o_form_buttons_view o_hidden">
                                  <button accesskey="a" class="btn btn-primary btn-sm o_form_button_edit" type="button">
@@ -45,8 +50,8 @@
                                  </button>
                               </div>
                            </div>
-                        </div>
-                        <div class="o_cp_sidebar">
+                        </div> -->
+                        <!-- <div class="o_cp_sidebar">
                            <div class="btn-group o_hidden">
                               <div class="btn-group o_dropdown">
                                  <button aria-expanded="false" class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
@@ -103,8 +108,8 @@
                                  </ul>
                               </div>
                            </div>
-                        </div>
-                        <div class="btn-group o_search_options" style="display: none;">
+                        </div> -->
+                        <!-- <div class="btn-group o_search_options" style="display: none;">
                            <div class="btn-group o_dropdown">
                               <button class="o_dropdown_toggler_btn btn btn-sm dropdown-toggle" data-toggle="dropdown">
                               <span class="fa fa-filter"></span>
@@ -308,19 +313,8 @@
                                  <li><a class="add-to-spreadsheet">Add to Google Spreadsheet</a></li>
                               </ul>
                            </div>
-                        </div>
-                        <div class="o_cp_pager">
-                           <div>
-                              <span class="o_pager_counter">
-                              <span class="o_pager_value">2</span> / <span class="o_pager_limit">80</span>
-                              </span>
-                              <span class="btn-group btn-group-sm">
-                              <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
-                              <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
-                              </span>
-                           </div>
-                        </div>
-                        <div class="btn-group btn-group-sm o_cp_switch_buttons o_hidden"></div>
+                        </div> -->
+                        
                      </div>
                   </div>
                   <div class="o_content">
@@ -486,15 +480,15 @@
                         <div class="o_cp_pager">
                            <div>
                               <span class="o_pager_counter">
-                              <span class="o_pager_value">50</span> / <span class="o_pager_limit">50</span>
+                              <span class="o_pager_value">{{counters}}</span> / <span class="o_pager_limit">{{counters}}</span>
                               </span>
                               <span class="btn-group btn-group-sm">
-                              <button aria-label="Previous" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
-                              <button aria-label="Next" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              <button aria-label="Previous" disabled onclick="alert('no more')" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" disabled class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
                               </span>
                            </div>
                         </div>
-                        <div class="btn-group btn-group-sm o_cp_switch_buttons"><button type="button" accesskey="k" aria-label="kanban" data-view-type="kanban" title="" class="btn btn-icon fa fa-lg fa-th-large o_cp_switch_kanban active" data-original-title="Kanban"></button>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons"><a href="/dashboard-home"><button type="button" accesskey="k" aria-label="kanban" data-view-type="kanban" title="" class="btn btn-icon fa fa-lg fa-th-large o_cp_switch_kanban active" data-original-title="Kanban"></button></a>
                            {% comment %} <button type="button" accesskey="l" aria-label="list" data-view-type="list" title="" class="btn btn-icon fa fa-lg fa-list-ul o_cp_switch_list" data-original-title="List"></button> {% endcomment %}
                         </div>
                      </div>
@@ -507,196 +501,32 @@
 
                      <div class="o_view_manager_content">
                         <div class="o_cannot_create">
-                           <div class="o_kanban_view o_kanban_ungrouped">
+                           <div class="o_kanban_view o_kanban_ungrouped"id="resultsContainer">
                         
-                           {% for n in tags %}
+                          <!-- Add this container where you want to display the data -->
+
+                              {% for n in tags %}
                               <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
                                  <img class="oe_module_icon" modifiers="{}" src="{{n.Image.url}}">
                                  <div class="oe_module_desc" modifiers="{}" title="Assets">
                                     <h4 class="o_kanban_record_title" modifiers="{}"><span>{{n.title}}</span></h4>
                                     <p class="oe_module_name" modifiers="{}">
-                                       <span>{{n.discription}}</span><br modifiers="{}">
+                                    <span>{{n.discription}}</span><br modifiers="{}">
                                     </p>
                                     <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>{{n.tag}}</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" type="button">
-                                       <input type="checkbox" class="check" name="file" placeholder="{{n.title}}" value="{{n.id}}" id="checkbox"></button>
+                                    <code modifiers="{}"><small modifiers="{}"><span>{{n.tag}}</span></small></code>
+                                    <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" type="button">
+                                       <input type="checkbox" class="check" name="file" placeholder="{{n.title}}" value="{{n.id}}" id="checkbox">
+                                    </button>
                                     </div>
                                     <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
                                     </div>
                                  </div>
                               </div>
-                           {% endfor %}
-                              {% comment %} <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(1).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Product on Asset Depreciation Expense">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Product on Asset Depreciation Expense</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>assets_depreciation_partner</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(2).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Product Category Company Parameter">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Product Category Company Parameter</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>product_category_company_parameter</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(3).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Url Access Restriction">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Url Access Restriction</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>Module Use of Url Access Restriction</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>url_access_restriction</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(4).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Print Bank Statement">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Print Bank Statement</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>This App will Add Print Option in Cash/Bank Statement</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>de_print_bank_statement</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(5).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Employee Advance Expenses Request">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Employee Advance Expenses Request</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>
-                                       Apps will manage Employee Advance Expenses request flow
-                                       </span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>dev_advance_expenses</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(6).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Employee Age">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Employee Age</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>Apps will help to add Employee Age on Employee screen</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>dev_employee_age</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(7).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Employee Profile Report">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Employee Profile Report</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>Employee profile report</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>dev_employee_profile</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(8).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Hr Expense sheet  Uniq Number">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Hr Expense sheet  Uniq Number</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>odoo app will add unique number for each hr expense sheet</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>dev_hr_expense_sheet_number</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(9).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Birthday Wishes">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Birthday Wishes</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>Birthday Wishes for Employee, Customer</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>fl_birthday_wish</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(10).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Purchase Dashboard">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Purchase Dashboard</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>Manage Purchase Dashboard By User</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>gyb_purchase_dashboard</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
-                                 <img class="oe_module_icon" modifiers="{}" src="./Apps - ENUGUDISCO_files/icon(11).png">
-                                 <div class="oe_module_desc" modifiers="{}" title="Purchase Amendment">
-                                    <h4 class="o_kanban_record_title" modifiers="{}"><span>Purchase Amendment</span></h4>
-                                    <p class="oe_module_name" modifiers="{}">
-                                       <span>Purchase Amendment</span><br modifiers="{}">
-                                    </p>
-                                    <div class="oe_module_action" modifiers="{}">
-                                       <code modifiers="{}"><small modifiers="{}"><span>purchase_amendment</span></small></code>
-                                       <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" modifiers="{&quot;invisible&quot;:[[&quot;state&quot;,&quot;not in&quot;,[&quot;uninstalled&quot;]]]}" options="{}" data-type="object" data-name="button_immediate_install" data-states="uninstalled" type="button"><input type="checkbox" id="o_field_input_465"></button>
-                                    </div>
-                                    <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
-                                    </div>
-                                 </div>
-                              </div> {% endcomment %}
+                              {% endfor %}
                            
-                              <div class="o_kanban_record o_kanban_ghost"></div>
-                              <div class="o_kanban_record o_kanban_ghost"></div>
-                              <div class="o_kanban_record o_kanban_ghost"></div>
-                              <div class="o_kanban_record o_kanban_ghost"></div>
+                              
+                           
                               <div class="o_kanban_record o_kanban_ghost"></div>
                               <div class="o_kanban_record o_kanban_ghost"></div>
                            </div>
@@ -714,59 +544,7 @@
          </div>
          <div class="o_notification_manager"></div>
          <div class="o_loading"></div>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-3" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-4" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-5" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-6" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-7" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-8" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-9" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-10" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-11" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-12" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-13" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-14" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-15" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-16" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-17" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-18" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-19" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-20" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-21" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-22" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-23" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-24" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-25" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-         <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-26" tabindex="0" style="display: none;"></ul>
-         <span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
-   
+        
 
     </div>
    <script>
@@ -807,23 +585,60 @@
     })
 
 
-   const search = document.querySelector("#q");
+    const search = document.querySelector("#q");
+   const resultsContainer = document.getElementById("resultsContainer");
 
-   search.addEventListener("keyup", (e) =>{
-      const serchvalue = e.target.value;
-
-      if (serchvalue.trim().length > 0){
-         fetch("/kwebify/formsubmit",{
-            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-            body:JSON.stringify({ searchText: q }),
-            method:"POST",
+   search.addEventListener("keyup", (e) => {
+      const searchValue = e.target.value;
+      if (searchValue.trim().length > 0) {
+         fetch("/studio/formsubmit", {
+            method: "POST",
+            headers: {
+               'X-CSRFToken': $('input[name=csrfmiddlewaretoken]').val(),
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ searchText: searchValue }),
          })
          .then((res) => res.json())
          .then((data) => {
-            console.log("data",data)
+            console.log("data", data);
+            // Clear existing content
+            resultsContainer.innerHTML = '';
+
+            // Loop through the data and update the container
+            data.forEach((n) => {
+               const imageUrl = n.Image && n.Image ? n.Image : '';
+               const recordHTML = `
+                  <!-- Your existing HTML code here with data from the server -->
+                  <div class="oe_module_vignette oe_kanban_global_click o_kanban_record" modifiers="{}">
+                     <img class="oe_module_icon" modifiers="{}" src="${imageUrl}"> <!-- Use n.Image.url here -->
+                     <div class="oe_module_desc" modifiers="{}" title="Assets">
+                     <h4 class="o_kanban_record_title" modifiers="{}"><span>${n.title}</span></h4>
+                     <p class="oe_module_name" modifiers="{}">
+                        <span>${n.description}</span><br modifiers="{}">
+                     </p>
+                     <div class="oe_module_action" modifiers="{}">
+                        <code modifiers="{}"><small modifiers="{}"><span>${n.tag}</span></small></code>
+                        <button class="btn btn-primary pull-right btn-sm oe_kanban_action oe_kanban_action_button" type="button">
+                           <input type="checkbox" class="check" name="file" placeholder="${n.title}" value="${n.id}" id="checkbox">
+                        </button>
+                     </div>
+                     <div class="row pull-right align_upgrade_uninstall" modifiers="{}">
+                     </div>
+                     </div>
+                  </div>
+               `;
+               resultsContainer.insertAdjacentHTML('beforeend', recordHTML);
+            });
          });
       }
    });
-   
+
+   // Disable the back button
+   history.pushState(null, null, document.URL);
+   window.addEventListener('popstate', function () {
+      history.pushState(null, null, document.URL);
+   });
    </script>
+   
     {% endblock content %}

@@ -39,7 +39,7 @@ $(window).on('load', function () {
         toolbar_mode: 'floating',
         tinycomments_mode: 'embedded',
         plugins: 'image link autolink ',
-        toolbar: 'undo redo | bold italic underline strikethrough | image link',
+        toolbar: 'undo redo | initial italic underline strikethrough | image link',
         branding: false,
 
         /* without images_upload_url set, Upload tab won't show up*/

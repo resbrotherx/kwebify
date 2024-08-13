@@ -1,0 +1,437 @@
+{% extends 'kwabify/UserDashboard/base.html' %}
+ {% load static %}            
+     {% block content %} 
+
+     <main class="main mainheight">
+        <!-- page title bar -->
+        <div class="container-fluid mb-4 title-bg">
+            <div class="row align-items-center page-title">
+                <div class="col-12 col-md mb-2 mb-sm-0">
+                    <h5 class="mb-0">My Dashboard</h5>
+                    <p class="text-secondary">This is your personal intranet</p>
+                </div>
+                <div class="col col-sm-auto">
+                    <div class="input-group input-group-md">
+                        <input type="text" class="form-control bg-none px-0" value="" id="titlecalendar" />
+                        <span class="input-group-text text-secondary bg-none" id="titlecalandershow"><i class="bi bi-calendar-event"></i></span>
+                    </div>
+                </div>
+                <div class="col-auto ps-0 position-relative">
+                    <div class="dropdown d-inline-block">
+                        <a class="btn btn-link btn-square text-secondary dd-arrow-none dropdown-toggle" href="#" role="button" id="filterintitle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                            <i class="bi bi-filter"></i>
+                        </a>
+                        <div class="dropdown-menu w-300" aria-labelledby="filterintitle">
+                            <div class="dropdown-item">
+                                <div class="input-group input-group-md rounded">
+                                    <span class="input-group-text text-theme"><i class="bi bi-box"></i></span>
+                                    <select class="form-control" id="titltfilterlist" multiple>
+                                        <option value="San Francisco">San Francisco</option>
+                                        <option value="New York">New York</option>
+                                        <option value="London">London</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="India" selected>India</option>
+                                        <option value="Sydney">Sydney</option>
+                                        <option value="Seattle">Seattle</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="Chicago">Chicago</option>
+                                        <option value="India">India</option>
+                                    </select>
+                                </div>
+                                <div class="invalid-feedback">You have already selected maximum option allowed. (This is Configurable)</div>
+                            </div>
+                            <div class="dropdown-item">
+                                <h6 class="mb-0">Orders:</h6>
+                                <p class="text-secondary small">1256 orders last week</p>
+                            </div>
+                            <ul class="list-group list-group-flush bg-none mb-2">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col">Online Orders</div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="titleswitch1">
+                                                <label class="form-check-label" for="titleswitch1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col">Offline Orders</div>
+                                        <div class="col-auto">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="titleswitch2" checked="">
+                                                <label class="form-check-label" for="titleswitch2"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dropdown-item">
+                                <div class="row">
+                                    <div class="col"><button class="btn btn-outline-secondary border ddclose">cancel</button></div>
+                                    <div class="col-auto">
+                                        <button class="btn btn-theme">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="help-center.html" class="btn btn-link btn-square text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Support" id="stylise">
+                        <i class="bi bi-life-preserver"></i>
+                    </a>
+                    <a href="personalization.html" class="btn btn-link btn-square text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Personalize">
+                        <i class="bi bi-palette"></i>
+                    </a>
+                    <a href="https://Resbrotherx.com/website/adminux2/app-pricing.html" class="btn btn-link btn-square text-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Buy this">
+                        <span class="bi bi-basket position-relative">
+                            <span class="position-absolute top-0 start-100 p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- welcome bar -->
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-12 rounded">
+                    <div class="row align-items-center">
+
+                        <!-- welcome message -->
+                        <div class="col-12 col-md py-3 py-md-5">
+                            <h2 class="fw-light mb-0 text-secondary">Welcome,</h2>
+                            <h1 class="display-3 username ">{{user.username}}</h1>
+
+                            <!-- Swiper daily quote -->
+                            <div class="swiper dailyquote mt-4">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <i class="bi bi-calendar-event h6 avatar avatar-40 rounded-circle bg-light-theme"></i>
+                                            </div>
+                                            <div class="col">
+                                                <a href="profile.html" class="tag mb-2 me-2">
+                                                    <figure class="avatar avatar-30 rounded-circle me-1 coverimg"><img src="assets/img/user-4.jpg" alt=""></figure> James Wang <i class="bi bi-chat-right-dots vm ms-2"></i>
+                                                </a>
+                                                <a href="profile.html" class="tag mb-2 me-2">
+                                                    <figure class="avatar avatar-30 rounded-circle me-1 coverimg"><img src="assets/img/user-2.jpg" alt=""></figure> Millie Tyson <i class="bi bi-chat-right-dots vm ms-2"></i>
+                                                </a>
+                                                <p class="lead">Your 5 partner and our CEO's <span class="text-gradient">birthday</span> today.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <i class="bi bi-quote h5 avatar avatar-40 rounded-circle bg-light-theme"></i>
+                                            </div>
+                                            <div class="col">
+                                                <h5 class="fw-normal text-gradient">Winners don't do different things, they do things differently</h5>
+                                                <p class="fw-light">Shiv Khera <cite title=" Source Title">You Can Win: A Step by Step Tool for Top Achievers</cite>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- rank and progress -->
+                        <div class="col-auto ml-auto py-3 py-md-5 align-self-center">
+                            <div class="row mb-4">
+                                <div class="col col-md col-lg-auto mnw-100 text-center">
+                                    <i class="bi bi-trophy h5 avatar avatar-50 bg-radial-gradient theme-yellow text-white rounded-circle mb-2"></i>
+                                    <h3 class="increamentcount mb-0">2586</h3>
+                                    <p class="small text-secondary">Level 3</p>
+                                </div>
+                                <div class="col col-md col-lg-auto mnw-100 text-center">
+                                    <i class="bi bi-award h5 avatar avatar-50 bg-radial-gradient theme-red text-white rounded-circle mb-2"></i>
+                                    <h3 class="increamentcount mb-0">1583</h3>
+                                    <p class="small text-secondary">Your Rank</p>
+                                </div>
+                                <div class="col col-md col-lg-auto mnw-100 text-center">
+                                    <i class="bi bi-clipboard-check h5 avatar avatar-50 bg-radial-gradient theme-teal text-white rounded-circle mb-2"></i>
+                                    <h3 class="increamentcount mb-0">1356</h3>
+                                    <p class="small text-secondary">Tasks Done</p>
+                                </div>
+                            </div>
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <i class="bi bi-star h5 avatar avatar-50 bg-warning text-white rounded-circle"></i>
+                                </div>
+                                <div class="col ps-0">
+                                    <p>Earn 500 points</p>
+                                    <div class="progress h-5 mb-1 bg-light-theme">
+                                        <div class="progress-bar bg-theme" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <p class="text-secondary small"><a href="edit-profile.html">Complete your profile</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tips swiper message -->
+                        <div class="col-auto d-none d-xxl-block h-100 py-4">
+                            <div class="card border-0 h-100 bg-gradient-yellow-light">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="fw-medium">
+                                                <i class="bi bi-lightbulb text-warning me-1"></i>
+                                                Tips
+                                            </h6>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn btn-sm btn-outline-warning px-2 py-0" id="starttour" data-bs-toggle="tooltip" data-bs-placement="top" title="Start Tour"><i class="bi bi-play"></i> Tour</button>
+                                            <div class="dropdown d-inline-block ms-2">
+                                                <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-bs-display="static" role="button">
+                                                    <i class="bi bi-three-dots-vertical"></i>
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-menu-end">
+                                                    <li class="dropstart open-left ">
+                                                        <a class="dropdown-item dd-arrow-none dropdown-toggle" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" data-bs-display="static">
+                                                            Customize Tips
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-start w-300">
+                                                            <div class="dropdown-item">
+                                                                <h6 class="mb-0">Tips:</h6>
+                                                                <p class="text-secondary">1656 visited this week</p>
+                                                            </div>
+                                                            <div class="dropdown-item">
+                                                                <div class="input-group input-group-md rounded">
+                                                                    <span class="input-group-text text-theme"><i class="bi bi-lightbulb"></i></span>
+                                                                    <select class="form-control simplechosen" multiple>
+                                                                        <option value="San Francisco">San Francisco</option>
+                                                                        <option value="New York">New York</option>
+                                                                        <option value="London">London</option>
+                                                                        <option value="Chicago">Chicago</option>
+                                                                        <option value="India" selected>India</option>
+                                                                        <option value="Sydney">Sydney</option>
+                                                                        <option value="Seattle">Seattle</option>
+                                                                        <option value="Los Angeles">Los Angeles</option>
+                                                                        <option value="Indonesia">Indonesia</option>
+                                                                        <option value="Los Angeles">Los Angeles</option>
+                                                                        <option value="Chicago">Chicago</option>
+                                                                        <option value="India">India</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="invalid-feedback">You have already selected maximum option allowed. (This is Configurable)</div>
+                                                            </div>
+                                                            <ul class="list-group list-group-flush bg-none mb-2">
+                                                                <li class="list-group-item">
+                                                                    <div class="row">
+                                                                        <div class="col">Includes System</div>
+                                                                        <div class="col-auto">
+                                                                            <div class="form-check form-switch">
+                                                                                <input class="form-check-input" type="checkbox" role="switch" id="tipswitch1">
+                                                                                <label class="form-check-label" for="tipswitch1"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row">
+                                                                        <div class="col">Apps Shortcuts</div>
+                                                                        <div class="col-auto">
+                                                                            <div class="form-check form-switch">
+                                                                                <input class="form-check-input" type="checkbox" role="switch" id="tipswitch2" checked="">
+                                                                                <label class="form-check-label" for="tipswitch2"></label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="dropdown-item">
+                                                                <div class="row">
+                                                                    <div class="col"><button class="btn btn-outline-secondary border ddclose">cancel</button></div>
+                                                                    <div class="col-auto">
+                                                                        <button class="btn btn-theme">Save</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                                    <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <!-- image swiper -->
+                                    <div class="swiper image-swiper w-200 h-100 text-center">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <i class="bi bi-chat-right-dots h4 text-success mb-3 d-block"></i>
+                                                <h6>Chat Communication</h6>
+                                                <p class="small text-secondary">From the top right corner you can have access to chat panel and click on any user chat window interface will be open.</p>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <i class="bi bi-person h4 text-theme mb-3 d-block"></i>
+                                                <h6>Onboarding</h6>
+                                                <p class="small text-secondary">User on-boarding comes in the sign up flow. Complete sign up process you will see the on-boarding pages at best UI UX.</p>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <i class="bi bi-search h4 text-danger mb-3 d-block"></i>
+                                                <h6>Search Result</h6>
+                                                <p class="small text-secondary">Try to type something in search box at header and big search result box will be appeared right away.</p>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <i class="bi bi-heart h4 text-danger mb-3 d-block"></i>
+                                                <h6 class="text-gradient">Spread love</h6>
+                                                <p class="small text-secondary">If you like our template <b class="text-gradient">please share</b> to the beautiful world. World is waiting to get more good things. <i class="text-danger bi bi-heart-fill"></i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- image swiper ends -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="container">
+            <div class="row mb-4 py-2">
+                <div class="col text-center">
+                    <h4>The sort <span class="text-gradient">summary</span> may help you</h4>
+                    <p class="text-secondary">Keep yourself updated, No matter how much workload is.</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- summary blocks -->
+                <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="circle-small">
+                                        <div id="circleprogressblue"></div>
+                                        <div class="avatar h5 bg-light-blue rounded-circle">
+                                            <i class="bi bi-calendar2-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p class="text-secondary small mb-1">Task Completed</p>
+                                    <h5 class="fw-medium">60<small>%</small></h5>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="circle-small">
+                                        <div id="circleprogressyellow"></div>
+                                        <div class="avatar h5 bg-light-yellow text-yellow rounded-circle">
+                                            <i class="bi bi-building"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p class="text-secondary small mb-1">Construction Invested</p>
+                                    <h5 class="fw-medium">12550<small>USD</small></h5>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-50 h5 bg-light-red text-red rounded-circle">
+                                        <i class="bi bi-emoji-heart-eyes"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p class="text-secondary small mb-1">Event Joined</p>
+                                    <h5 class="fw-medium">1525<small>k</small></h5>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-xxl-3">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-50 h5 bg-green text-white rounded-circle">
+                                        <i class="bi bi-thermometer-sun"></i>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <p class="text-secondary small mb-1">Temperature</p>
+                                    <h5 class="fw-medium">45 <small><sup>0</sup>C, Office R-32</small></h5>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="dropdown d-inline-block">
+                                        <a class="text-secondary dd-arrow-none" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static" role="button">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Edit</a></li>
+                                            <li><a class="dropdown-item" href="javascript:void(0)">Move</a></li>
+                                            <li><a class="dropdown-item text-danger" href="javascript:void(0)">Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </main>
+
+     {% endblock content %}  

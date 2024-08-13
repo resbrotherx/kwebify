@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import *
 
-admin.site.site_header = "Resbrotherx"
-admin.site.site_title = "Kwebify"
-admin.site.index_title = "Kwebify"
+admin.site.site_header = "Apsuni"
+admin.site.site_title = "Apsuni"
+admin.site.index_title = "Apsuni"
 admin.site.register(PayHistory)
 admin.site.register(Userwallet)
 admin.site.register(Useraccount)

@@ -282,7 +282,7 @@
 .daterangepicker .drp-buttons .btn {
   margin-left: 8px;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: initial;
   padding: 4px 8px;
 }
 

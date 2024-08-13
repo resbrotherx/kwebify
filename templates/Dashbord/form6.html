@@ -1,0 +1,780 @@
+
+<html>
+<head>
+  <title>Loading Screen</title>
+  
+<style>
+
+body{
+margin:0;
+padding:0;
+text-align:center;
+background-color:black;
+  
+}
+ 
+  body h2 {
+    color: white;
+    font-family: Courier New;
+  }
+ 
+#loader{
+position:fixed;
+top:0;
+width:100%;
+background-color:black;
+height:100%;
+text-align:center;
+margin:0;
+padding:0;
+overflow:hidden;
+  
+}
+  
+  #loading {
+    display: none;
+    
+  }
+
+  #title {
+  font-family: times new roman;
+  color: white;
+  font-size: 2cm;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.jumbotron {
+  background-color: rgba(0, 0, 0, 0.2);
+ margin-top: 0.7cm;
+}
+body {
+  background-image: url("http://www.netanimations.net/24-hour-geostationary-satellite-animation-loop-Earth.gif");
+  background-repeat: no-repeat;
+  background-size: auto;
+ background-attachment: fixed;
+ background-position: center center;
+}
+#location {
+  color: white;
+  font-size: 1.5cm;
+  font-family: times new roman;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  
+}
+#weather {
+  color: white;
+  font-size: 1cm;
+  font-family: "Times New Roman", Times, serif;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#tempC {
+  color: white;
+  font-size: 1.5cm;
+  font-family: "Times New Roman", Times, serif;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#tempF {
+  color: white;
+  font-size: 1.5cm;
+  font-family: "Times New Roman", Times, serif;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  
+}
+#getWeather {
+  font-size: 1.5cm;
+}
+
+#humidity {
+  color: white;
+  font-size: 2cm;
+  font-family: times new roman;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.buttonFont {
+  font-size: 0.6cm;
+  color: white;
+   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#fahrenheit {
+  display:none;
+}
+
+#getFarenheit {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#myName {
+  font-size: 0.5cm;
+  font-family: courier;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  margin-top: -0.5cm;
+  
+}
+
+/* scree two */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(http://themes.googleusercontent.com/static/fonts/sourcecodepro/v4/mrl8jkM18OlOQN8JLgasDxM0YzuT7MdOe03otPbuUS0.woff) format('woff');
+}
+
+body {
+    font-family: Source Code Pro;
+    background:#000;
+    color: #00FF00;
+    margin:0;
+    font-size: 13px;
+}
+canvas {
+    position:absolute;
+    top:0;
+    left:0;
+}
+.bars-and-stuff{
+    left:66.6%;
+}
+
+.output-console {
+    position:fixed;
+    overflow:hidden;
+}
+p{margin:0}
+
+
+/* progresss bar */
+.progress {
+  height: 22px;
+  width: 610px;
+  margin: auto;
+  x-overflow: hidden;
+}
+
+.background, .foreground {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.background {
+  position: relative;
+  z-index: -1;
+  background-color: rgb(50, 25, 15);
+  border-radius: 2px;
+  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, 0.15);
+  
+  background-image: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0) 70%);
+
+  animation: progress 2s infinite;
+  animation-timing-function: linear;
+}
+
+  .background::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    left: 1px;
+    top: 1px;
+    background-color: rgb(50, 25, 15);
+  }
+
+.foreground {
+  margin-top: -22px;
+  padding: 0 5px;
+  position: relative;
+  width: 425px;
+  
+  background-color: #2c9323;
+  background-image: linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0) 70%);
+  background-size: 610px;
+  border-radius: 2px 0 0 2px;
+  box-shadow:
+    0 0 5px #2c9323,
+    inset 0 0 10px 5px rgba(255, 255, 255, 0.25),
+    inset -100px 0 50px -50px rgba(255, 255, 255, 0.25);
+  
+  color: white;
+  font-family: 'Trebuchet MS';
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  line-height: 22px;
+  text-shadow: 0 2px 5px black;
+
+  animation: progress 2s infinite;
+  animation-timing-function: linear;
+}
+
+  .foreground::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 -1px 0 0  rgba(255, 255, 255, 0.05),
+      0 -2px 0 0  rgba(255, 255, 255, 0.05),
+      0 -3px 0 0  rgba(255, 255, 255, 0.05),
+      0 -4px 0 0  rgba(255, 255, 255, 0.05),
+      0 -5px 0 0  rgba(255, 255, 255, 0.05),
+      0 -6px 0 0  rgba(255, 255, 255, 0.05),
+      0 -7px 0 0  rgba(255, 255, 255, 0.05),
+      0 -8px 0 0  rgba(255, 255, 255, 0.05),
+      0 -9px 0 0  rgba(255, 255, 255, 0.05),
+      0 -10px 0 0 rgba(255, 255, 255, 0.05),
+      
+      0 1px 0 0  rgba(255, 255, 255, 0.05),
+      0 2px 0 0  rgba(255, 255, 255, 0.05),
+      0 3px 0 0  rgba(255, 255, 255, 0.05),
+      0 4px 0 0  rgba(255, 255, 255, 0.05),
+      0 5px 0 0  rgba(255, 255, 255, 0.05),
+      0 6px 0 0  rgba(255, 255, 255, 0.05),
+      0 7px 0 0  rgba(255, 255, 255, 0.05),
+      0 8px 0 0  rgba(255, 255, 255, 0.05),
+      0 9px 0 0  rgba(255, 255, 255, 0.05),
+      0 10px 0 0 rgba(255, 255, 255, 0.05),
+      
+      0 0 3px 1px rgba(255, 255, 255, 0.35);
+  }
+
+@keyframes progress {
+  0% {
+    background-position: 0;
+  }
+  
+  100% {
+    background-position: 610px 0;
+  }
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>    
+<script>
+$(window).load(function() {
+    $("#loader").delay(3000).fadeOut("fast");
+ $("#loading").delay(3000).fadeIn("fast");
+  $("#fahrenheit").delay(3000).fadeIn("fast");
+});
+</script>
+
+
+</head>
+
+<body>
+  <div id="loader">
+    
+    <img src="http://www.netanimations.net/24-hour-geostationary-satellite-animation-loop-Earth.gif" width = "40%">
+    <h2>Loading your Requirements...</h2>
+    
+</div>  
+  <div id = "loading">
+  <div class = "container">
+  
+ 
+
+<!-------------------Show weather--------------------->
+ <div class="row">
+   <div class="col-sm-3"></div>
+    <div class = "text-center col-sm-12 ">
+      <div class = "jumbotron">
+      <!--Location-->
+    <h5 id = "location"></h5>
+      
+      <!--Temperature-->
+      <h4 id = "tempC"></h4>
+      <h4 style="display: none" id = "tempF">Temperature.</h4>
+      
+ <!--Toggle button, Celsius to Farenheit, vice versa-->
+      
+       <div style="display: flex; flex-direction: row;justify-content: space-between;">
+         <div class="progress" style="float: left;margin: 20px;margin-top: 6%;">
+            <span class="background"></span>
+            <span class="foreground">Downloading: 8.90 GB remaining @ 7.8 MB/s</span>
+          </div>
+        
+          <img style="width:30%; float: right;margin-top:-100px" src="http://www.netanimations.net/24-hour-geostationary-satellite-animation-loop-Earth.gif" width = "40%">
+        </div> 
+
+      <canvas class='hacker-3d-shiz'></canvas>
+        <canvas class='bars-and-stuff'></canvas>
+        <div class="output-console"></div>
+      
+      <!--Weather icon and description-->
+      <h5 id = "weather"></h5>
+      
+      <!--Humidity percentage-->
+      <h5 id = "humidity"></h5>
+      
+      </div>
+  
+      <!-- <img src="http://www.netanimations.net/24-hour-geostationary-satellite-animation-loop-Earth.gif" width = "40%"> -->
+  </div>
+  </div>
+   
+   
+  <!--My signature-->
+  
+
+</div>
+  </div>
+  <!-- <script>
+    
+$(document).ready(function() {
+  // Activates when page is finished downloading.
+  
+  
+      
+      if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latitude = position.coords.latitude
+    var longitude = position.coords.longitude
+    // Variables for latitude and longitude.
+    
+    
+    
+//----------------*API SECTION*-----------------------    
+    $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+latitude+"&lon="+longitude, function(json) {
+      // Get API.
+      
+      $("#location").html(json.name + ", " + json.sys.country + "." + "<hr></hr>");
+      // Show "City, Country".
+      
+  $("#tempC").html(json.main.temp + " °C");
+      // Show temperature in Celsius.
+      
+       $("#tempF").html(Math.round((json.main.temp * (9/5) + 32)) + " °F");
+      // Show temperature for Farenheit.
+//-------------------------------------------------      
+      
+      
+      
+//----------------------*TOGGLE*---------------------
+      $( "button" ).click(function() {
+  $( "h4" ).toggle("slow");
+}); // Toggles Celsius and Farenheit.
+//-------------------------------------------------
+     
+      
+      
+     
+      
+//----------------*SHIFTING BACKGROUND*--------------
+      
+      
+      //-----------------Clouds-------------------
+if (json.weather[0].id > 800 && json.weather[0].id < 805) {
+      var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/10539PNHnSuPTi/giphy.gif')"
+  backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+      
+      //-----------------Clear--------------------------     
+       else if (json.weather[0].id == 800) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/VxbvpfaTTo3le/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+          
+      //-----------------Drizzle--------------------------     
+        else if (json.weather[0].id > 299 && json.weather[0].id < 322) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media3.giphy.com/media/xT9GEIc1nQ7bVQQ54Q/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+          
+      //-----------------Rain--------------------------     
+       else if (json.weather[0].id > 499 && json.weather[0].id < 532) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/138T0dMeHvTfa0/source.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+         
+       //-----------------Thunderstorm--------------------------     
+        else if (json.weather[0].id > 199 && json.weather[0].id < 233) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/j69Ma1PlscvTO/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+         
+      //----------------------Snow-------------------------     
+        else if (json.weather[0].id > 599 && json.weather[0].id < 623) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/IpSc0bp7LmGC4/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+          
+      
+      //--------------------Atmosphere----------------------     
+        else if (json.weather[0].id > 700 && json.weather[0].id < 782) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/IuKnqFMhtcA2A/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+           
+      //----------------------Extreme----------------------     
+       else if (json.weather[0].id > 899 && json.weather[0].id < 907) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('http://grist.files.wordpress.com/2013/06/supercell_16803.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+          
+      //------------------------Breeze--------------------     
+       else if (json.weather[0].id > 950 && json.weather[0].id < 957) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media.giphy.com/media/De8wBkaxdeHHG/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+      
+       //---------------------Strong winds-----------------     
+       else if (json.weather[0].id > 956 && json.weather[0].id < 962) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media3.giphy.com/media/O8l9NpCMJeda0/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+      
+      
+       //------------------------Hurricane----------------     
+       else if (json.weather[0].id == 962) {var backgroundShifting = document.querySelector("body");
+      backgroundShifting.style.backgroundImage = "url('https://media3.giphy.com/media/d3mlXPjoK1ROfr9u/giphy.gif')"
+    backgroundShifting.style.backgroundSize = "cover"
+    backgroundShifting.style.backgroundAttachment = "fixed"
+    backgroundShifting.style.backgroundRepeat = "no-repeat"
+    backgroundShifting.style.backgroundPosition = "center center"}
+//-----------------------------------------------------------
+      
+      
+      
+      
+    
+      if (json.weather[0].icon) { 
+      $("#weather").html("<img src =" + json.weather[0].icon + ">" + "<br>" + "Humidity: " + json.main.humidity + "%" + ", " + json.weather[0].description + ".");}
+// Show weather icon + humidity percentage + weather description.
+  // If icon exists, show the icon.
+          
+      else {        
+        $("#weather").html("<img src =" + "http://openweathermap.org/img/w/50d.png" + ">" + "<br>" + "Humidity: " + json.main.humidity + "%" + ", " + json.weather[0].description + ".");}
+  // If icon does not exist, show this default icon.
+        
+          
+}); // End of getJSON function. 
+  }); // End of position function.
+} // End of geolocation.  
+}); // End of documentReady function.
+  </script> -->
+
+<script>
+    var canvas = document.querySelector(".hacker-3d-shiz"),
+    ctx = canvas.getContext("2d"),
+    canvasBars = document.querySelector(".bars-and-stuff"),
+    ctxBars = canvasBars.getContext("2d"),
+    outputConsole = document.querySelector(".output-console");
+
+canvas.width = (window.innerWidth/3)*2;
+canvas.height = window.innerHeight / 3;
+
+canvasBars.width = window.innerWidth/3;
+canvasBars.height = canvas.height;
+
+outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
+outputConsole.style.top = window.innerHeight / 3 + 'px'
+
+
+/* Graphics stuff */
+function Square(z) {
+    this.width = canvas.width/2;
+    
+    if(canvas.height < 200){
+      this.width = 200;
+    };
+  
+    this.height = canvas.height;
+    z = z || 0;
+
+    this.points = [
+    new Point({
+        x: (canvas.width / 2) - this.width,
+        y: (canvas.height / 2) - this.height,
+        z: z
+    }),
+    new Point({
+        x: (canvas.width / 2) + this.width,
+        y: (canvas.height / 2) - this.height,
+        z: z
+    }),
+    new Point({
+        x: (canvas.width / 2) + this.width,
+        y: (canvas.height / 2) + this.height,
+        z: z
+    }),
+    new Point({
+        x: (canvas.width / 2) - this.width,
+        y: (canvas.height / 2) + this.height,
+        z: z
+    })];
+    this.dist = 0;
+}
+
+Square.prototype.update = function () {
+    for (var p = 0; p < this.points.length; p++) {
+        this.points[p].rotateZ(0.001);
+        this.points[p].z -= 3;
+        if (this.points[p].z < -300) {
+            this.points[p].z = 2700;
+        }
+        this.points[p].map2D();
+    }
+}
+
+Square.prototype.render = function () {
+    ctx.beginPath();
+    ctx.moveTo(this.points[0].xPos, this.points[0].yPos);
+    for (var p = 1; p < this.points.length; p++) {
+        if (this.points[p].z > -(focal - 50)) {
+            ctx.lineTo(this.points[p].xPos, this.points[p].yPos);
+        }
+    }
+
+    ctx.closePath();
+    ctx.stroke();
+
+    this.dist = this.points[this.points.length - 1].z;
+
+};
+
+function Point(pos) {
+    this.x = pos.x - canvas.width / 2 || 0;
+    this.y = pos.y - canvas.height / 2 || 0;
+    this.z = pos.z || 0;
+
+    this.cX = 0;
+    this.cY = 0;
+    this.cZ = 0;
+
+    this.xPos = 0;
+    this.yPos = 0;
+    this.map2D();
+}
+
+Point.prototype.rotateZ = function (angleZ) {
+    var cosZ = Math.cos(angleZ),
+        sinZ = Math.sin(angleZ),
+        x1 = this.x * cosZ - this.y * sinZ,
+        y1 = this.y * cosZ + this.x * sinZ;
+
+    this.x = x1;
+    this.y = y1;
+}
+
+Point.prototype.map2D = function () {
+    var scaleX = focal / (focal + this.z + this.cZ),
+        scaleY = focal / (focal + this.z + this.cZ);
+
+    this.xPos = vpx + (this.cX + this.x) * scaleX;
+    this.yPos = vpy + (this.cY + this.y) * scaleY;
+};
+
+// Init graphics stuff
+var squares = [],
+    focal = canvas.width / 2,
+    vpx = canvas.width / 2,
+    vpy = canvas.height / 2,
+    barVals = [],
+    sineVal = 0;
+
+/* fake console stuff */
+var commandStart = ['Performing DNS Lookups for', 
+                'Searching ', 
+                'Analyzing ', 
+                'Estimating Approximate Location of ', 
+                'Compressing ', 
+                'Requesting Authorization From : ', 
+                'wget -a -t ', 
+                'tar -xzf ', 
+                'Entering Location ', 
+                'Compilation Started of ',
+                 'Downloading '],
+    commandParts = ['Data Structure', 
+                    'http://wwjd.com?au&2', 
+                    'Texture', 
+                    'TPS Reports', 
+                    ' .... Searching ... ', 
+                    'http://zanb.se/?23&88&far=2', 
+                    'http://ab.ret45-33/?timing=1ww'],
+    commandResponses = ['Authorizing ', 
+                 'Authorized...', 
+                 'Access Granted..', 
+                 'Going Deeper....', 
+                 'Compression Complete.', 
+                 'Compilation of Data Structures Complete..', 
+                 'Entering Security Console...', 
+                 'Encryption Unsuccesful Attempting Retry...', 
+                 'Waiting for response...', 
+                 '....Searching...', 
+                 'Calculating Space Requirements '
+                ],
+    isProcessing = false,
+    processTime = 0,
+    lastProcess = 0;
+
+
+function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    squares.sort(function (a, b) {
+        return b.dist - a.dist;
+    });
+    for (var i = 0, len = squares.length; i < len; i++) {
+        squares[i].update();
+        squares[i].render();
+    }
+    
+    ctxBars.clearRect(0, 0, canvasBars.width, canvasBars.height);
+    
+    ctxBars.beginPath();
+    var y = canvasBars.height/6;
+    ctxBars.moveTo(0,y);
+    
+    for(i = 0; i < canvasBars.width; i++){
+        var ran = (Math.random()*20)-10;
+        if(Math.random() > 0.98){
+             ran = (Math.random()*50)-25   
+        }
+        ctxBars.lineTo(i, y + ran);
+    }
+    
+    ctxBars.stroke();
+    
+    for(i = 0; i < canvasBars.width; i+=20){
+        if(!barVals[i]){
+            barVals[i] = {
+                val : Math.random()*(canvasBars.height/2),
+                freq : 0.1,
+                sineVal : Math.random()*100
+            };
+        }
+        
+        barVals[i].sineVal+=barVals[i].freq;
+        barVals[i].val+=Math.sin(barVals[i].sineVal*Math.PI/2)*5;
+        ctxBars.fillRect(i+5,canvasBars.height,15,-barVals[i].val);
+    }
+    
+    requestAnimationFrame(render);
+}
+
+function consoleOutput(){
+    var textEl = document.createElement('p');
+    
+    if(isProcessing){
+        textEl = document.createElement('span');
+        textEl.textContent += Math.random() + " ";
+        if(Date.now() > lastProcess + processTime){
+            isProcessing = false;   
+        }
+    }else{
+        var commandType = ~~(Math.random()*4);
+        switch(commandType){
+            case 0:
+                textEl.textContent = commandStart[~~(Math.random()*commandStart.length)] + commandParts[~~(Math.random()*commandParts.length)];
+                break;
+            case 3: 
+                isProcessing = true;
+                processTime = ~~(Math.random()*5000);
+                lastProcess = Date.now();
+            default:
+                 textEl.textContent = commandResponses[~~(Math.random()*commandResponses.length)];
+            break;
+        }
+    }
+
+    outputConsole.scrollTop = outputConsole.scrollHeight;
+    outputConsole.appendChild(textEl);
+    
+    if (outputConsole.scrollHeight > window.innerHeight) {
+       var removeNodes = outputConsole.querySelectorAll('*');
+       for(var n = 0; n < ~~(removeNodes.length/3); n++){
+            outputConsole.removeChild(removeNodes[n]);
+        }
+    }
+    
+    setTimeout(consoleOutput, ~~(Math.random()*200));
+}
+
+
+setTimeout(function(){   
+      canvas.width = (window.innerWidth/3)*2;
+      canvas.height = window.innerHeight / 3;
+
+      canvasBars.width = window.innerWidth/3;
+      canvasBars.height = canvas.height;
+
+      outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
+      outputConsole.style.top = window.innerHeight / 3 + 'px';
+  
+      focal = canvas.width / 2;
+      vpx = canvas.width / 2;
+      vpy = canvas.height / 2;
+
+      for (var i = 0; i < 15; i++) {
+          squares.push(new Square(-300 + (i * 200)));
+      }
+  
+      ctx.strokeStyle = ctxBars.strokeStyle = ctxBars.fillStyle = '#00FF00';
+  
+      render();
+      consoleOutput();
+}, 200);
+
+window.addEventListener('resize', function(){
+      canvas.width = (window.innerWidth/3)*2;
+      canvas.height = window.innerHeight / 3;
+
+      canvasBars.width = window.innerWidth/3;
+      canvasBars.height = canvas.height;
+
+      outputConsole.style.height = (window.innerHeight / 3) * 2 + 'px';
+      outputConsole.style.top = window.innerHeight / 3 + 'px';
+  
+      focal = canvas.width / 2;
+      vpx = canvas.width / 2;
+      vpy = canvas.height / 2;
+      ctx.strokeStyle = ctxBars.strokeStyle = ctxBars.fillStyle = '#00FF00';
+});
+
+</script>
+</body>
+</html>
+
+

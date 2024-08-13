@@ -650,7 +650,7 @@ function veiw_email(email_id, element, mailbox) {
                   <tbody>
                     <tr class="py-0">
                       <td class="text-muted text-right">From:</td>
-                      <td><span class="font-weight-bold">${email.username}</span> . ${email.sender}</td>
+                      <td><span class="font-weight-initial">${email.username}</span> . ${email.sender}</td>
                     </tr>
                     <tr>
                       <td class="text-muted text-right">To:</td>

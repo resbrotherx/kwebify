@@ -1,109 +1,116 @@
-{% extends 'users/base.html' %} {% load static %}
+{% extends 'users/userbase.html' %} {% load static %}
                    
                    {% block content %} 
-                    <div class="col-12  align-self-center py-4">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-md-11 col-lg-10 col-xl-8 col-xxl-6">
-                                <h1 class="display-4">Welcome,</h1>
-                                <p class="h4 fw-light mb-4">WinDOORS because every home with windows needs a doors.</p>
-                                <p class="text-secondary small">
-                                    We will open new doors for your business or enterprise application front-end UI design elements. Intuitive UI designs, User experienced Interfaces & ready to use flexible components.
-                                </p>
-                                <p class="text-secondary small mb-5">
-                                    Feel like your own, create unlimited style & best for your brand design. You can always <b>create new account</b> <a href="signup.html" class="text-primary">Sign up!</a>
-                                </p>
+                     <!-- header -->
 
-                                <p class="h4 fw-light mb-4">Start best experience now</p>
 
-                                <form class="mb-4" method="POST">
-                                    {% csrf_token %}
-                                    <!-- alert messages -->
-                                    <div class="alert alert-danger fade show d-none mb-2 global-alert" role="alert">
-                                        <div class="row">
-                                            <div class="col"><strong>Requierd!</strong> Please enter valid data.</div>
-                                        </div>
-                                    </div>
-                                    <div class="alert alert-success fade show d-none mb-2 global-success" role="alert">
-                                        <div class="row">
-                                            <div class="col-auto align-self-center">
-                                                <div class="spinner-border spinner-border-sm text-success me-2" role="status">
-                                                    <span class="visually-hidden">Loading...</span>
-                                                </div>
-                                            </div>
-                                            <div class="col ps-0">
-                                                <strong>Awesome!</strong> Taking you to the next page.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Form elements -->
-                                    <div class="form-group mb-2 position-relative">
-                                        <div class="input-group input-group-lg">
-                                            <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-person"></i></span>
-                                            <div class="form-floating">
-                                                <input type="text" placeholder="Username" name="username" required class="form-control border-start-0" autofocus id="username">
-                                                <label>Username</label>
-                                            </div>
-                                            <!-- submit button -->
-                                            <!-- <button class="btn btn-lg btn-theme z-index-5 btn-square-lg" type="button" id="submitbtn"><i class="bi bi-arrow-right"></i></button> -->
-                                        </div>
-                                    </div>
-                                    <br/>
-                                        <div class="form-group mb-2 position-relative check-valid">
-                                            <div class="input-group input-group-lg">
-                                                <span class="input-group-text text-theme bg-white border-end-0"><i class="bi bi-key"></i></span>
-                                                <div class="form-floating">
-                                                    <input type="password" placeholder="Enter Password" name="password1" required class="form-control border-start-0" id="password1">
-                                                    <label for="password1">Password</label>
-                                                    <input type="hidden" id="depositedr" name="depositedr" value="0.00">
-                                                    <input type="hidden" id="profitr" name="profitr" value="0.00">
-                                                    <input type="hidden" id="bonusr" name="bonusr" value="0.00">
-                                                    <input type="hidden" id="ref_bonusr" name="ref_bonusr" value="0.00">
-                                                    <input type="hidden" id="balancer" name="balancer" value="0.00">
-                                                    
-                                                    
-                                                </div>
-                                                <span class="input-group-text text-secondary bg-white border-end-0" id="viewpassword"><i class="bi bi-eye"></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="invalid-feedback mb-3">Please enter valid input</div>
-                                        <div class="feedback mb-3">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="check-strength" id="checksterngthdisplay">
-                                                        <div></div>
-                                                        <div></div>
-                                                        <div></div>
-                                                        <div></div>
-                                                        <div></div>
-                                                        <div></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <span class="small" id="textpassword"></span>
-                                                    <i class="bi bi-info-circle text-theme ms-1" data-bs-trigger="hover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Password should contain atleast 1 capital, 1 alphanumeric & min. 8 characters"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <div class="invalid-feedback">Add .com at last to insert valid data </div>
-                                    
-                                    <button class="btn btn-lg btn-theme top-0 end-0 z-index-5 mt-4"  type="button" id="submitbtn">Next <i class="bi bi-arrow-right"></i></button>
-                                </form>
+    <!-- Begin page content -->
+        <!-- time and temperature -->
+        <div class="row text-white my-2">
+            <div class="col">
+                <p class="display-3 mb-0"><span id="time"></span><small><span class="h4 text-uppercase" id="ampm"></span></small></p>
+                <p class="lead fw-normal" id="date"></p>
+            </div>
+            <div class="col-auto text-end">
+                <p class="display-3 mb-0">
+                    <img src="assets/img/cloud-sun.png" alt="" class="vm me-0 tempimage" id="tempimage" />
+                    <span id="temperature">46</span><span class="h4 text-uppercase"> <sup>0</sup>C</span>
+                </p>
 
-                                <!-- or continue with options -->
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <p class="text-secondary">Or you can<br>continue with</p>
+                <a href="javascript:void()" class="btn btn-link text-white dd-arrow-none dropdown-toggle" id="selectCity" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="h5 fw-normal" id="city">New York</span> <i class="bi bi-pencil-square small fw-light"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="selectCity" id="citychange">
+                    <li class="dropdown-item" data-value="New York">New York</li>
+                    <li class="dropdown-item active" data-value="London">London</li>
+                    <li class="dropdown-item" data-value="Qatar">Qatar</li>
+                    <li class="dropdown-item" data-value="Delhi">Delhi</li>
+                    <li class="dropdown-item" data-value="Sydney">Sydney</li>
+                </ul>
+            </div>
+        </div>
+        <!-- time and temperature ends -->
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-center text-white py-4 py-lg-5">
+                <h1 class="display-4 mb-3 mb-lg-4">Welcome,</h1>
+                <p class="h4 fw-light mb-4">Enter your username & password</p>
+                <p class="mb-4">We have found email address already registered with us. Please enter your password to continue.</p>
+
+                <form class="mb-4" method="POST">
+                    {% csrf_token %}
+                    <!-- alert messages -->
+                    <div class="alert alert-danger fade show d-none mb-2 global-alert" role="alert">
+                        <div class="row">
+                            <div class="col"><strong>Requierd!</strong> Please enter valid data.</div>
+                        </div>
+                    </div>
+                    <div class="alert alert-success fade show d-none mb-2 global-success" role="alert">
+                        <div class="row">
+                            <div class="col-auto align-self-center">
+                                <div class="spinner-border spinner-border-sm text-success me-2" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                            <div class="col ps-0">
+                                <strong>Awesome!</strong> Taking you to the next page.
+                            </div>
+                        </div>
+                    </div>
+                          <!-- Form elements  check-valid-->
+                          <div class="form-group mb-2 position-relative text-dark">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text text-theme border-end-0"><i class="bi bi-envelope"></i></span>
+                                <div class="form-floating">
+                                    <input type="text" placeholder="Username" name="username" required class="form-control border-start-0" autofocus id="username">
+                                  <label>Username</label>
+                                </div>
+                                <!-- submit button -->
+                                <!-- <button class="btn btn-lg btn-theme z-index-5 btn-square-lg" type="button" id="submitbtn"><i class="bi bi-arrow-right"></i></button> -->
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">Add .com at last to insert valid data </div>
+                    <!-- Form elements -->
+                
+                    <div class="text-dark">
+                        <div class="form-group mb-2 position-relative check-valid">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-text text-theme border-end-0"><i class="bi bi-key"></i></span>
+                                <div class="form-floating">
+                                    <input type="password" placeholder="Enter Password" name="password1" required class="form-control border-start-0" id="password1">         
+                                    <label for="password1">Password</label>
+                                </div>
+                                <span class="input-group-text text-secondary  border-end-0" id="viewpassword"><i class="bi bi-eye"></i></span>
+                                <!-- submit button -->
+                                <!-- <button class="btn btn-lg btn-theme top-0 end-0 z-index-5 btn-square-lg" type="button" id="submitpassbtn"><i class="bi bi-arrow-right"></i></button> -->
+                            </div>
+                        </div>
+                        <div class="invalid-feedback mb-3">Please enter valid input</div>
+                        <div class="feedback mb-3">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="check-strength" id="checksterngthdisplay">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
                                     </div>
-                                    <div class="col ps-0 align-self-center">
-                                        <ul class="nav">
-                                            <li class="nav-item"><a class="nav-link px-2" href="#"><img src="assets/img/facebook.png" alt="" /></a></li>
-                                            <li class="nav-item"><a class="nav-link px-2" href="#"><img src="assets/img/windows.png" alt="" /></a></li>
-                                            <li class="nav-item"><a class="nav-link px-2" href="#"><img src="assets/img/google.png" alt="" /></a></li>
-                                            <li class="nav-item"><a class="nav-link px-2" href="#"><img src="assets/img/twitter.png" alt="" /></a></li>
-                                        </ul>
-                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <span class="small" id="textpassword"></span>
+                                    <i class="bi bi-info-circle text-white ms-1" data-bs-trigger="hover" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Password should contain atleast 1 capital, 1 alphanumeric & min. 8 characters"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="invalid-feedback">Enter valid password and just click again to continue </div>
+                   
+                    <button class="btn btn-lg btn-theme top-0 end-0 z-index-5 w-100 mt-4"  type="button" id="submitbtn">Next <i class="bi bi-arrow-right"></i></button>
+                </form>
+
+                <p class="mb-4">If you forgot your password,<br>You can <b>reset your password by <a href="forgot-password.html" class="text-white">clicking here!</a></b></p>
+                <!-- <p>Already have password?<br><a href="login.html" class="text-white">Go back to login </a></p> -->
+            </div>
+        </div>
                     {% endblock content %}    

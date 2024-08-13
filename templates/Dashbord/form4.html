@@ -48,8 +48,8 @@
 }
 .btn-primary{
     color: #ffffff;
-    background-color: #6325c6;
-    border-color: #6325c6;
+    background-color: #33b89f;
+    border-color: #33b89f;
 }
 title{
     background-color: ;
@@ -167,7 +167,7 @@ a{
     max-width: 600px;
     border-radius: 10px;
 /*    padding: 40px;*/
-    top:-50%;
+    top:-60%;
     left:23%;
     transform:translate(-50%, -50%);
 }
@@ -241,17 +241,30 @@ a{
                      <div class="a_cp_top">
                         <ol class="breadcrumb">
                            <li><a>Customers</a></li>
-                           <li class="active">042 RESTAURANT</li>
+                           <li class="active">{{website}}</li>
                         </ol>
-                        <div class="o_cp_searchview" style="display: none;">
+
+                        <div class="o_cp_pager">
+                           <div>
+                              <span class="o_pager_counter">
+                              <span class="o_pager_value">4</span> / <span class="o_pager_limit">8</span>
+                              </span>
+                              <span class="btn-group btn-group-sm">
+                              <button aria-label="Previous" onclick="alert('not allowed')" class="fa fa-chevron-left btn btn-icon o_pager_previous" type="button" accesskey="p"></button>
+                              <button aria-label="Next" onclick="alert('not allowed')" class="fa fa-chevron-right btn btn-icon o_pager_next" type="button" accesskey="n"></button>
+                              </span>
+                           </div>
+                        </div>
+                        <div class="btn-group btn-group-sm o_cp_switch_buttons o_hidden"></div>
+                        <!-- <div class="o_cp_searchview" style="display: none;">
                            <div class="o_searchview o_hidden">
                               <span class="o_searchview_more fa fa-search-minus" title="Advanced Search..."></span>
                               <ul class="dropdown-menu o_searchview_autocomplete" role="menu" style="display: none;"></ul>
                               <input class="o_searchview_input" placeholder="Search..." type="text">
                            </div>
-                        </div>
+                        </div> -->
                      </div>
-                     <div class="a_cp_bottom">
+                     <!-- <div class="a_cp_bottom">
                         <div class="o_cp_buttons">
                            <div>
                               <div class="o_form_buttons_view o_hidden">
@@ -272,7 +285,7 @@ a{
                               </div>
                            </div>
                         </div>
-                     </div>
+                     </div> -->
                   </div>
                   <div class="o_content">
                      <div class="o_view_manager_content">
@@ -368,18 +381,8 @@ a{
                                                 </div>
                                              </div>
 
-
-
-
-
-
-
-<form method="POST">
+<form id="myForm">
     {% csrf_token %}
-
-
-
-
                                              <div class="a_cp_bottom">
                                                 <div class="o_cp_buttons o_hidden"></div>
                                                 <div class="o_cp_sidebar o_hidden"></div>
@@ -432,13 +435,6 @@ a{
                                                 </div>
                                              </div>
                                         </div>
-
-
-
-
-
-
-
                 <div class="o_view_manager_content">
                         <div class="o_cannot_create">
                           <div class="TTG-m">
@@ -451,13 +447,15 @@ a{
 {% comment %} <iframe src="https://www.google.com/search?q=iframe+embedding&oq=ifram&aqs=chrome.9.0i512l2j69i57j0i512l7.10269j0j7&sourceid=chrome&ie=UTF-8" width="90%" height="400" name="iframe" title="This is my video"></iframe> {% endcomment %}
                                       <div class="container-fluid">
                                       
-                                       <div class="bg" style="margin-top: -382px;
-    margin-left: -100px;"></div>
-                                       <div class="containers">
+                                       <div class="bg" style="margin-top: -382px; margin-left: -100px;"></div>
+                                       <div class="containers container-fluid">
                                        {% for i in templat %}
                                           <!-- product item -->
-                                          <div class="product">
+                                          <div class="product" onclick="selectItem(this)">
                                                 <input type="hidden"  name="image" value="{{i.template_pic.url}}"/>
+                                                <input type="hidden" name="red" value="{{i.id}}"/>
+                                                <input type="hidden" id="selected_template" name="selected_template" value="">
+                                                <!--  -->
                                                 <a href="#" class="product-link" data-productid="{{i.id}}">
                                                    <div class="image transition">
                                                       <img src="{{i.template_pic.url}}" alt="{{i.template_name}}">
@@ -470,14 +468,14 @@ a{
                                                             <h2 class="title">{{i.template_name}}</h2>
                                                             <!-- <h3 class="subtitle">Keyboard</h3> -->
                                                       </div>
-                                                      <div class="detail">
+                                                      <!-- <div class="detail">
                                                             <div>
                                                                <span class="price">50.99</span>
                                                             </div>
                                                             <div class="to-cart">
                                                                <button type="submit" name="red" value="{{i.id}}" class="btn-add">Add to Cart</button>
                                                             </div>
-                                                      </div>
+                                                      </div> -->
                                                    </div>
                                              
                                           </div>
@@ -485,7 +483,7 @@ a{
                                           <div class="full-product transition" id="{{i.id}}">
                                                 <center>
                                                    <iframe src="{{i.your_template_demo}}" style="margin-top: -35%;" width="340%" height="800" name="iframe"></iframe>
-                                                   <a href="#" class="product-link" data-productid="1">x</a>
+                                                   <a href="#"style="border:1px solid red" class="product-link" data-productid="1">x</a>
                                                 </center>
                                           </div>
                                           {% endfor %}
@@ -514,133 +512,44 @@ a{
 
     </div>
 
-
-
-
-
-
-
-
-{% comment %} <footer class="shared-global_footer-footer_component__root" role="navigation" data-turbo="false">
-  <div class="shared-global_footer-footer_component__topContainer">
-    <div class="shared-global_footer-footer_component__topLinks">
-        <nav class="shared-global_footer-footer_component__topLinksGroup">
-          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Envato Market</strong>
-            <a class="shared-global_footer-footer_component__topLink" href="/legal/market">
-              Terms
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="/licenses">
-              Licenses
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://build.envato.com">
-              Market API
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/market/affiliate-program">
-              Become an affiliate
-            </a>
-        </nav>
-        <nav class="shared-global_footer-footer_component__topLinksGroup">
-          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Help</strong>
-            <a class="shared-global_footer-footer_component__topLink" href="https://help.market.envato.com">
-              Help Center
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://help.author.envato.com/hc/en-us">
-              Authors
-            </a>
-        </nav>
-        <nav class="shared-global_footer-footer_component__topLinksGroup">
-          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Our Community</strong>
-            <a class="shared-global_footer-footer_component__topLink" href="http://community.envato.com">
-              Community
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/blog">
-              Blog
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://forums.envato.com">
-              Forums
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="http://community.envato.com/#/events">
-              Meetups
-            </a>
-        </nav>
-        <nav class="shared-global_footer-footer_component__topLinksGroup">
-          <strong class="shared-global_footer-footer_component__topLinksGroupTitle">Meet Envato</strong>
-            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com">
-              About Envato
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="http://careers.envato.com">
-              Careers
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/privacy/">
-              Privacy Policy
-            </a>
-            <a class="shared-global_footer-footer_component__topLink" href="https://envato.com/sitemap/">
-              Sitemap
-            </a>
-        </nav>
-    </div>
-    <div class="shared-global_footer-footer_component__topStats">
-      <div class="shared-global_footer-footer_component__topStatsMeta">
-        <img loading="lazy" class="shared-global_footer-footer_component__logo" alt="Envato Market" width="168" height="20" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/logos/envato-market-f6121fbbfec25dbc851a3e5aea13c8ad.svg">
-        <ul class="shared-global_footer-footer_component__statsList">
-            <li class="shared-global_footer-footer_component__statsListItem">
-              <span class="shared-global_footer-footer_component__stats">65,854,031</span>
-              items sold
-            </li>
-            <li class="shared-global_footer-footer_component__statsListItem">
-              <span class="shared-global_footer-footer_component__stats">$954,344,293</span>
-              community earnings
-            </li>
-        </ul>
-      </div>
-      <div class="shared-global_footer-footer_component__bottomBCorp">
-        <a href="https://bcorporation.net/directory/envato" class="shared-global_footer-footer_component__bcorpLink" target="_blank" rel="noopener">
-          <img loading="lazy" width="50" height="84" alt="B Corp logo" class="shared-global_footer-footer_component__bcorpLogo" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/logos/bcorp-bfc565be3a93741fc88cbfcefe84d817.svg">
-          </a>
-      </div>
-    </div>
-  </div>
-  <div class="shared-global_footer-footer_component__bottomContainer">
-    <nav class="shared-global_footer-footer_component__bottomSocial" itemscope="" itemtype="http://schema.org/Organization">
-        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Twitter" href="https://twitter.com/envato">          <img loading="lazy" alt="Twitter" title="Twitter" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-twitter-ab9290f5d6a0413c0838e5b7da72d0b6.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Facebook" href="https://www.facebook.com/envato">          <img loading="lazy" alt="Facebook" title="Facebook" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-facebook-92e7976b8b4c9e219582df64a1e8a752.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="YouTube" href="https://www.youtube.com/user/Envato">          <img loading="lazy" alt="YouTube" title="YouTube" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-youtube-1917b1659c5e432fa16736ddb8eece47.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Instagram" href="https://www.instagram.com/envato/">          <img loading="lazy" alt="Instagram" title="Instagram" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-instagram-0d05cca274498f7aab6a8c2d4c72b023.svg" width="22" height="22"></a>        <a class="shared-global_footer-footer_component__socialLink" rel="nofollow" aria-label="Pinterest" href="https://www.pinterest.com/envato/">          <img loading="lazy" alt="Pinterest" title="Pinterest" src="https://assets.market-storefront.envato.com/storefront/packs/media/images/social-icons/icon-pinterest-082aba983bc285ff9a25bbd813fd52fa.svg" width="22" height="22"></a>    </nav>
-    <div class="shared-global_footer-footer_component__bottomLinks">
-      <nav class="shared-global_footer-footer_component__companyLinks">
-          <a class="shared-global_footer-footer_component__companyLink" href="https://envato.com">Envato.com</a>
-          <a class="shared-global_footer-footer_component__companyLink" href="https://elements.envato.com">Envato Elements</a>
-          <a class="shared-global_footer-footer_component__companyLink" href="https://placeit.net">Placeit by Envato</a>
-          <a class="shared-global_footer-footer_component__companyLink" href="https://tutsplus.com">Envato Tuts+</a>
-          <a class="shared-global_footer-footer_component__companyLink" href="https://envato.com/products">All Products</a>
-          <a class="shared-global_footer-footer_component__companyLink" href="https://envato.com/sitemap/">Sitemap</a>
-          <a class="shared-global_footer-footer_component__companyLink" href="https://milkshake.app">Milkshake</a>
-      </nav>
-      <div class="shared-global_footer-footer_component__notice">
-        Price is in US dollars and excludes tax
-      </div>
-      <div class="shared-global_footer-footer_component__copyrights">
-        © 2021 Envato Pty Ltd. Trademarks and brands are the property of their respective owners.
-      </div>
-    </div>
-  </div>
-</footer> {% endcomment %}
 </div>
 
 <script>
+// function myFunction() {
+//     var input, filter, ul, li, a, i, txtValue;
+//     input = document.getElementById("myInput");
+//     filter = input.value.toUpperCase();
+//     ul = document.getElementById("myUL");
+//     li = ul.getElementsByTagName("li");
+//     for (i = 0; i < li.length; i++) {
+//         a = li[i].getElementsByTagName("a")[0];
+//         txtValue = a.textContent || a.innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//             li[i].style.display = "";
+//         } else {
+//             li[i].style.display = "none";
+//         }
+//     }
+// }
 function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
+    var input, filter, products, product, title, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
+    products = document.querySelectorAll(".product");  // Select all product elements
+    for (i = 0; i < products.length; i++) {
+        product = products[i];
+        title = product.querySelector(".title");  // Select the product title
+        txtValue = title.textContent || title.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
+            product.style.display = "block"; // Show the product
         } else {
-            li[i].style.display = "none";
+            product.style.display = "none";  // Hide the product
         }
     }
 }
+
+
+
 </script>    
 <script src="{% static 'static/js/jquery-3.5.1.slim.min.js' %}" ></script>
     <script src="{% static 'static/js/popper.min.js' %}" ></script>
@@ -648,34 +557,167 @@ function myFunction() {
   
   <script src="{% static 'static/js/lightbox-plus-jQuery.js' %}"></script>
 <script>
-   
-bg = document.getElementsByClassName("bg");
-//product = document.getElementsByClassName("product-link");
+   bg = document.getElementsByClassName("bg");
 
-// asign event all links
+// Function to open the modal
+function openModal(id) {
+    productFull = document.getElementById(id);
+    bg[0].style.display = "block";
+    productFull.style.top = "50%";
+}
+
+// Function to close the modal
+function closeModal() {
+    bg[0].style.display = "none";
+    document.querySelectorAll(".full-product").forEach(productFull => {
+        productFull.style.top = "-50%";
+    });
+}
+
+// Assign event listeners to open and close modals
 document.querySelectorAll(".product-link").forEach(item => {
     item.addEventListener("click", event => {
         id = item.getAttribute("data-productid");
-
-        productFull = document.getElementById( id );
-        bg[0].style.display = "block";
-
-        productFull.style.top = "50%";
+        openModal(id);
     });
 });
 
-document.addEventListener('click', function(event){
-	if(event.key === "Escape"){
-		bg[0].style.display = "none";
-        document.querySelectorAll(".full-product").forEach(productFull => {
-            productFull.style.top = "-50%";
-        });
-	}
+document.querySelectorAll(".full-product a.product-link").forEach(item => {
+    item.addEventListener("click", event => {
+        closeModal();
+    });
 });
+
+// Add an event listener to close the modal when the Escape key is pressed
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closeModal();
+    }
+});
+
 
 
 
 </script>
+<!-- <script>
+  let selectedProduct = null;
+
+  function selectItem(product) {
+      if (selectedProduct !== null) {
+          selectedProduct.style.border = "none"; // Remove border from previously selected item
+      }
+      selectedProduct = product;
+      selectedProduct.style.border = "3px solid #33b89f"; // Add border to the selected item
+      document.getElementById('selected_template').value = selectedProduct.querySelector('input[name="red"]').value;
+  }
+
+  // document.getElementById('myForm').addEventListener('submit', function(event) {
+  //     if (selectedProduct === null) {
+  //         event.preventDefault(); // Prevent form submission if no item is selected
+  //         alert('Please select an item before submitting.');
+  //     } else {
+  //         // Add a hidden input field to the form with the selected item's ID
+  //         const selectedProductId = selectedProduct.querySelector('input[name="red"]').value;
+  //         const hiddenInput = document.createElement('input');
+  //         hiddenInput.type = 'hidden';
+  //         hiddenInput.name = 'selected_product';
+  //         hiddenInput.value = selectedProductId;
+  //         this.appendChild(hiddenInput);
+  //     }
+  // });
+  document.getElementById('myForm').addEventListener('submit', function(event) {
+    // Remove existing selected_product input field if it exists
+    const existingInput = document.querySelector('input[name="selected_product"]');
+    if (existingInput) {
+        existingInput.remove();
+    }
+
+    if (selectedProduct === null) {
+        event.preventDefault(); // Prevent form submission if no item is selected
+        alert('Please select an item before submitting.');
+    } else {
+        // Add a hidden input field to the form with the selected item's ID
+        const selectedProductId = selectedProduct.querySelector('input[name="red"]').value;
+        const hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = 'selected_product';
+        hiddenInput.value = selectedProductId;
+        this.appendChild(hiddenInput);
+    }
+});
+
+</script> -->
+<script>
+  let selectedProduct = null;
+
+  function selectItem(product) {
+      if (selectedProduct !== null) {
+          selectedProduct.style.border = "none"; // Remove border from previously selected item
+      }
+      selectedProduct = product;
+      selectedProduct.style.border = "3px solid #33b89f"; // Add border to the selected item
+      document.getElementById('selected_template').value = selectedProduct.querySelector('input[name="red"]').value;
+  }
+
+  document.getElementById('myForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (selectedProduct === null) {
+          event.preventDefault(); // Prevent form submission if no item is selected
+          alert('Please select an item before submitting.');
+          return;
+    }
+
+      // Get the selected product
+      // const selectedProduct = document.querySelector('.product.selected');
+
+      // Get the selected template ID
+      const selectedTemplateId = selectedProduct.querySelector('input[name="red"]').value;
+
+      // Prepare the form data
+      const formData = new FormData();
+      formData.append('selected_template', selectedTemplateId);
+
+      // Send the AJAX request
+      fetch('/studio/form4/', {
+          method: 'POST',
+          body: formData,
+          headers: {
+              'X-CSRFToken': getCookie('csrftoken') // Make sure to include the CSRF token
+          }
+      })
+      .then(response => {
+          if (response.ok) {
+              // Redirect or do something else upon successful submission
+              window.location.href = '/studio/form5/';
+          } else {
+              // Handle errors
+              alert('Error submitting the form.');
+          }
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  });
+
+  // Function to get CSRF token from cookies
+  function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+          const cookies = document.cookie.split(';');
+          for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+              }
+          }
+      }
+      return cookieValue;
+  }
+
+</script>
+
 <a href="https://fm-pedia.web.id/" ref="dofollow" style="display:none"></a>
 <a href="https://animeindoku.xyz/" ref="dofollow" style="display:none"></a>
 <a href="https://www.blogtikus.com/" ref="dofollow" style="display:none"></a>

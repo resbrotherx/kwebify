@@ -10,6 +10,27 @@ from .models import *
 from users.models import *
 from django.db.models import Sum
 
+
+def home(request):
+	return render(request,"kwabify/home.html")
+
+@login_required
+def dashboard(request):
+	return render(request,"kwabify/UserDashboard/dashboard.html")
+
+@login_required
+def projects(request):
+	return render(request,"kwabify/UserDashboard/projects.html")
+
+@login_required
+def server(request):
+	return render(request,"kwabify/UserDashboard/server.html")
+
+@login_required
+def Inventory(request):
+	return render(request,"kwabify/UserDashboard/inventory_list.html")
+
+
 @login_required
 def bank(request):
 	users = User.objects.all()

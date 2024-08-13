@@ -118,7 +118,7 @@ font-size: 1.6rem;
 }
 .active{
     border-radius: 0px 20px 20px 0px;
-    font-weight: bold;
+    font-weight: initial;
     background-color: rgb(230, 230, 230);
 }
 #inbox.active {
@@ -169,7 +169,7 @@ font-size: 1.6rem;
 }
 #compose,.logout{
     font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
+    font-weight: initial;
     font-size: 14px;
     letter-spacing: .5px;
     color: #3c4043;
@@ -465,7 +465,7 @@ width: 25px;
     }
     .active:hover{
         border-radius: 0px 20px 20px 0px;
-        font-weight: bold;
+        font-weight: initial;
         background-color: rgb(230, 230, 230);
     }
     .star:hover{

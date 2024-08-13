@@ -57,11 +57,14 @@ class Form1(models.Model):
 	num_of_staff = models.IntegerField(blank=True, null=True)
 	private_email = models.CharField(max_length=3,blank=True,null=True)
 
+	def __str__(self, *args, **kwargs):
+		return self.user.username + ' ' + f'form request'
 
 class PayHistoryForm(models.Model):
 	STATUS_CHOICESD = (('awaiting','Awaiting'), ('declind',"Declind"), ('confirmed',"Confirmed"))
 	STATUS_CHOICES = (('domain','Domain'),('hosting',"Hosting"),('ssl','SSL'), ('pmail',"Pmail"), ('fsd','FSD'), ('maintainers',"Maintainers"), ('orders',"Orders"))
 	user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
+	form1 = models.ForeignKey(Form1, on_delete=models.CASCADE, default=None)
 	paystack_charge_id = models.CharField(max_length=100, default='', blank=True)
 	paystack_access_code = models.CharField(max_length=100, default='', blank=True)
 	payment_for = models.CharField(max_length=400, choices=STATUS_CHOICES, default='orders')
@@ -73,38 +76,26 @@ class PayHistoryForm(models.Model):
 	def __str__(self):
 		return self.user.username
 
-
+class Language(models.Model):
+	name = models.CharField(max_length=100)
+	logo = models.ImageField(upload_to="media/dashboard")
+	discription = models.TextField(max_length=90)
+	item_created_date = models.DateTimeField(auto_now=True)
+	item_updated_date = models.DateTimeField(auto_now_add=True)
+	
+	def __str__(self):
+		return self.name
 
 class Form2(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
-	# forma =models.ManyToManyField(Form1, blank=True)
+	form1 = models.ForeignKey(Form1, on_delete=models.CASCADE, default=None)
 	finder_code = models.CharField(max_length=5,blank=True,null=True)
-	html = models.CharField(max_length=100,blank=True,null=True)
-	django = models.CharField(max_length=100,blank=True,null=True)
-	javascript = models.CharField(max_length=100,blank=True,null=True)
-	css = models.CharField(max_length=100,blank=True,null=True)
-	php = models.CharField(max_length=100,blank=True,null=True)
-	laravel = models.CharField(max_length=100,blank=True,null=True)
-	react_js = models.CharField(max_length=100,blank=True,null=True)
-	python = models.CharField(max_length=100,blank=True,null=True)
-	nest_js = models.CharField(max_length=100,blank=True,null=True)
-	next_js = models.CharField(max_length=100,blank=True,null=True)
-	bootstrap = models.CharField(max_length=100,blank=True,null=True)
-	node_js = models.CharField(max_length=100,blank=True,null=True)
-	ruby = models.CharField(max_length=100,blank=True,null=True)
-	express = models.CharField(max_length=100,blank=True,null=True)
-	ajax_js = models.CharField(max_length=100,blank=True,null=True)
-	jqury = models.CharField(max_length=100,blank=True,null=True)
-	material_ui = models.CharField(max_length=100,blank=True,null=True)
-	typescript = models.CharField(max_length=100,blank=True,null=True)
-	tailwind_css = models.CharField(max_length=100,blank=True,null=True)
-	redux = models.CharField(max_length=100,blank=True,null=True)
+	language = models.CharField(max_length=200, default='None')
+	version = models.CharField(max_length=100,blank=True,null=True)
 	api = models.CharField(max_length=100,blank=True,null=True)
 
-
-
 	def __str__(self, *args, **kwargs):
-		return f'user Language request'
+		return self.user.username + ' ' + f'Language request'
 
 class Futures(models.Model):
 	title = models.CharField(max_length=100)
@@ -121,6 +112,7 @@ class Futures(models.Model):
 # class Form3(models.Model):
 class Form3(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
+	# form2 = models.ForeignKey(Form2, on_delete=models.CASCADE, default=None)
 	finder_code = models.CharField(max_length=5,blank=True,null=True)
 	futures = models.ManyToManyField(Futures)
 	published = models.BooleanField(default=False)
@@ -154,6 +146,7 @@ class template(models.Model):
 class Form4(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	finder_code = models.CharField(max_length=5,blank=True,null=True)
+	form3 = models.ForeignKey(Form3, on_delete=models.CASCADE, default=None)
 	template = models.ManyToManyField(template)
 	published = models.BooleanField(default=False)
 	created_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)
